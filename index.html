@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIRA Store</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Poetsen+One&display=swap" rel="stylesheet">
+
+  <!-- background -->
+ 
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar d-flex justify-content-between align-items-center">
+    <div class="nav-left">
+      <button id="menu-toggle" aria-label="Toggle menu"><i class="bi bi-list"></i></button>
+    </div>
+    <div class="nav-center">
+      <span id="navbarlogo">KiRaa<span>STore</span></span>
+    </div>
+    <div class="nav-right">
+      <button id="cart-toggle" aria-label="Toggle cart"><i class="bi bi-cart"></i></button>
+    </div>
+  </nav>
+
+  <!-- SIDEBAR MENU -->
+  <aside class="sidebar" id="sidebar-menu">
+    <nav class="sidebar-nav">
+      <a href="#">login</a>
+      <a href="https://instagram.com/kauspolos_">instagram</a>
+      <a href="https://wa.me/6282197770219">whatsapss</a>
+      <a href="#transaksi">transaksi</a>
+      <a href="#about">tentang kami</a>
+    </nav>
+  </aside>
+
+  <!-- SIDEBAR KERANJANG -->
+  <aside class="sidebar-cart" id="sidebar-cart">
+    <div class="cart-summary">
+      <h3>Keranjang Kamu</h3>
+      <div class="cart-box">
+        <img src="./images/hitam.jpeg" alt="hitam" class="cart-img" />
+        <div class="cart-detail">
+          <p>Name: Kaos Hitam</p>
+          <p>Ukuran: M</p>
+          <p>Jumlah: 2</p>
+          <p>Harga: Rp100.000</p>
+          <button class="delete-btn">Hapus</button>
+        </div>
+      </div>
+      <div class="cart-box">
+        <img src="./images/putih.jpeg" alt="Putih" class="cart-img" />
+        <div class="cart-detail">
+          <p>Name: Kaos Putih</p>
+          <p>Size: M</p>
+          <p>Qty: 1</p>
+          <p>Price: Rp50.000</p>
+          <button class="delete-btn">Hapus</button>
+        </div>
+      </div>
+      <h4>Total: Rp150.000</h4>
+    </div>
+  </aside>
+
+  <!-- HERO SECTION -->
+  <section class="main-home">
+    <div class="main-text">
+      <h5>Selamat Datang di</h5>
+      <h1>KIRA Store</h1>
+      <p>Toko Online Kaos Polos</p>
+      <a href="#product" class="main-btn">Lihat Produk</a>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section class="product" id="product">
+    <div class="center-text">
+      <h2>Our <span>best seller</span> Products</h2>
+    </div>
+
+    <div class="product-grid">
+      <!-- Produk 1 -->
+      <div class="product-card">
+        <img src="./images/hitam.jpeg" alt="Kaos Hitam" class="product-image" />
+        <h3 class="product-name">Hitam</h3>
+        <div class="product-rating">
+          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+        <p class="product-price">Rp50.000</p>
+        <div class="size-buttons">
+          <p>Ukuran</p>
+          <button class="size-btn">M</button>
+          <button class="size-btn">L</button>
+          <button class="size-btn">XL</button>
+        </div>
+        <button class="add-to-cart-btn">Tambah Keranjang</button>
+      </div>
+
+      <!-- Produk 2 -->
+      <div class="product-card">
+        <img src="./images/putih.jpeg" alt="Putih" class="product-image" />
+        <h3 class="product-name">Putih</h3>
+        <div class="product-rating">
+          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+        <p class="product-price">Rp50.000</p>
+        <div class="size-buttons">
+          <p>Ukuran</p>
+          <button class="size-btn">M</button>
+          <button class="size-btn">L</button>
+          <button class="size-btn">XL</button>
+        </div>
+        <button class="add-to-cart-btn">Tambah Keranjang</button>
+      </div>
+
+      <!-- Produk 3 -->
+      <div class="product-card">
+        <img src="./images/merah.jpeg" alt="Merah" class="product-image" />
+        <h3 class="product-name">Merah</h3>
+        <div class="product-rating">
+          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+        <p class="product-price">Rp50.000</p>
+        <div class="size-buttons">
+          <p>Ukuran</p>
+          <button class="size-btn">M</button>
+          <button class="size-btn">L</button>
+          <button class="size-btn">XL</button>
+        </div>
+        <button class="add-to-cart-btn">Tambah Keranjang</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transaksi -->
+  <section class="transaksi" id="transaksi">
+    <div class="center-text">
+      <h2><span>Transaksi</span></h2>
+
+      <!-- Baris atas -->
+      <div class="scroller">
+        <ul class="tag-list scroller__inner scroll-right">
+          <li>BCA</li>
+          <li>SEABANK</li>
+          <li>DANA</li>
+          <li>GOPAY</li>
+          <li>BRI</li>
+          <li>OVO</li>
+        </ul>
+      </div>
+
+      <!-- Baris bawah -->
+      <div class="scroller">
+        <ul class="tag-list scroller__inner scroll-left">
+          <li>DANA</li>
+          <li>SEABANK</li>
+          <li>GOPAY</li>
+          <li>OVO</li>
+          <li>BCA</li>
+          <li>BRI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section class="about-us" id="about">
+    <div class="center-text">
+      <h2><span>Tentang</span> Kami</h2>
+      <p>
+        AMAN DAN TERPERCAYA<br />
+        SELAMAT BELANJA ! ! !
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 KIRA Store. All rights reserved.</p>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>
