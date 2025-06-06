@@ -1,36 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KIRA Store</title>
-  <!-- Bootstrap CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Poetsen+One&display=swap" rel="stylesheet">
-
-  <!-- background -->
- 
 </head>
 <body>
-
-  <!-- NAVBAR -->
   <nav class="navbar d-flex justify-content-between align-items-center">
     <div class="nav-left">
       <button id="menu-toggle" aria-label="Toggle menu"><i class="bi bi-list"></i></button>
     </div>
     <div class="nav-center">
-      <span id="navbarlogo">KiRaa<span>STore</span></span>
+      <span id="navbarlogo"><span>dzulfikar</span></span>
     </div>
     <div class="nav-right">
       <button id="cart-toggle" aria-label="Toggle cart"><i class="bi bi-cart"></i></button>
     </div>
   </nav>
 
-  <!-- SIDEBAR MENU -->
   <aside class="sidebar" id="sidebar-menu">
     <nav class="sidebar-nav">
       <a href="#">login</a>
@@ -41,152 +33,385 @@
     </nav>
   </aside>
 
-  <!-- SIDEBAR KERANJANG -->
   <aside class="sidebar-cart" id="sidebar-cart">
     <div class="cart-summary">
       <h3>Keranjang Kamu</h3>
-      <div class="cart-box">
-        <img src="./images/hitam.jpeg" alt="hitam" class="cart-img" />
-        <div class="cart-detail">
-          <p>Name: Kaos Hitam</p>
-          <p>Ukuran: M</p>
-          <p>Jumlah: 2</p>
-          <p>Harga: Rp100.000</p>
-          <button class="delete-btn">Hapus</button>
-        </div>
-      </div>
-      <div class="cart-box">
-        <img src="./images/putih.jpeg" alt="Putih" class="cart-img" />
-        <div class="cart-detail">
-          <p>Name: Kaos Putih</p>
-          <p>Size: M</p>
-          <p>Qty: 1</p>
-          <p>Price: Rp50.000</p>
-          <button class="delete-btn">Hapus</button>
-        </div>
-      </div>
-      <h4>Total: Rp150.000</h4>
     </div>
   </aside>
 
-  <!-- HERO SECTION -->
   <section class="main-home">
     <div class="main-text">
       <h5>Selamat Datang di</h5>
-      <h1>KIRA Store</h1>
-      <p>Toko Online Kaos Polos</p>
-      <a href="#product" class="main-btn">Lihat Produk</a>
+      <h1>dzulfikar</h1>
+      <p>silahkan belanja</p>
+      <a href="#transaksi" class="main-btn">paling laku</a>
     </div>
   </section>
 
-  <!-- PRODUK -->
-  <section class="product" id="product">
-    <div class="center-text">
-      <h2>Our <span>best seller</span> Products</h2>
+<section class="product" id="product-1">
+  <div class="center-text">
+    <h2>PRODUK KAMI</h2>
+  </div>
+  <div class="product-grid">
+   <div class="product-card">
+ <img src="/images/hitam.jpg" alt="Kaos Hitam" class="product-image" />
+  <h3 class="product-name">Baju Hitam</h3>
+   <div class="product-rating">
+    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+  </div>
+   <p class="product-price">
+       50 <img src="images/coin.jpg" alt="coin">
+   </p>
+     <div class="size-buttons">
+    <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+    </div>
+    <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+
+    
+    <div class="product-card">
+      <img src="/images/merah.jpg" alt="Kaos Putih" class="product-image" />
+      <h3 class="product-name">Baju Merah</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+  </div>
+</section>
+
+<section class="product" id="product-2">
+  <div class="center-text">
+    <h2>Baju</h2>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/orange.jpg" alt="Kaos Merah" class="product-image" />
+      <h3 class="product-name">Orange</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+
+
+</section>
+
+<section class="product" id="product-3">
+  <div class="center-text">
+    <h2></h2>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/hijau.jpg" alt="Kaos Hijau" class="product-image" />
+      <h3 class="product-name">Hijau</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+      
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
     </div>
 
     <div class="product-grid">
-      <!-- Produk 1 -->
-      <div class="product-card">
-        <img src="./images/hitam.jpeg" alt="Kaos Hitam" class="product-image" />
-        <h3 class="product-name">Hitam</h3>
-        <div class="product-rating">
-          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-        </div>
-        <p class="product-price">Rp50.000</p>
-        <div class="size-buttons">
-          <p>Ukuran</p>
-          <button class="size-btn">M</button>
-          <button class="size-btn">L</button>
-          <button class="size-btn">XL</button>
-        </div>
-        <button class="add-to-cart-btn">Tambah Keranjang</button>
+    <div class="product-card">
+      <img src="/images/pink.jpg" alt="Kaos Hijau" class="product-image" />
+      <h3 class="product-name">Pink</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
       </div>
-
-      <!-- Produk 2 -->
-      <div class="product-card">
-        <img src="./images/putih.jpeg" alt="Putih" class="product-image" />
-        <h3 class="product-name">Putih</h3>
-        <div class="product-rating">
-          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-        </div>
-        <p class="product-price">Rp50.000</p>
-        <div class="size-buttons">
-          <p>Ukuran</p>
-          <button class="size-btn">M</button>
-          <button class="size-btn">L</button>
-          <button class="size-btn">XL</button>
-        </div>
-        <button class="add-to-cart-btn">Tambah Keranjang</button>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+      
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
       </div>
-
-      <!-- Produk 3 -->
-      <div class="product-card">
-        <img src="./images/merah.jpeg" alt="Merah" class="product-image" />
-        <h3 class="product-name">Merah</h3>
-        <div class="product-rating">
-          <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-        </div>
-        <p class="product-price">Rp50.000</p>
-        <div class="size-buttons">
-          <p>Ukuran</p>
-          <button class="size-btn">M</button>
-          <button class="size-btn">L</button>
-          <button class="size-btn">XL</button>
-        </div>
-        <button class="add-to-cart-btn">Tambah Keranjang</button>
-      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
     </div>
+</section>
+
+<section class="product" id="product-4">
+  <div class="center-text">
+    <h2></h2>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/ungu.jpg" alt="Kaos Ungu" class="product-image" />
+      <h3 class="product-name">Ungu</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+
+        <div class="product-card">
+      <img src="/images/kuning.jpg" alt="Kaos Ungu" class="product-image" />
+      <h3 class="product-name">Kuning</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+
+
+</section>
+<section class="product" id="product-1">
+  <div class="center-text">
+    <h2>SWEATER</h2>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/hoodiehitam.jpg" alt="hoodie hitam" class="product-image" />
+      <h3 class="product-name">Hoodie Hitam</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        100<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+  </div>
   </section>
 
-  <!-- Transaksi -->
+    <div class="product-card">
+      <img src="/images/hmm.png" alt="Kaos Putih" class="product-image" />
+      <h3 class="product-name">Hoodie Merah</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        100<img src="images/coin.jpg">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+  </div>
+</section>
+
+<section class="product" id="product-2">
+  <div class="center-text">
+    <h2></h2>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/hh.png" alt="Kaos Merah" class="product-image" />
+      <h3 class="product-name">Hoodie Hijau</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        100<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+
+    <div class="product-card">
+      <img src="/images/hk.png" alt="Kaos Biru" class="product-image" />
+      <h3 class="product-name">Hoodie Kuning</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        100<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+  </div>
+</section>
+
+<section class="product" id="product-3">
+  <div class="center-text">
+    <h2>OVERSIZE</h2>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/ov1.jpg" alt="Kaos Hijau" class="product-image" />
+      <h3 class="product-name">Ovesize Hitam</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+        <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+        
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+    </div>
+
+
+</section>
+
+<section class="product" id="product">
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="/images/oranye.jpg" alt="Kaos Oranye" class="product-image" />
+      <h3 class="product-name">ORANYE</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        <img src="images/coin.jpg" alt="coin" style="width: 20px; vertical-align: middle; margin-right: 5px;">
+        53.000
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+
+    <div class="product-card">
+      <img src="/images/ov2.jpg" alt="Kaos Ungu" class="product-image" />
+      <h3 class="product-name">Ovesize Biru</h3>
+      <div class="product-rating">
+        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      </div>
+      <p class="product-price">
+        50<img src="images/coin.jpg" alt="coin">
+      </p>
+      <div class="size-buttons">
+        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
+      </div>
+      <button class="add-to-cart-btn">Tambah Keranjang</button>
+    </div>
+  </div>
+</section>
+
+
   <section class="transaksi" id="transaksi">
     <div class="center-text">
-      <h2><span>Transaksi</span></h2>
-
-      <!-- Baris atas -->
+      <h2><span>METODE PEMBAYARAN</span></h2>
       <div class="scroller">
         <ul class="tag-list scroller__inner scroll-right">
-          <li>BCA</li>
-          <li>SEABANK</li>
-          <li>DANA</li>
-          <li>GOPAY</li>
-          <li>BRI</li>
-          <li>OVO</li>
+        
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/gopay.jpg" alt="gopay" /></li>
+    <li><img src="/images/ovo.jpg" alt="ovo" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/gopay.jpg" alt="gopay" /></li>
+    <li><img src="/images/ovo.jpg" alt="ovo" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/gopay.jpg" alt="gopay" /></li>
+    <li><img src="/images/ovo.jpg" alt="ovo" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
+    <li><img src="images/gopay.jpg" alt="gopay" /></li>
+    <li><img src="/images/ovo.jpg" alt="ovo" /></li>
+    <li><img src="images/seabank.jpg" alt="seabank" /></li>
+    <li><img src="images/dana.jpg" alt="dana" /></li>
         </ul>
       </div>
+   <div class="scroller">
+  <ul class="tag-list scroller__inner scroll-left">
+    <li><img src="images/bca.jpg" alt="seabank" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
+    <li><img src="images/bni.jpg" alt="bni" /></li>
+    <li><img src="images/bri.jpg" alt="bri" /></li>
+    <li><img src="images/bca.jpg" alt="bca" /></li>
 
-      <!-- Baris bawah -->
-      <div class="scroller">
-        <ul class="tag-list scroller__inner scroll-left">
-          <li>DANA</li>
-          <li>SEABANK</li>
-          <li>GOPAY</li>
-          <li>OVO</li>
-          <li>BCA</li>
-          <li>BRI</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <!-- Tentang Kami -->
+  </ul>
+  
+  
+</div>
+
+
+
   <section class="about-us" id="about">
     <div class="center-text">
-      <h2><span>Tentang</span> Kami</h2>
-      <p>
-        AMAN DAN TERPERCAYA<br />
-        SELAMAT BELANJA ! ! !
-      </p>
+     <h2 class="typewriter">TENTANG KAMI</h2>
+      <p>AMAN DAN TERPERCAYA<br /></p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 KIRA Store. All rights reserved.</p>
+    <p>&copy; 2023 DZULFIKAR. All rights reserved.</p>
   </footer>
 
-  <!-- Custom JS -->
   <script src="app.js"></script>
 </body>
 </html>
