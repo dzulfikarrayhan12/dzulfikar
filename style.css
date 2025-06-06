@@ -151,7 +151,7 @@ html, body {
 .main-home {
   padding: 5rem 2rem;
   text-align: center;
-  background: url('/images/ban.jpg') no-repeat center center/cover;
+  background: url('ban.jpg') no-repeat center center/cover;
   /* Tambahkan min-height agar hero section tidak terlalu pendek jika konten sedikit */
   min-height: 50vh; /* Contoh: setidaknya setengah tinggi viewport */
   display: flex; /* Untuk pusatkan konten vertikal */
@@ -679,3 +679,5 @@ html, body {
   text-align: center;
   animation: none;
 }
+
+
