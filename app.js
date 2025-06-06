@@ -27,7 +27,8 @@ document.addEventListener('click', (e) => {
 });
 
 const cart = [];
-const cartSummary = sidebarCart.querySelector('.cart-summary');
+const cartSummary = document.querySelector('.cart-summary');
+
 
 function renderCart() {
   cartSummary.innerHTML = `<h3>Keranjang Kamu</h3>`;
@@ -47,7 +48,7 @@ function renderCart() {
     cartBox.classList.add('cart-box');
 
     cartBox.innerHTML = `
-      <img src="images/${item.name.toLowerCase()}.jpeg" alt="${item.name}" class="cart-img" />
+      <img src="images/${item.img}" alt="${item.name}" class="cart-img" />
       <div class="cart-detail">
         <p>Name: ${item.name}</p>
         <p>Ukuran: ${item.size}</p>
@@ -64,7 +65,7 @@ function renderCart() {
   totalEl.textContent = `Total: Rp${totalPrice.toLocaleString()}`;
   cartSummary.appendChild(totalEl);
 
-  // Pasang event listener tombol hapus
+  // Event listener tombol hapus
   cartSummary.querySelectorAll('.delete-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const idx = e.target.dataset.index;
@@ -76,7 +77,7 @@ function renderCart() {
   });
 }
 
-// Toggle ukuran produk (select size)
+// Event tombol pilih ukuran
 document.querySelectorAll('.size-buttons').forEach(sizeContainer => {
   sizeContainer.addEventListener('click', (e) => {
     if (e.target.classList.contains('size-btn')) {
@@ -86,7 +87,7 @@ document.querySelectorAll('.size-buttons').forEach(sizeContainer => {
   });
 });
 
-// Tambah keranjang dan render sidebar
+// Event tombol tambah keranjang
 document.querySelectorAll('.add-to-cart-btn').forEach(button => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -97,6 +98,7 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
     const productName = productCard.querySelector('.product-name').textContent.trim();
     const productPriceText = productCard.querySelector('.product-price').textContent.trim();
     const productPrice = parseInt(productPriceText.replace(/[^0-9]/g, ''));
+
     const selectedSizeBtn = productCard.querySelector('.size-btn.selected');
     const selectedSize = selectedSizeBtn ? selectedSizeBtn.textContent.trim() : null;
 
@@ -105,6 +107,10 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
       return;
     }
 
+    // Ambil nama file gambar dari data-img
+    const productImg = productCard.dataset.img;
+
+    // Cek apakah item sudah ada di keranjang (nama dan ukuran sama)
     const existingIndex = cart.findIndex(item => item.name === productName && item.size === selectedSize);
     if (existingIndex > -1) {
       cart[existingIndex].qty += 1;
@@ -114,6 +120,7 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         size: selectedSize,
         price: productPrice,
         qty: 1,
+        img: productImg,  // simpan nama file gambar di objek keranjang
       });
     }
 
@@ -121,9 +128,41 @@ document.querySelectorAll('.add-to-cart-btn').forEach(button => {
   });
 });
 
-// Render keranjang awal (kosong)
 renderCart();
 
 
+const text = "PRODUK KAMI";
+const typingElement = document.getElementById("typing-text");
+let index = 0;
+let isDeleting = false;
 
+function typeLoop() {
+  if (!isDeleting) {
+    // Ketika mengetik
+    typingElement.textContent = text.substring(0, index + 1);
+    index++;
+    if (index === text.length) {
+      // Jika sudah selesai ketik, tunggu 3 detik lalu mulai hapus
+      setTimeout(() => {
+        isDeleting = true;
+        typeLoop();
+      }, 3000);
+    } else {
+      setTimeout(typeLoop, 200);
+    }
+  } else {
+    // Ketika menghapus
+    typingElement.textContent = text.substring(0, index - 1);
+    index--;
+    if (index === 0) {
+      // Jika sudah habis dihapus, mulai ketik ulang
+      isDeleting = false;
+      setTimeout(typeLoop, 500);
+    } else {
+      setTimeout(typeLoop, 100);
+    }
+  }
+}
 
+// Mulai efek ketik loop
+typeLoop();
