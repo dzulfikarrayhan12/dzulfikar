@@ -7,13 +7,14 @@
 
 body {
   font-family: 'Poetsen One', cursive;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+  background: #000; /* fallback */
+  background: linear-gradient(135deg, #0f0f0f, #1a1a2e); /* gradient aktif */
   color: #fff;
-  /* Tambahkan min-height agar footer selalu di bawah jika konten sedikit */
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  
+
 }
+
 
 /* Main content wrapper, untuk push footer ke bawah */
 body > *:not(footer) {
@@ -25,7 +26,7 @@ html, body {
   padding: 0;
   width: 100%;
   overflow-x: hidden;
-  background-color: #000; /* Atau latar belakang utama */
+  background-color: #fff; /* Atau latar belakang utama */
 }
 
 
@@ -150,7 +151,7 @@ html, body {
 .main-home {
   padding: 5rem 2rem;
   text-align: center;
-  background: url('/images/baner.jpg') no-repeat center center/cover;
+  background: url('/images/ban.jpg') no-repeat center center/cover;
   /* Tambahkan min-height agar hero section tidak terlalu pendek jika konten sedikit */
   min-height: 50vh; /* Contoh: setidaknya setengah tinggi viewport */
   display: flex; /* Untuk pusatkan konten vertikal */
@@ -160,15 +161,42 @@ html, body {
 }
 
 .main-text h5 {
-  color: #f0f;
-  margin-bottom: 0.5rem; /* Tambahkan jarak */
+  color: #f8f8f8; /* Putih sedikit pudar */
+  text-shadow: 
+    0 0 2px #ccc,
+    0 0 4px #ddd,
+    0 0 2px #eee;
+  margin-bottom: 0.5rem;
 }
+
 
 .main-text h1 {
   font-size: 3rem;
   color: #0ff;
-  margin-bottom: 1rem; /* Tambahkan jarak */
+  text-shadow: 
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 15px #0ff;
+  margin-bottom: 1rem;
+  animation: glowFade 3s infinite alternate;
 }
+
+@keyframes glowFade {
+  0% {
+    color: #0ff;
+    text-shadow: 
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 15px #0ff;
+  }
+  100% {
+    color: #088; /* warna lebih gelap */
+    text-shadow: 
+      0 0 1px #044,
+      0 0 2px #044;
+  }
+}
+
 
 .main-btn {
   display: inline-block;
@@ -198,7 +226,21 @@ html, body {
 }
 
 .center-text span {
-  color: #f0f;
+  color: #ff4da6; /* pink terang */
+  text-shadow:
+    0 0 2px #ff4da6,
+    0 0 5px #ff3399;
+  font-weight: bold;
+  animation: blinkGlow 1.5s infinite;
+}
+
+@keyframes blinkGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 .product-grid {
@@ -208,6 +250,7 @@ html, body {
   justify-content: center; /* Pusatkan grid item jika ada sisa ruang */
   align-items: start; /* Pastikan semua card dimulai dari atas yang sama */
 }
+
 
 .product-card {
   position: relative;
@@ -353,7 +396,7 @@ html, body {
     flex-wrap: wrap; /* Izinkan tombol pindah baris jika tidak muat */
     justify-content: center; /* Pusatkan tombol ukuran */
     gap: 0.3rem; /* Jarak antar tombol ukuran */
-    margin-top: 0.6rem; /* Sedikit jarak di atas grup ukuran */
+    margin-top: -0.5rem; /* Sedikit jarak di atas grup ukuran */
     margin-bottom: 0.8rem; /* Sedikit jarak di bawah grup ukuran */
     width: 100%; /* Pastikan kontainer mengambil lebar penuh */
 }
@@ -366,25 +409,25 @@ html, body {
   color: #111;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.85rem; /* Sedikit perkecil ukuran font tombol */
+  font-size: 0.3rem; /* Sedikit perkecil ukuran font tombol */
   flex-shrink: 0; /* Pastikan tombol tidak mengecil terlalu banyak */
-  min-width: 30px; /* Minimal lebar tombol */
+  min-width: 39px; /* Minimal lebar tombol */
 }
 
 .add-to-cart-btn {
-  margin-top: auto;
-  background-color: #ff00ff; /* warna ungu terang */
+  margin-top: 9px;
+  background-color: #1E3A8A; /* biru tua agak gelap */
   color: white;
-  padding: 8px;
+  padding: 1px;
   border: none;
-  border-radius: 8px;
+  border-radius: 80px;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: none; /* hilangkan transisi */
 }
 
-.add-to-cart-btn:hover {
-  background-color: #cc00cc;
+.add-to-cart-btn i {
+  font-size: 24px; /* ukuran icon, bisa kamu sesuaikan */
 }
 
 
@@ -432,13 +475,58 @@ html, body {
 
 }
 
+.scroller {
+  overflow: hidden;
+  width: 100%;
 
-
-/* Pastikan elemen yang di-scroll adalah container, bukan listnya langsung */
-.scroll-container { /* Anda perlu menambahkan div ini di HTML Anda */
-    overflow-x: visible; /* Sembunyikan scrollbar */
-    width: 100%;
+  padding: 10px 0;
 }
+
+.tag-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.scroller__inner.scroll-right {
+  animation-name: scrollRight;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+.scroller__inner.scroll-left {
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+.tag-list li img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Animasi scroll kiri ke kanan */
+@keyframes scrollRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Animasi scroll kanan ke kiri */
+@keyframes scrollLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+
 
 
 /* About */
@@ -478,25 +566,49 @@ html, body {
 
 
 .about-us .center-text p {
-  margin-top: 10px;
+  margin-top: 40px;
   font-size: 1.2em;
   letter-spacing: 1px;
   color:#bbb;
 }
 
 /* Footer */
-footer {
+.footer {
+  width: 100vw; /* agar selebar viewport */
+  padding: 10px 80px 30px 9px;
   text-align: center;
-  padding: 1rem;
-  background: #000;
-  border-top: 2px solid #0ff;
-  margin-top: auto; /* Untuk push footer ke bawah halaman */
+
+  margin-top: 3px;
 }
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* posisikan ikon ke tengah */
+  align-items: center;
+  gap: 99px; /* jarak antar ikon */
+  margin-top: 12px;
+}
+
+
+.social-icons a {
+  color: #333;
+  font-size: 50px;
+
+  margin-top: -90px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+}
+
+.social-icons a:hover {
+  color: #0d6efd; /* Warna biru saat hover */
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {
   .product-grid {
-    gap: 1rem; /* Mengurangi gap lebih lanjut untuk mobile */
+    gap: -1rem; /* Mengurangi gap lebih lanjut untuk mobile */
     /* Remove display: flex; justify-content: flex-end; karena ini mengubah grid jadi flex */
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Lebih kecil lagi untuk layar sempit */
     /* Pastikan product card tetap di tengah */
@@ -544,7 +656,7 @@ footer {
 }
 
 .tag-list li img {
-  height: 40px; /* Atur sesuai kebutuhan */
+  height: 70px; /* Atur sesuai kebutuhan */
   width: auto;
   filter: drop-shadow(0 0 5px #0ff); /* Efek neon opsional */
   transition: transform 0.3s;
@@ -560,20 +672,10 @@ footer {
   font-weight: bold;
   color: #00ffe7;
   white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #00ffe7;
-  width: 0;
-  animation: typing 2s steps(12, end) forwards, blink-caret 0.75s step-end infinite;
+  overflow: visible;
+  border-right: none;
+  width: auto;
   margin: 0 auto;
   text-align: center;
+  animation: none;
 }
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 12ch }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #00ffe7; }
-  }
