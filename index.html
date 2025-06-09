@@ -1,428 +1,321 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KIRA Store</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Poetsen+One&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dzulfikar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav class="navbar d-flex justify-content-between align-items-center">
-    <div class="nav-left">
-      <button id="menu-toggle" aria-label="Toggle menu"><i class="bi bi-list"></i></button>
-    </div>
-    <div class="nav-center">
-      <span id="navbarlogo"><span>dzulfikar</span></span>
-    </div>
-    <div class="nav-right">
-      <button id="cart-toggle" aria-label="Toggle cart"><i class="bi bi-cart"></i></button>
-    </div>
-  </nav>
 
-  <aside class="sidebar" id="sidebar-menu">
-    <nav class="sidebar-nav">
-      <a href="#">login</a>
-      <a href="https://instagram.com/kauspolos_">instagram</a>
-      <a href="https://wa.me/6282197770219">whatsapss</a>
-      <a href="#transaksi">transaksi</a>
-      <a href="#about">tentang kami</a>
-    </nav>
-  </aside>
+<body class="bg-white-100">
 
-  <aside class="sidebar-cart" id="sidebar-cart">
-    <div class="cart-summary">
-      <h3>Keranjang Kamu</h3>
-    </div>
-  </aside>
+<!-- Navbar -->
+<nav class="text-white px-4 py-3 h-14 flex items-center justify-center sticky top-0 z-10 relative bg-black">
+  <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+    <!-- User paling kiri -->
+    <button id="userBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="User account">
+      <i class="ri-user-line"></i>
+    </button>
+    <!-- WhatsApp tetap di tengah -->
+    <a href="https://wa.me/6282197770219" target="_blank" class="text-3xl hover:text-green-600 hover:scale-110 transition" style="color: #25D366;">
+      <i class="ri-whatsapp-line"></i>
+    </a>
+    <!-- Instagram setelah WhatsApp -->
+    <a href="https://instagram.com/rhanray_" target="_blank" class="text-3xl hover:text-gray-300 hover:scale-110 transition instagram-icon">
+      <i class="ri-instagram-line"></i>
+    </a>
+  </div>
 
-  <section class="main-home">
-    <div class="main-text">
-      <h5>Selamat Datang di</h5>
-      <h1>DZULFIKAR</h1>
-      <p>silahkan belanja</p>
-      <a href="#transaksi" class="main-btn">transaksi</a>
-    </div>
-  </section>
+  <!-- Logo di tengah -->
+  <div id="logo" class="logo-font neon-glow text-1xxl font-bold select-none ml-20">
+    dzulfikar
+  </div>
 
-<section class="product" id="product-1">
-<div class="center-text">
-  <h2 id="typing-text"></h2>
+  <!-- Keranjang di kanan -->
+  <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+    <a href="checkout.html" class="relative text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Shopping cart">
+      <i class="ri-shopping-cart-line"></i>
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-600 text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">0</span>
+    </a>
+  </div>
+</nav>
+
+
+<!-- Modal Login dan Register -->
+
+
+<div id="loginModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-20 backdrop-blur-sm z-50">
+  <div class="bg-black bg-opacity-20 backdrop-blur-lg border border-white/90 ring-1 ring-white/90 rounded-3xl p-8 w-full max-w-sm shadow-2xl text-white font-sans">
+    <h2 id="modalTitle" class="text-3xl font-semibold mb-9 text-center">Login</h2>
+
+    <form id="authForm" class="space-y-4">
+      <!-- Username -->
+      <div class="relative input-container">
+        <i class="ri-user-line absolute left-8 top-1/2 -translate-y-1/2 text-white/70 text-xl pointer-events-none"></i>
+        <input
+          type="text"
+          id="username"
+          placeholder="Username"
+          class="w-full pl-12 pr-4 py-3 rounded-xl bg-black bg-opacity-20 border border-white/30 
+                 text-white placeholder-white/60 focus:outline-none focus:bg-opacity-30 focus:border-blue-400"
+          required
+        />
+      </div>
+
+      <!-- Email -->
+
+<div class="relative input-container hidden" id="emailContainer">
+  <i class="ri-mail-line absolute left-8 top-1/2 -translate-y-1/2 text-white/70 text-xl pointer-events-none"></i>
+  <input
+    type="email"
+    id="email"
+    placeholder="Email"
+    class="w-full pl-12 pr-4 py-3 rounded-xl mb-13 bg-black bg-opacity-20 border border-white/30
+           text-white placeholder-white/60 focus:outline-none focus:bg-opacity-30 focus:border-blue-400"
+  />
 </div>
-  <div class="product-grid">
-   <div class="product-card"  data-img="hitam.jpeg">
- <img src="hitam.jpeg" alt="Kaos Hitam" class="product-image" />
-  <h3 class="product-name">Baju Hitam</h3>
-   <div class="product-rating">
-    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+
+
+
+      <!-- Password -->
+
+
+      <div class="relative input-container">
+        <i class="ri-lock-line absolute left-8 top-1/2 -translate-y-1/2 text-white/70 text-xl pointer-events-none"></i>
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          class="w-full pl-12 pr-12 py-3 rounded-xl bg-black bg-opacity-20 border border-white/30 
+                 text-white placeholder-white/60 focus:outline-none focus:bg-opacity-30 focus:border-blue-400"
+          required
+        />
+        <button
+          type="button"
+          id="togglePassword"
+          class="absolute right-8 top-1/2 -translate-y-1/2 text-white/70 hover:text-white focus:outline-none"
+          aria-label="Toggle Password Visibility"
+        >
+          <i id="eyeIcon" class="ri-eye-line text-xl"></i>
+        </button>
+</div>
+
+
+
+<div class="flex justify-between items-center">
+  <button
+    type="submit"
+    id="submitBtn"
+    class="px-6 py-3 rounded-xl bg-blue-400 bg-opacity-80 hover:bg-blue-700 transition font-semibold flex items-center justify-center gap-2 text-white"
+  >
+    <i class="ri-login-box-line"></i><span>Login</span>
+  </button>
+        <button type="button" id="toggleBtn"
+          class="underline text-sm text-white hover:text-blue-400 transition">Register</button>
+      </div>
+    </form>
+
+<div class="mt-4">
+  <button
+    id="closeModalBtn"
+    class="w-full px-6 py-3 rounded-xl bg-red-800 hover:bg-red-700 transition font-semibold text-white flex items-center justify-center gap-2"
+  >
+    <i class="ri-close-line"></i> Tutup
+  </button>
+</div>
+
   </div>
-   <p class="product-price">
-       50 <img src="coin.jpg" alt="coin">
-   </p>
-     <div class="size-buttons">
-    <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-    </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-    </div>
+</div>
 
-    
-    <div class="product-card"  data-img="merah.jpeg">
-      <img src="merah.jpeg" alt="Kaos Putih" class="product-image" />
-      <h3 class="product-name">Baju Merah</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        50<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-
-    </div>
-  </div>
-</section>
-
-<section class="product" id="product-2">
-  <div class="center-text">
-    <h2><span>BAJU</span></h2>
-  </div>
-  <div class="product-grid">
-    <div class="product-card"  data-img="orange.jpeg">
-      <img src="orange.jpeg" alt="Kaos Merah" class="product-image" />
-      <h3 class="product-name">Orange</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        50<img src="coin.jpg" alt="coin">
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-
-    </div>
+<!-- Container Produk -->
 
 
-</section>
+<div class="p-4">
+  <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
 
-<section class="product" id="product-3">
-  <div class="center-text">
-    <h2></h2>
-  </div>
-  <div class="product-grid">
-    <div class="product-card"  data-img="hijau.jpeg">
-      <img src="hijau.jpeg" alt="Kaos Hijau" class="product-image" />
-      <h3 class="product-name">Hijau</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        50<img src="coin.jpg" alt="coin">
-      
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
+<script>
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+  const eyeIcon = document.getElementById('eyeIcon');
 
-    </div>
-
-    <div class="product-grid">
-    <div class="product-card"  data-img="pink.jpeg">
-      <img src="pink.jpeg" alt="Kaos Hijau" class="product-image" />
-      <h3 class="product-name">Pink</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        50<img src="coin.jpg" alt="coin">
-      
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-
-    </div>
-</section>
-
-<section class="product" id="product-4">
-  <div class="center-text">
-    <h2></h2>
-  </div>
-  <div class="product-grid">
-    <div class="product-card"  data-img="ungu.jpeg">
-      <img src="ungu.jpeg" alt="Kaos Ungu" class="product-image" />
-      <h3 class="product-name">Ungu</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        50<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-
-    </div>
-
-        <div class="product-card"  data-img="kuning.jpeg">
-      <img src="kuning.jpeg" alt="Kaos Ungu" class="product-image" />
-      <h3 class="product-name">Kuning</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        50<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-
-    </div>
+  togglePassword.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    eyeIcon.className = type === 'password' ? 'ri-eye-line text-xl' : 'ri-eye-off-line text-xl';
+  });
 
 
-</section>
-<section class="product" id="product-1">
-  <div class="center-text">
-    <h2><span>HOODIE</span></h2>
-  </div>
-  <div class="product-grid">
-    <div class="product-card"  data-img="hoodiehitam.jpeg">
-      <img src="hoodiehitam.jpeg" alt="hoodie hitam" class="product-image" />
-      <h3 class="product-name">Hoodie Hitam</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        100<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
+  const container = document.getElementById('product-container');
+  const cartCount = document.getElementById('cart-count');
 
-    </div>
-  </div>
-  </section>
+ document.addEventListener("DOMContentLoaded", function () {
+  const loginModal = document.getElementById('loginModal');
+  const toggleBtn = document.getElementById('toggleBtn');
+  const modalTitle = document.getElementById('modalTitle');
+  const emailContainer = document.getElementById('emailContainer'); // ✅ Ditambahkan
+  const emailInput = document.getElementById('email');
+  const confirmPasswordInput = document.getElementById('confirmPassword');
+  const submitBtn = document.getElementById('submitBtn');
+  const userBtn = document.getElementById('userBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
 
-    <div class="product-card"  data-img="hmm.jpeg">
-      <img src="hmm.jpeg" alt="Kaos Putih" class="product-image" />
-      <h3 class="product-name">Hoodie Merah</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        100<img src="coin.jpg">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
+  let isRegister = false;
 
-    </div>
-  </div>
-</section>
+  toggleBtn?.addEventListener('click', () => {
+    isRegister = !isRegister;
+    modalTitle.textContent = isRegister ? 'Register' : 'Login';
 
-<section class="product" id="product-2">
-  <div class="center-text">
-    <h2></h2>
-  </div>
-  <div class="product-grid">
-    <div class="product-card"  data-img="hh.jpeg">
-      <img src="hh.jpeg" alt="Kaos Merah" class="product-image" />
-      <h3 class="product-name">Hoodie Hijau</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        100<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
+    // Tampilkan/ sembunyikan input email & confirm password
+    emailContainer.classList.toggle('hidden', !isRegister);
+    confirmPasswordInput.classList.toggle('hidden', !isRegister);
 
-    </div>
+    // Ubah ikon & teks tombol submit
+    submitBtn.querySelector('i').className = isRegister ? 'ri-user-add-line' : 'ri-login-box-line';
+    submitBtn.querySelector('span').textContent = isRegister ? 'Register' : 'Login';
 
-    <div class="product-card"  data-img="hk.jpeg">
-      <img src="hk.jpeg" alt="Kaos Biru" class="product-image" />
-      <h3 class="product-name">Hoodie Kuning</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        100<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
+    // Ubah teks tombol toggle
+    toggleBtn.textContent = isRegister ? 'Login' : 'Register';
+  });
 
-    </div>
-  </div>
-</section>
+  userBtn?.addEventListener('click', () => {
+    loginModal?.classList.remove('hidden');
+    loginModal?.classList.add('flex');
+  });
 
-<section class="product" id="product-3">
-  <div class="center-text">
-    <h2><span>OVERSIZE</span></h2>
-  </div>
-  <div class="product-grid">
+  closeModalBtn?.addEventListener('click', () => {
+    loginModal?.classList.add('hidden');
+    loginModal?.classList.remove('flex');
 
-    <div class="product-card"  data-img="ov1.jpeg">
-      <img src="ov1.jpeg" alt="Kaos Hijau" class="product-image" />
-      <h3 class="product-name">Ovesize Hitam</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-        <p class="product-price">
-        80<img src="coin.jpg" alt="coin">
-        
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
+    // Reset ke login state
+    isRegister = false;
+    modalTitle.textContent = 'Login';
+    emailContainer.classList.add('hidden');
+    confirmPasswordInput.classList.add('hidden');
+    submitBtn.querySelector('i').className = 'ri-login-box-line';
+    submitBtn.querySelector('span').textContent = 'Login';
+    toggleBtn.textContent = 'Register';
+  });
+});
 
-    </div>
-    </div>
+ const modalTitle = document.getElementById('modalTitle');
+  const emailField = document.getElementById('email');
+  const emailContainer = emailField.parentElement;
+  const toggleBtn = document.getElementById('toggleBtn');
+
+  let isLogin = true;
+
+  toggleBtn.addEventListener('click', () => {
+    isLogin = !isLogin;
+
+    if (isLogin) {
+      modalTitle.textContent = 'Login';
+      emailContainer.classList.add('hidden');
+      toggleBtn.textContent = 'Register';
+      emailField.required = false;
+    } else {
+      modalTitle.textContent = 'Register';
+      emailContainer.classList.remove('hidden');
+      toggleBtn.textContent = 'Login';
+      emailField.required = true;
+    }
+  });
+
+  // Sembunyikan email saat awal (login)
+  emailContainer.classList.add('hidden');
+  emailField.required = false;
+
+  // Update jumlah item di keranjang dari localStorage
 
 
-</section>
-
-<section class="product" id="product">
-  </div>
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="ov3.jpeg" alt="oversize merah" class="product-image" />
-      <h3 class="product-name">Oversize Merah</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        80<img src="coin.jpg" alt="coin">
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-    </div>
-
-    <div class="product-card">
-      <img src="ov2.jpeg" alt="Kaos Ungu" class="product-image" />
-      <h3 class="product-name">Ovesize Biru</h3>
-      <div class="product-rating">
-        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-      </div>
-      <p class="product-price">
-        80<img src="coin.jpg" alt="coin">
-      </p>
-      <div class="size-buttons">
-        <button class="size-btn">M</button><button class="size-btn">L</button><button class="size-btn">XL</button>
-      </div>
-<button class="add-to-cart-btn">
-  <i class="ri-shopping-cart-2-line"></i>
-</button>
-
-    </div>
-  </div>
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("checkout")) || [];
+  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
   
-</section>
+  if (cartCount) {
+    if (totalQty > 0) {
+      cartCount.textContent = totalQty;
+      cartCount.style.display = "flex";  // tampilkan badge
+    } else {
+      cartCount.style.display = "none";  // sembunyikan badge saat kosong
+    }
+  }
+}
+updateCartCount();
+
+  // Contoh deskripsi produk
 
 
-  <section class="transaksi" id="transaksi">
-    <div class="center-text">
-      <h2><span>METODE PEMBAYARAN</span></h2>
-   <div class="scroller">
-  <ul class="tag-list scroller__inner scroll-right">
-    <li><img src="seabank.jpg" alt="Seabank" /></li>
-    <li><img src="dana.jpg" alt="Dana" /></li>
-    <li><img src="gopay.jpg" alt="Gopay" /></li>
-    <li><img src="ovo.jpg" alt="Ovo" /></li>
-    <li><img src="seabank.jpg" alt="Seabank" /></li>
-    <li><img src="dana.jpg" alt="Dana" /></li>
-    <li><img src="seabank.jpg" alt="Seabank" /></li>
-    <li><img src="dana.jpg" alt="Dana" /></li>
-  </ul>
-</div>
+  const descriptions = [
+    "An exclusive dark-themed hoodie boasting a majestic scorpion emblem at its core.",
+    "A luxurious hoodie adorned with an intricately detailed spider masterpiece.",
+    "A premium hoodie illuminated by a mysterious, radiant eye motif.",
+    "Custom-crafted masterpiece showcasing a third eye skull design of supreme artistry.",
+  ];
 
-<div class="scroller">
-  <ul class="tag-list scroller__inner scroll-left">
-    <li><img src="bca.jpg" alt="BCA" /></li>
-    <li><img src="bni.jpg" alt="BNI" /></li>
-    <li><img src="bri.jpg" alt="BRI" /></li>
-    <li><img src="bca.jpg" alt="BCA" /></li>
-    <li><img src="bni.jpg" alt="BNI" /></li>
-    <li><img src="bri.jpg" alt="BRI" /></li>
-    <li><img src="bca.jpg" alt="BCA" /></li>
-  </ul>
-</div>
+  // Render produk secara dinamis
 
-  <section class="about-us" id="about">
-    <div class="center-text">
-     <h2 class="typewriter">TENTANG KAMI</h2>
-      <p>4 juli ai ulang tahun <br /></p>
-    </div>
-  </section>
 
-<footer class="footer">
-  <div class="social-icons">
-    <a href="https://web.facebook.com/rayhanganteng.rayhanganteng.90" target="_blank" aria-label="Facebook">
-      <i class="bi bi-facebook"></i>
-    </a>
-    <a href="https://wa.me/6282197770219" target="_blank" aria-label="WhatsApp">
-      <i class="bi bi-whatsapp"></i>
-    </a>
-    <a href="https://www.instagram.com/rhanray_/" target="_blank" aria-label="Instagram">
-      <i class="bi bi-instagram"></i>
-    </a>
+ for (let i = 1; i <= 12; i++) {
+  const productDiv = document.createElement('div');
+  productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
-  </div>
-</footer>
+  const img = document.createElement('img');
+  img.src = `/images/${i}.jpg`;
+  img.alt = `Produk ${i}`;
+  img.className = 'w-full h-[280px] object-contain rounded-md mb-4 bg-white';
 
-  <script src="app.js"></script>
+  const title = document.createElement('h3');
+  title.className = 'text-lg font-semibold mb-1';
+  title.textContent = `Produk ${i}`;
+
+  const desc = document.createElement('p');
+  desc.className = 'text-gray-600 text-sm mb-2';
+  desc.textContent = descriptions[(i - 1) % descriptions.length];
+
+  const price = document.createElement('div');
+  price.className = 'text-black-500 font-bold mb-4';
+  price.textContent = 'Rp250.000';
+
+  const button = document.createElement('button');
+  button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center gap-2 relative';
+  button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+
+  button.addEventListener('click', () => {
+    const item = {
+      title: title.textContent,
+      desc: desc.textContent,
+      price: price.textContent,
+      image: img.src,
+      qty: 1
+    };
+
+    const cart = JSON.parse(localStorage.getItem("checkout")) || [];
+    const existing = cart.find(p => p.title === item.title);
+
+    if (existing) {
+      existing.qty = (existing.qty || 1) + 1;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem("checkout", JSON.stringify(cart));
+    updateCartCount();
+  });
+
+  // Append elemen sesuai urutan tampilannya:
+  productDiv.appendChild(img);
+  productDiv.appendChild(title);
+  productDiv.appendChild(desc);
+  productDiv.appendChild(price);
+  productDiv.appendChild(button);
+  container.appendChild(productDiv);
+}
+</script>
 </body>
 </html>
