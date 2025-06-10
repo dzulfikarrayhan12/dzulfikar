@@ -242,27 +242,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //routes
 
-const route = (event) => {
+// ROUTING (SPA)
+  // ------------------------
+  const route = (event) => {
     event.preventDefault();
-    window.history.pushState({},"",event.target.href);
-   handleLocation(); 
-};
+    const path = event.target.getAttribute("href");
+    window.history.pushState({}, "", path);
+    handleLocation();
+  };
 
-const routes = {
+  const routes = {
     "/": "/pages/index.html",
     "/checkout": "/pages/checkout.html",
-};
+  };
 
-const handleLocation = async () => {
+  const handleLocation = async () => {
     const path = window.location.pathname;
-    const route = routes[path] || routes[404];
-    const html =await fetch(route).then((data) => data.text ());
-    document.getElementById("main-page").innerHTML = html;
+    const route = routes[path] || routes["/"];
+    try {
+      const html = await fetch(route).then((res) => res.text());
+      document.getElementById("main-page").innerHTML = html;
+      afterPageLoad(path);
+    } catch (err) {
+      console.error("Halaman tidak ditemukan.", err);
+    }
+  };
 
-};
+  window.onpopstate = handleLocation;
+  window.route = route;
 
-window.onpopstate = handleLocation;
-window.route = route;
+  handleLocation();
 
-handleLocation();
+  // ------------------------
+  // AFTER PAGE LOAD
+  // ------------------------
+  function afterPageLoad(path) {
+    if (path === "/") renderProducts();
+    if (path === "/checkout") renderCart();
+  }
+
 
