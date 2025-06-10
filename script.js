@@ -281,4 +281,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (path === "/checkout") renderCart();
   }
 
-
+function goBack() {
+  window.location.href = "index.html";
+}
