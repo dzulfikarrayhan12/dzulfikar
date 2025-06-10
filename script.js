@@ -57,9 +57,48 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ------------------------
+  // ROUTING (SPA)
+  // ------------------------
+  const route = (event) => {
+    event.preventDefault();
+    const path = event.target.getAttribute("href");
+    window.history.pushState({}, "", path);
+    handleLocation();
+  };
+
+  const routes = {
+    "/": "/pages/index.html",
+    "/checkout": "/pages/checkout.html",
+  };
+
+  const handleLocation = async () => {
+    const path = window.location.pathname;
+    const route = routes[path] || routes["/"];
+    try {
+      const html = await fetch(route).then((res) => res.text());
+      document.getElementById("main-page").innerHTML = html;
+      afterPageLoad(path);
+    } catch (err) {
+      console.error("Halaman tidak ditemukan.", err);
+    }
+  };
+
+  window.onpopstate = handleLocation;
+  window.route = route;
+
+  handleLocation();
+
+  // ------------------------
+  // AFTER PAGE LOAD
+  // ------------------------
+  function afterPageLoad(path) {
+    if (path === "/") renderProducts();
+    if (path === "/checkout") renderCart();
+  }
+
+  // ------------------------
   // KERANJANG & PRODUK
   // ------------------------
-  const container = document.getElementById('product-container');
   const cartCount = document.getElementById('cart-count');
 
   function updateCartCount() {
@@ -80,59 +119,65 @@ document.addEventListener("DOMContentLoaded", function () {
     "Custom-crafted masterpiece showcasing a third eye skull design of supreme artistry.",
   ];
 
-  for (let i = 1; i <= 12; i++) {
-    const productDiv = document.createElement('div');
-    productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
+  function renderProducts() {
+    const container = document.getElementById('product-container');
+    if (!container) return;
 
-    const img = document.createElement('img');
-    img.src = `images/${i}.jpg`;
-    img.alt = `Produk ${i}`;
-    img.className = 'w-full h-[280px] object-contain rounded-md mb-4 bg-white';
+    container.innerHTML = '';
+    for (let i = 1; i <= 12; i++) {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
-    const title = document.createElement('h3');
-    title.className = 'text-lg font-semibold mb-1';
-    title.textContent = `Produk ${i}`;
+      const img = document.createElement('img');
+      img.src = `images/${i}.jpg`;
+      img.alt = `Produk ${i}`;
+      img.className = 'w-full h-[280px] object-contain rounded-md mb-4 bg-white';
 
-    const desc = document.createElement('p');
-    desc.className = 'text-gray-600 text-sm mb-2';
-    desc.textContent = descriptions[(i - 1) % descriptions.length];
+      const title = document.createElement('h3');
+      title.className = 'text-lg font-semibold mb-1';
+      title.textContent = `Produk ${i}`;
 
-    const price = document.createElement('div');
-    price.className = 'text-black-500 font-bold mb-4';
-    price.textContent = 'Rp250.000';
+      const desc = document.createElement('p');
+      desc.className = 'text-gray-600 text-sm mb-2';
+      desc.textContent = descriptions[(i - 1) % descriptions.length];
 
-    const button = document.createElement('button');
-    button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center gap-2 relative';
-    button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+      const price = document.createElement('div');
+      price.className = 'text-black-500 font-bold mb-4';
+      price.textContent = 'Rp250.000';
 
-    button.addEventListener('click', () => {
-      const item = {
-        title: title.textContent,
-        desc: desc.textContent,
-        price: price.textContent,
-        image: img.src,
-        qty: 1
-      };
+      const button = document.createElement('button');
+      button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center gap-2 relative';
+      button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
 
-      const cart = JSON.parse(localStorage.getItem("checkout")) || [];
-      const existing = cart.find(p => p.title === item.title);
+      button.addEventListener('click', () => {
+        const item = {
+          title: title.textContent,
+          desc: desc.textContent,
+          price: price.textContent,
+          image: img.src,
+          qty: 1
+        };
 
-      if (existing) {
-        existing.qty = (existing.qty || 1) + 1;
-      } else {
-        cart.push(item);
-      }
+        const cart = JSON.parse(localStorage.getItem("checkout")) || [];
+        const existing = cart.find(p => p.title === item.title);
 
-      localStorage.setItem("checkout", JSON.stringify(cart));
-      updateCartCount();
-    });
+        if (existing) {
+          existing.qty = (existing.qty || 1) + 1;
+        } else {
+          cart.push(item);
+        }
 
-    productDiv.appendChild(img);
-    productDiv.appendChild(title);
-    productDiv.appendChild(desc);
-    productDiv.appendChild(price);
-    productDiv.appendChild(button);
-    container?.appendChild(productDiv);
+        localStorage.setItem("checkout", JSON.stringify(cart));
+        updateCartCount();
+      });
+
+      productDiv.appendChild(img);
+      productDiv.appendChild(title);
+      productDiv.appendChild(desc);
+      productDiv.appendChild(price);
+      productDiv.appendChild(button);
+      container.appendChild(productDiv);
+    }
   }
 
   // ------------------------
@@ -148,7 +193,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const price = parseInt(item.price.replace(/\D/g, '')) || 0;
       total += price * (item.qty || 1);
     });
-    totalPriceElement.textContent = `Rp${total.toLocaleString('id-ID')}`;
+    if (totalPriceElement) {
+      totalPriceElement.textContent = `Rp${total.toLocaleString('id-ID')}`;
+    }
   }
 
   function saveCart() {
@@ -234,35 +281,6 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("history", JSON.stringify(history));
     localStorage.removeItem("checkout");
     alert("Pesanan berhasil disimpan. Kami akan menghubungi Anda segera.");
-    window.location.href = "index.html";
+    window.location.href = "/";
   });
-
-  renderCart();
 });
-
-//routes
-
-const route = (event) => {
-    event.preventDefault();
-    window.history.pushState({},"",event.target.href);
-   handleLocation(); 
-};
-
-const routes = {
-    "/": "/pages/index.html",
-    "/checkout": "/pages/checkout.html",
-};
-
-const handleLocation = async () => {
-    const path = window.location.pathname;
-    const route = routes[path] || routes[404];
-    const html =await fetch(route).then((data) => data.text ());
-    document.getElementById("main-page").innerHTML = html;
-
-};
-
-window.onpopstate = handleLocation;
-window.route = route;
-
-handleLocation();
-
