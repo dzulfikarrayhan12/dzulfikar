@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
   "Custom-crafted masterpiece showcasing a third eye skull design of supreme artistry.",
 ];
 
-for (let i = 1; i <= 24; i++) {  // Ubah batasnya jadi 200
+for (let i = 1; i <= 18; i++) {  // Ubah batasnya jadi 200
   const productDiv = document.createElement('div');
   productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
