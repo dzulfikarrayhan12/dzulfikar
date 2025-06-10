@@ -240,3 +240,29 @@ document.addEventListener("DOMContentLoaded", function () {
   renderCart();
 });
 
+//routes
+
+const route = (event) => {
+    event.preventDefault();
+    window.history.pushState({},"",event.target.href);
+   handleLocation(); 
+};
+
+const routes = {
+    "/": "/pages/index.html",
+    "/checkout": "/pages/checkout.html",
+};
+
+const handleLocation = async () => {
+    const path = window.location.pathname;
+    const route = routes[path] || routes[404];
+    const html =await fetch(route).then((data) => data.text ());
+    document.getElementById("main-page").innerHTML = html;
+
+};
+
+window.onpopstate = handleLocation;
+window.route = route;
+
+handleLocation();
+
