@@ -12,35 +12,45 @@
   .header {
   position: relative;
   display: flex;
-  justify-content: center; /* Pusat horizontal */
-  align-items: center;     /* Pusat vertikal */
-  padding: 1rem 2rem;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: flex-start; /* agar checkout di kiri */
+  padding: 0.5rem 1rem;
+  background-color: #000; /* sesuaikan dengan tema */
+  height: 50px;
+  box-sizing: border-box;
 }
 
-/* Logo di kiri */
+/* Checkout di kiri */
+.checkout-glow-white-to-yellow {
+  font-weight: bold;
+  font-size: 25px;
+  color: #ffffff;
+
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+
+   font-family: "Prata", serif;
+  display: inline-block;
+  white-space: nowrap;
+
+}
+
+/* Logo di tengah dengan posisi absolute */
 .logo {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   font-weight: bold;
   font-size: 12px;
-  color: #dc2626;
-font-family: "Cinzel", serif;
+  color: #ffffff;
+  padding: 0.5px 1px;
+  border-radius: 1px;
+  font-family: "Cinzel", serif;
+  position: absolute;
+  left: 57%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 /* Tombol close di kanan */
-.btn-close {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 1.25rem;
-  color: #333;
-}
+
 
 /* Styling judul */
 
@@ -176,40 +186,54 @@ font-family: "Cinzel", serif;
 
 /* Warna khusus per media sosial */
 .social-icons a.facebook {
-  color: white; /* warna icon putih */
   background-color: #1877F2; /* biru Facebook */
-  padding: 4px;
-  border-radius: 25%;
+  width: 50px;
+  height: 50px;
+  border-radius: 5%;        /* buat lingkaran sempurna */
+  color: white;              /* warna icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;           /* ukuran icon agar pas */
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  overflow: hidden;          /* cegah icon keluar */
+}
+
+
+.social-icons a.instagram {
+  background: radial-gradient(circle at 30% 107%, 
+    #feda75 0%, 
+    #fa7e1e 25%, 
+    #d62976 50%, 
+    #962fbf 75%, 
+    #4f5bd5 100%);
+  width: 50px;
+  height: 50px;
+  border-radius: 5%;         /* lingkaran sempurna */
+  color: white;               /* warna icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;            /* agar icon pas */
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.social-icons a.whatsapp {
+  background-color: #25D366;
+  width: 50px;
+  height: 50px;
+  border-radius: 70%;
+  color: white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 40px;
   transition: background-color 0.3s ease;
-}
-
-
-.social-icons a.instagram {
-  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
-  padding: 4px;               /* beri ruang dalam */
-  border-radius: 25%;          /* bentuk lingkaran */
-  color: white;                /* warna icon */
-  display: inline-flex;        /* supaya mudah center icon */
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  transition: background 0.3s ease;
-}
-
-.social-icons a.whatsapp {
-  color: white; /* warna icon putih */
-  background-color: #25D366; /* background hijau WA */
-  padding: 4px;           /* ruang di dalam lingkaran */
-  border-radius: 20%;      /* buat lingkaran */
-  display: inline-flex;    /* supaya icon center */
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  overflow: hidden;
 }
 
 /* Hover masing-masing */
@@ -229,36 +253,27 @@ font-family: "Cinzel", serif;
 }
 
 
-.checkout-glow-white-to-yellow {
-  font-weight: bold;
-  font-size: 1.25rem; /* text-xl */
-  color: #ffffff; /* hijau ganja lebih lembut */
-  background-color: #dc2626; /* hitam pekat */
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  display: inline-block;
 
-  border: 2px solid rgba(156, 204, 101, 0.6);
-}
 .btn-close {
-  position: absolute;     /* supaya bisa diatur posisi */
-  right: 1rem;            /* jarak dari kanan */
-  top: 50%;               /* vertikal tengah */
-  transform: translateY(-50%);  /* tengah secara vertikal */
-  
-  background-color: #dc2626;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background-color: #dc2626; /* merah yang serasi */
   padding: 0.5rem 0.6rem;
-  border-radius: 4px;     /* kotak dengan sudut membulat sedikit */
-  
+  border-radius: 6px; /* bukan lingkaran, tapi sedikit rounded */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 36px;            /* ukuran kotak */
+  width: 36px;
   height: 36px;
+  color: #ffffff; /* ikon tetap putih */
+  font-size: 1.25rem;
+  border: none; /* hilangkan border default (kalau ada) */
 }
-
 
 .btn-close::before {
   content: "";
