@@ -207,8 +207,20 @@ function togglePasswordField(id) {
       price.textContent = 'Rp250.000';
 
       const button = document.createElement('button');
-      button.className = 'mt-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center gap-2 relative';
-      button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+button.className = `
+  mt-auto 
+  bg-green-800       /* hijau tua */
+  hover:bg-green-700 /* hover hijau sedikit lebih terang */
+  text-white 
+  font-semibold 
+  py-2 px-4 
+  rounded 
+  transition-colors duration-300 
+  flex items-center justify-center gap-2 
+  relative
+`;
+button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+
 
       button.addEventListener('click', () => {
         const item = {
@@ -400,3 +412,6 @@ if (window.location.pathname.includes("checkout.html")) {
   window.goBack = function () {
     window.location.href = "index.html";
   };
+
+
+  
