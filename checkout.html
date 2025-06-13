@@ -6,6 +6,7 @@
   <title>Checkout</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="style.css" />
   <style>
 
@@ -28,6 +29,8 @@
       background-color: #b20710;
     }
 
+
+
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
@@ -36,8 +39,8 @@
 
 <!-- Header -->
 <header class="header">
-  <div class="logo">DZULFIKAR</div>
   <h1 class="checkout-glow-white-to-yellow title">Checkout</h1>
+  <div class="logo">DZULFIKAR</div>
   <a onclick="window.history.back()" class="btn-close">
     <i class="ri-close-line"></i>
   </a>
@@ -49,7 +52,7 @@
 <section class="bg-white p-4 shadow-md rounded-t-xl">
 
 <!-- Form Pembayaran -->
-<div class="space-y-4 mb-6">
+<div class="bg-black bg-opacity-100 backdrop-blur-lg p-6 rounded-1xl shadow-lg space-y-4 mb-6">
 
   <!-- Nama -->
   <div class="relative">
@@ -83,20 +86,63 @@
       <option value="qris">QRIS</option>
     </select>
   </div>
+</div>
 
 
-  <div class="flex justify-between text-lg font-semibold mb-4">
-    <span>Total</span>
-    <span id="total-price">Rp0</span>
-  </div>
+    <!-- Label QR & QR Container -->
+    <p id="qr-label" class="text-center text-white font-semibold hidden mb-2">Scan QR untuk Pembayaran QRIS</p>
+    <div id="qr-container" class="hidden flex justify-center mt-2"></div>
 
-  <button id="pay-btn" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300 w-full mb-14">
-    Bayar Sekarang
-  </button>
+    <!-- Total & Tombol Bayar -->
+    <div class="flex justify-between text-lg font-semibold my-4">
+      <span>Total</span>
+      <span id="total-price">Rp0</span>
+    </div>
 
+    <button id="pay-btn"
+      class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-md transition duration-300 w-full mb-6">
+      Bayar Sekarang
+    </button>
 
 </section>
 
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+   <script>
+    const paymentSelect = document.getElementById('payment-method');
+    const qrContainer = document.getElementById('qr-container');
+    const qrLabel = document.getElementById('qr-label');
+
+    paymentSelect.addEventListener('change', () => {
+      const selectedMethod = paymentSelect.value;
+
+      // Hapus QR lama
+      qrContainer.innerHTML = '';
+
+      if (selectedMethod === 'qris') {
+        qrContainer.classList.remove('hidden');
+        qrLabel.classList.remove('hidden');
+
+        // QR code data (ganti dengan data asli jika ada)
+        const qrData = "https://example.com/qris/123456789";
+
+        new QRCode(qrContainer, {
+          text: qrData,
+          width: 180,
+          height: 180,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+
+      } else {
+        qrContainer.classList.add('hidden');
+        qrLabel.classList.add('hidden');
+      }
+    });
+
+    // Contoh atur total harga
+    document.getElementById('total-price').innerText = "Rp123.000";
+  </script>
 <script src="script.js"></script>
 
 </body>
