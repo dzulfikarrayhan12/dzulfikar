@@ -297,7 +297,7 @@ button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>T
       div.className = 'bg-white p-4 rounded-lg shadow flex items-center gap-4';
 
       div.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" class="w-20 h-20 object-cover rounded" />
+        <img src="${item.image}" alt="${item.title}" class="w-20 h-20 object-contain rounded" />
         <div class="flex-1">
           <h3 class="text-md font-semibold">${item.title}</h3>
           <p class="text-sm text-gray-500">${item.desc}</p>
