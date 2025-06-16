@@ -152,21 +152,60 @@ const cartCount = document.getElementById('cart-count');
 const descriptions = [
   "BAJU OVERSIZE WASHED\nUKURAN: XL",
   "BAJU OVERSIZE PUTIH 420\nUKURAN: XL",
-  "Bahan organic, panjang 1 1/4. ORIGINAL IMPOR.\nUKURAN: XL",
+  "BAHAN ORGANIC, PANJANG 1 1/4\nORIGINAL IMPOR",
   "HOODIE\nUKURAN: XL",
   "HOODIE\nUKURAN: XL",
   "BAJU CHAMCINA SO FREE\nUKURAN: XL",
   "HOODIE KUNING POLOS\nUKURAN: XL",
   "HOODIE MERAH POLOS\nUKURAN: XL",
   "HOODIE HIJAU POLOS\nUKURAN: XL",
-  "HOODIE HITAM POLOS\nUKURAN: XL"
-  
+  "HOODIE HITAM POLOS\nUKURAN: XL",
+  "BACARDI SUPERIOR\nRum putih legendaris asal Karibia yang menjadi simbol kesegaran dan keanggunan sejak tahun 1862.\nDisaring hati-hati dan disimpan dalam tong kayu oak selama 1-2 tahun, menghadirkan rasa ringan, bersih, dan halus.\nCocok untuk koktail klasik seperti Mojito, Daiquiri, atau Cuba Libre.",
+  "HEINEKEN\nBir lager asal Belanda yang dikenal global sejak tahun 1873.\nWarna keemasan jernih dengan rasa segar, keseimbangan pahit dan manis, pilihan utama penikmat bir dunia.",
+  "CORONA EXTRA\nBir pale lager ringan asal Meksiko yang terkenal dengan cita rasa segar dan bersih.\nDisajikan terbaik dengan irisan jeruk nipis di mulut botol, cocok untuk suasana santai, pantai, atau pesta barbekyu.\nDiproduksi sejak tahun 1925 dengan bahan pilihan seperti air murni, malt barley, jagung, dan hop.",
+  "BAILEYS\nLikuer krim Irlandia paling terkenal di dunia, memadukan krim susu segar dengan whiskey Irlandia dan sentuhan cokelat serta vanilla.\nDikenal karena tekstur lembut dan rasa manis kaya, menghadirkan kenikmatan elegan di setiap tegukan.",
+  "CAMPARI\nMinuman aperitif berwarna merah cerah legendaris, diciptakan di Italia tahun 1860.\nDikenal dengan rasa pahit khas dan aroma herbal kompleks, dibuat dari infusi rahasia lebih dari 60 bahan alami.",
+  "JOHNNIE WALKER RED LABEL\nBlended Scotch whisky terkenal dengan rasa kuat, tajam, dan berani.\nDiciptakan untuk dicampur dan dinikmati berbagai gaya, dengan aroma smoky, manis, dan pedas.",
+  "JACK DANIEL’S OLD NO. 7\nWhiskey khas Tennessee sejak 1866.\nDibuat dari campuran jagung, barley, dan gandum pilihan, disaring perlahan dengan arang maple untuk rasa lembut dan kaya.",
+  "VODKA\nMinuman beralkohol murni disuling dari gandum, jagung, atau kentang.\nMemiliki karakter bersih, netral, dan halus, fleksibel untuk berbagai koktail klasik maupun modern.",
+  "SMIRNOFF NO. 21\nVodka terlaris di dunia dengan rasa bersih, halus, dan serbaguna.\nDisuling tiga kali dan disaring sepuluh kali dengan arang aktif, menghasilkan kejernihan dan finish lembut.",
+  "ANGGUR MERAH\nMinuman beralkohol yang terbuat dari fermentasi buah anggur merah.\nMemiliki rasa kaya, aroma buah dan rempah yang khas, cocok untuk dinikmati dalam berbagai kesempatan.",
+  "ROKOK SURYA\nMerek rokok terkenal di Indonesia dengan rasa khas dan kualitas tembakau yang konsisten.\nPopuler di kalangan perokok karena cita rasa kuat dan aroma yang khas.",
+  "PLAYSTATION 4 (PS4)\nKonsol game generasi kedelapan dari Sony.\nMenawarkan grafis tajam dan koleksi game eksklusif yang luas, ideal untuk gamer kasual maupun hardcore.",
+  "PLAYSTATION 5 (PS5)\nKonsol game generasi terbaru dengan performa tinggi dan SSD ultra cepat.\nMendukung grafis 4K dan fitur haptic feedback yang membuat pengalaman bermain lebih imersif.",
+  "IPAD PRO\nTablet premium dari Apple dengan layar Liquid Retina yang tajam dan prosesor M1.\nCocok untuk kreativitas, produktivitas, dan hiburan dengan dukungan Apple Pencil dan Magic Keyboard.",
+  "LAPTOP ASUS ROG\nLaptop gaming andalan dengan spesifikasi tinggi dan desain agresif.\nDilengkapi kartu grafis kuat dan sistem pendingin canggih untuk performa maksimal saat bermain game berat.",
+  "LA PURPLE\nRokok dengan rasa unik dan aroma khas buah anggur yang menyegarkan.\nMemberikan sensasi smooth dengan aftertaste manis, populer di kalangan perokok muda dan pencinta rasa berbeda."
 ];
 
 
 const prices = [
-  300000, 250000, 50000, 500000, 350000,
-  120000, 150000, 180000, 120000, 200000
+  300000, // BAJU OVERSIZE WASHED
+  250000, // BAJU OVERSIZE PUTIH 420
+  50000,  // BAHAN ORGANIC
+  500000, // HOODIE
+  350000, // HOODIE
+  120000, // BAJU CHAMCINA
+  150000, // HOODIE KUNING
+  180000, // HOODIE MERAH
+  120000, // HOODIE HIJAU
+  200000, // HOODIE HITAM
+  290000, // BACARDI
+  36000,  // HEINEKEN
+  65000,  // CORONA EXTRA
+  200000, // BAILEYS
+  699000, // CAMPARI
+  319000, // JOHNNIE WALKER RED LABEL
+  469000, // JACK DANIEL'S
+  294000, // VODKA
+  230000, // SMIRNOFF
+  75000,  // ANGGUR MERAH
+  30000,  // ROKOK SURYA
+  3500000, // PS4
+  7000000, // PS5
+  15500000, // iPad Pro
+  18000000,  // Laptop ROG
+350000 //LA Purple
 ];
 
 function updateCartCount() {
@@ -180,7 +219,7 @@ function updateCartCount() {
 
 if (container) {
   container.innerHTML = '';
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 26; i++) {
     const productDiv = document.createElement('div');
     productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
