@@ -226,7 +226,7 @@ const prices = [
   7000000, // PS5
   15500000, // iPad Pro
   18000000,  // Laptop ROG
-350000 //LA Purple
+35000 //LA Purple
 ];
 
 function updateCartCount() {
