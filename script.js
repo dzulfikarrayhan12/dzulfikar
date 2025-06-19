@@ -14,6 +14,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1000);
   });
 
+
+   const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  const closeBtn = document.getElementById('closeSidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.remove('-translate-x-full');
+    overlay.classList.remove('hidden');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+  });
+
+  overlay.addEventListener('click', () => {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+  });
+  
   // ========================
   // TOGGLE VISIBILITAS PASSWORD
   // ========================
@@ -178,7 +199,7 @@ const descriptions = [
   "LA PURPLE\nRokok dengan rasa unik dan aroma khas buah anggur yang menyegarkan.\nMemberikan sensasi smooth dengan aftertaste manis, populer di kalangan perokok muda dan pencinta rasa berbeda."
 ];
 
-
+  
 const prices = [
   300000, // BAJU OVERSIZE WASHED
   250000, // BAJU OVERSIZE PUTIH 420
@@ -205,7 +226,7 @@ const prices = [
   7000000, // PS5
   15500000, // iPad Pro
   18000000,  // Laptop ROG
-35000 //LA Purple
+350000 //LA Purple
 ];
 
 function updateCartCount() {
