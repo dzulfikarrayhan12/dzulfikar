@@ -21,16 +21,23 @@
 <!-- Navbar -->
 <nav class="relative text-white px-4 py-3 h-14 flex items-center justify-center  sticky top-0 z-10">
 
-  <!-- User paling kiri -->
-  <div class="absolute left-4 top-1/2 -translate-y-1/2">
+  <!-- Menu dan User di kiri -->
+  <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+    <!-- Tombol Menu -->
+    <button id="menuBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Menu">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <!-- Tombol User -->
     <button id="userBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="User account">
       <i class="ri-user-line"></i>
     </button>
   </div>
 
   <!-- Logo di tengah -->
-<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-  <div id="logo" class="logo-font text-2xl font-bold select-none flex space-x-1">
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -translate-x-1">
+<div id="logo" class="text-[2px] font-bold">
+  
     <span class="ray-text">W</span>
     <span class="ray-text">E</span>
     <span class="ray-text">E</span>
@@ -44,8 +51,6 @@
   </div>
 </div>
 
- 
-
   <!-- Keranjang di kanan -->
   <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
     <a href="checkout.html" class="relative text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Shopping cart">
@@ -54,6 +59,24 @@
     </a>
   </div>
 </nav>
+
+<!-- Sidebar Menu -->
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-900 text-white shadow-lg transform -translate-x-full transition-transform duration-300 z-40">
+  <div class="p-4 flex justify-between items-center border-b border-gray-700">
+    <h2 class="text-lg font-bold">Menu</h2>
+    <button id="closeSidebar" class="text-2xl hover:text-gray-400">&times;</button>
+  </div>
+  <ul class="p-4 space-y-4">
+    <li><a href="#" class="hover:text-gray-300">Home</a></li>
+    <li><a href="#" class="hover:text-gray-300">Shop</a></li>
+    <li><a href="#" class="hover:text-gray-300">About</a></li>
+    <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+  </ul>
+</div>
+
+<!-- Overlay -->
+<div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+
 
 
 <!-- Modal Login dan Register -->
