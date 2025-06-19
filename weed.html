@@ -228,6 +228,35 @@ const descriptions = [
   "Rokok LA Purple, rasa anggur manis."           // 26
 ];
 
+const prices = [
+  300000, // BAJU OVERSIZE WASHED
+  250000, // BAJU OVERSIZE PUTIH 420
+  50000,  // BAHAN ORGANIC
+  500000, // HOODIE
+  350000, // HOODIE
+  120000, // BAJU CHAMCINA
+  150000, // HOODIE KUNING
+  180000, // HOODIE MERAH
+  120000, // HOODIE HIJAU
+  200000, // HOODIE HITAM
+  290000, // BACARDI
+  36000,  // HEINEKEN
+  65000,  // CORONA EXTRA
+  200000, // BAILEYS
+  699000, // CAMPARI
+  319000, // JOHNNIE WALKER RED LABEL
+  469000, // JACK DANIEL'S
+  294000, // VODKA
+  230000, // SMIRNOFF
+  75000,  // ANGGUR MERAH
+  30000,  // ROKOK SURYA
+  3500000, // PS4
+  7000000, // PS5
+  15500000, // iPad Pro
+  18000000,  // Laptop ROG
+35000 //LA Purple
+];
+
   for (let i = 1; i <= 26; i++) {
     const productDiv = document.createElement('div');
     productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
@@ -245,9 +274,9 @@ const descriptions = [
     desc.className = 'text-gray-600 text-sm mb-2';
     desc.textContent = descriptions[(i - 1) % descriptions.length];
 
-    const price = document.createElement('div');
-    price.className = 'text-gray-800 font-bold mb-4';
-    price.textContent = 'Rp250.000';
+   const price = document.createElement('div');
+price.className = 'text-gray-800 font-bold mb-4';
+price.textContent = 'Rp' + prices[i - 1].toLocaleString('id-ID');
 
 const button = document.createElement('button');
 button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center';
