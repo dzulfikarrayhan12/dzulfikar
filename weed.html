@@ -227,10 +227,9 @@
     price.className = 'text-gray-800 font-bold mb-4';
     price.textContent = 'Rp250.000';
 
-   const button = document.createElement('button');
-    button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center gap-2 relative';
-    button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i>< ke Keranjang</span>';
-
+const button = document.createElement('button');
+button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center';
+button.innerHTML = '<i class="ri-shopping-cart-line text-xl"></i>';
 
     button.addEventListener('click', () => {
       const item = {
