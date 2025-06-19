@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meja Ruang Tamu</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: #1a1a1a;
+    }
+
+    .logo-font {
+      font-family: "Nosifer", sans-serif;
+      color: #E2E2DF;
+      font-size: 36px;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .neon-glow {
+      animation: neonPulse 8s infinite;
+    }
+
+    #sidebar {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #userBtn i {
+      color: #229ED9;
+    }
+
+    #cart-count {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+<!-- Sidebar -->
+<div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+<div id="sidebar" class="fixed top-0 left-0 h-full w-[700px] bg-black text-white transform -translate-x-full z-50 shadow-lg">
+  <div class="flex items-center justify-between p-4 border-b border-gray-700">
+    <h2 class="text-xl font-bold">Menu</h2>
+    <button id="closeSidebar" class="text-2xl hover:text-red-400">
+      <i class="ri-close-line"></i>
+    </button>
+  </div>
+  <ul class="p-4 space-y-4">
+    <li><a href="index.html" class="hover:text-blue-400 transition">Home</a></li>
+    <li><a href="#product-container" class="hover:text-blue-400 transition">Produk</a></li>
+    <li><a href="checkout.html" class="hover:text-blue-400 transition">Checkout</a></li>
+  </ul>
+</div>
+
+<!-- Navbar -->
+<nav class="text-white px-4 py-3 h-24 flex items-center justify-center sticky top-0 z-10 relative bg-black">
+  <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+    <button id="menuBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Menu">
+      <i class="ri-menu-line"></i>
+    </button>
+
+    <button id="userBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="User account">
+      <i class="ri-user-line"></i>
+    </button>
+  </div>
+
+  <a href="/" id="logo" aria-label="Homepage" class="logo-font neon-glow font-1px select-none ml-20">
+    weedmaps
+  </a>
+
+  <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+    <a href="checkout.html" class="relative text-4xl hover:text-gray-300 hover:scale-110 transition" aria-label="Shopping cart">
+      <i class="ri-shopping-cart-line"></i>
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-600 text-xl rounded-full w-5 h-5 flex items-center justify-center font-semibold">0</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Modal Login/Register -->
+<div id="loginModal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm z-50">
+  <div class="w-screen h-screen bg-white bg-opacity-20 backdrop-blur-md border border-white/30 rounded-3xl p-8 shadow-lg text-blue font-sans">
+    <h2 id="modalTitle" class="text-3xl font-semibold mb-6 text-white">Login</h2>
+    <form id="authForm" class="space-y-4">
+      <input type="text" id="username" placeholder="Username" required class="w-full px-5 py-3 rounded-xl bg-black bg-opacity-15 border border-white/30 text-white placeholder-white/60 focus:outline-none" />
+      <input type="email" id="email" placeholder="Email" class="hidden w-full px-5 py-3 rounded-xl bg-black bg-opacity-15 border border-white/30 text-white placeholder-white/60 focus:outline-none" />
+      <input type="password" id="password" placeholder="Password" required class="w-full px-5 py-3 rounded-xl bg-black bg-opacity-15 border border-white/30 text-white placeholder-white/60 focus:outline-none" />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" class="hidden w-full px-5 py-3 rounded-xl bg-black bg-opacity-15 border border-white/30 text-white placeholder-white/60 focus:outline-none" />
+
+      <div class="flex justify-start items-center gap-4">
+        <button type="submit" id="submitBtn" class="w-36 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 transition font-semibold flex items-center justify-center gap-2 text-white">
+          <i class="ri-login-box-line"></i><span>Login</span>
+        </button>
+        <button type="button" id="toggleBtn" class="underline text-sm text-black/90 hover:text-white">Register</button>
+      </div>
+    </form>
+
+    <div class="flex justify-end mt-4">
+      <button id="closeModalBtn" class="absolute top-7 right-4 px-4 py-2 rounded-full bg-red-800 hover:bg-red-700 transition font-semibold text-white flex items-center gap-1 text-sm">
+        <i class="ri-close-line"></i> Tutup
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Produk -->
+<div class="p-4">
+  <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
+
+<script>
+  const container = document.getElementById('product-container');
+  const cartCount = document.getElementById('cart-count');
+
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeSidebar = document.getElementById('closeSidebar');
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const loginModal = document.getElementById('loginModal');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const modalTitle = document.getElementById('modalTitle');
+    const emailInput = document.getElementById('email');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const submitBtn = document.getElementById('submitBtn');
+    const userBtn = document.getElementById('userBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    let isRegister = false;
+
+    toggleBtn?.addEventListener('click', () => {
+      isRegister = !isRegister;
+      modalTitle.textContent = isRegister ? 'Register' : 'Login';
+      emailInput.classList.toggle('hidden', !isRegister);
+      confirmPasswordInput.classList.toggle('hidden', !isRegister);
+      submitBtn.innerHTML = isRegister
+        ? `<i class="ri-user-add-line"></i><span>Register</span>`
+        : `<i class="ri-login-box-line"></i><span>Login</span>`;
+      toggleBtn.textContent = isRegister ? 'Login' : 'Register';
+    });
+
+    userBtn?.addEventListener('click', () => {
+      loginModal?.classList.remove('hidden');
+      loginModal?.classList.add('flex');
+    });
+
+    closeModalBtn?.addEventListener('click', () => {
+      loginModal?.classList.add('hidden');
+      loginModal?.classList.remove('flex');
+      isRegister = false;
+      modalTitle.textContent = 'Login';
+      emailInput.classList.add('hidden');
+      confirmPasswordInput.classList.add('hidden');
+      submitBtn.innerHTML = `<i class="ri-login-box-line"></i><span>Login</span>`;
+      toggleBtn.textContent = 'Register';
+    });
+
+    // Sidebar events
+    menuBtn?.addEventListener('click', () => {
+      sidebar.classList.remove('-translate-x-full');
+      sidebarOverlay.classList.remove('hidden');
+    });
+
+    closeSidebar?.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      sidebarOverlay.classList.add('hidden');
+    });
+
+    sidebarOverlay?.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      sidebarOverlay.classList.add('hidden');
+    });
+  });
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("checkout")) || [];
+    const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (cartCount) {
+      cartCount.textContent = totalQty;
+      cartCount.style.display = totalQty > 0 ? "flex" : "none";
+    }
+  }
+  updateCartCount();
+
+  const descriptions = [
+  "Dark-themed hoodie with scorpion art.",
+  "Mystic eye watching through shadows.",
+  "Skull infused in streetwear power.",
+  "Venom spider lurking in fashion.",
+  "Black hoodie with burning edge.",
+  "Minimal yet fierce style.",
+  "Custom chaos on your chest.",
+  "Terror crafted into threads.",
+  "Symbolic hoodie of rebellion.",
+  "Webbed secrets in every fold."
+];
+
+// Loop produk
+
+
+  for (let i = 1; i <= 26; i++) {
+    const productDiv = document.createElement('div');
+    productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
+
+    const img = document.createElement('img');
+    img.src = `images/${i}.jpg`;
+    img.alt = `Produk ${i}`;
+    img.className = 'w-full h-[280px] object-contain rounded-md mb-4 bg-white';
+
+    const title = document.createElement('h3');
+    title.className = 'text-lg font-semibold mb-1';
+    title.textContent = `Produk ${i}`;
+
+    const desc = document.createElement('p');
+    desc.className = 'text-gray-600 text-sm mb-2';
+    desc.textContent = descriptions[(i - 1) % descriptions.length];
+
+    const price = document.createElement('div');
+    price.className = 'text-gray-800 font-bold mb-4';
+    price.textContent = 'Rp250.000';
+
+    const button = document.createElement('button');
+    button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center gap-2 relative';
+    button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+
+    button.addEventListener('click', () => {
+      const item = {
+        title: title.textContent,
+        desc: desc.textContent,
+        price: price.textContent,
+        image: img.src,
+        qty: 1
+      };
+      const cart = JSON.parse(localStorage.getItem("checkout")) || [];
+      const existing = cart.find(p => p.title === item.title);
+      if (existing) {
+        existing.qty = (existing.qty || 1) + 1;
+      } else {
+        cart.push(item);
+      }
+      localStorage.setItem("checkout", JSON.stringify(cart));
+      updateCartCount();
+    });
+
+    productDiv.appendChild(img);
+    productDiv.appendChild(title);
+    productDiv.appendChild(desc);
+    productDiv.appendChild(price);
+    productDiv.appendChild(button);
+    container.appendChild(productDiv);
+  }
+</script>
+
+</body>
+</html>
