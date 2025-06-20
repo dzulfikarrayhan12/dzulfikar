@@ -170,6 +170,7 @@ switchToLoginBtn.addEventListener('click', () => {
 const container = document.getElementById('product-container');
 const cartCount = document.getElementById('cart-count');
 
+// Produk Deskripsi (65 Item)
 const descriptions = [
   "BAJU OVERSIZE WASHED\nUKURAN: XL",
   "BAJU OVERSIZE PUTIH 420\nUKURAN: XL",
@@ -181,53 +182,74 @@ const descriptions = [
   "HOODIE MERAH POLOS\nUKURAN: XL",
   "HOODIE HIJAU POLOS\nUKURAN: XL",
   "HOODIE HITAM POLOS\nUKURAN: XL",
-  "BACARDI SUPERIOR\nRum putih legendaris asal Karibia yang menjadi simbol kesegaran dan keanggunan sejak tahun 1862.\nDisaring hati-hati dan disimpan dalam tong kayu oak selama 1-2 tahun, menghadirkan rasa ringan, bersih, dan halus.\nCocok untuk koktail klasik seperti Mojito, Daiquiri, atau Cuba Libre.",
-  "HEINEKEN\nBir lager asal Belanda yang dikenal global sejak tahun 1873.\nWarna keemasan jernih dengan rasa segar, keseimbangan pahit dan manis, pilihan utama penikmat bir dunia.",
-  "CORONA EXTRA\nBir pale lager ringan asal Meksiko yang terkenal dengan cita rasa segar dan bersih.\nDisajikan terbaik dengan irisan jeruk nipis di mulut botol, cocok untuk suasana santai, pantai, atau pesta barbekyu.\nDiproduksi sejak tahun 1925 dengan bahan pilihan seperti air murni, malt barley, jagung, dan hop.",
-  "BAILEYS\nLikuer krim Irlandia paling terkenal di dunia, memadukan krim susu segar dengan whiskey Irlandia dan sentuhan cokelat serta vanilla.\nDikenal karena tekstur lembut dan rasa manis kaya, menghadirkan kenikmatan elegan di setiap tegukan.",
-  "CAMPARI\nMinuman aperitif berwarna merah cerah legendaris, diciptakan di Italia tahun 1860.\nDikenal dengan rasa pahit khas dan aroma herbal kompleks, dibuat dari infusi rahasia lebih dari 60 bahan alami.",
-  "JOHNNIE WALKER RED LABEL\nBlended Scotch whisky terkenal dengan rasa kuat, tajam, dan berani.\nDiciptakan untuk dicampur dan dinikmati berbagai gaya, dengan aroma smoky, manis, dan pedas.",
-  "JACK DANIEL’S OLD NO. 7\nWhiskey khas Tennessee sejak 1866.\nDibuat dari campuran jagung, barley, dan gandum pilihan, disaring perlahan dengan arang maple untuk rasa lembut dan kaya.",
-  "VODKA\nMinuman beralkohol murni disuling dari gandum, jagung, atau kentang.\nMemiliki karakter bersih, netral, dan halus, fleksibel untuk berbagai koktail klasik maupun modern.",
-  "SMIRNOFF NO. 21\nVodka terlaris di dunia dengan rasa bersih, halus, dan serbaguna.\nDisuling tiga kali dan disaring sepuluh kali dengan arang aktif, menghasilkan kejernihan dan finish lembut.",
-  "ANGGUR MERAH\nMinuman beralkohol yang terbuat dari fermentasi buah anggur merah.\nMemiliki rasa kaya, aroma buah dan rempah yang khas, cocok untuk dinikmati dalam berbagai kesempatan.",
-  "ROKOK SURYA\nMerek rokok terkenal di Indonesia dengan rasa khas dan kualitas tembakau yang konsisten.\nPopuler di kalangan perokok karena cita rasa kuat dan aroma yang khas.",
-  "PLAYSTATION 4 (PS4)\nKonsol game generasi kedelapan dari Sony.\nMenawarkan grafis tajam dan koleksi game eksklusif yang luas, ideal untuk gamer kasual maupun hardcore.",
-  "PLAYSTATION 5 (PS5)\nKonsol game generasi terbaru dengan performa tinggi dan SSD ultra cepat.\nMendukung grafis 4K dan fitur haptic feedback yang membuat pengalaman bermain lebih imersif.",
-  "IPAD PRO\nTablet premium dari Apple dengan layar Liquid Retina yang tajam dan prosesor M1.\nCocok untuk kreativitas, produktivitas, dan hiburan dengan dukungan Apple Pencil dan Magic Keyboard.",
-  "LAPTOP ASUS ROG\nLaptop gaming andalan dengan spesifikasi tinggi dan desain agresif.\nDilengkapi kartu grafis kuat dan sistem pendingin canggih untuk performa maksimal saat bermain game berat.",
-  "LA PURPLE\nRokok dengan rasa unik dan aroma khas buah anggur yang menyegarkan.\nMemberikan sensasi smooth dengan aftertaste manis, populer di kalangan perokok muda dan pencinta rasa berbeda."
+  "BACARDI SUPERIOR\nRum putih legendaris asal Karibia. Rasa ringan dan halus, cocok untuk koktail klasik.",
+  "HEINEKEN\nBir lager asal Belanda, warna keemasan, rasa seimbang dan segar.",
+  "CORONA EXTRA\nBir ringan dari Meksiko. Diminum dengan irisan jeruk nipis, cocok untuk suasana santai.",
+  "BAILEYS\nLikuer krim Irlandia yang manis dan lembut, rasa cokelat dan vanilla.",
+  "CAMPARI\nAperitif merah khas Italia, rasa pahit dengan aroma herbal kompleks.",
+  "JOHNNIE WALKER RED LABEL\nBlended whisky tajam, smoky, dan berani.",
+  "JACK DANIEL’S OLD NO. 7\nWhiskey Tennessee lembut dengan aroma khas arang maple.",
+  "VODKA\nMinuman netral, bersih dan fleksibel untuk semua jenis koktail.",
+  "SMIRNOFF NO. 21\nVodka bersih, disuling 3 kali dan disaring 10 kali.",
+  "ANGGUR MERAH\nMinuman fermentasi anggur, rasa kaya dan aroma rempah.",
+  "ROKOK SURYA\nTembakau lokal berkualitas, rasa kuat dan aroma khas.",
+  "PLAYSTATION 4 (PS4)\nKonsol game Sony generasi ke-8 dengan grafis tajam.",
+  "PLAYSTATION 5 (PS5)\nKonsol next-gen, grafis 4K dan loading super cepat.",
+  "IPAD PRO\nTablet premium Apple dengan layar retina dan Apple Pencil.",
+  "LAPTOP ASUS ROG\nLaptop gaming ekstrem dengan performa tinggi dan pendinginan canggih.",
+  "LA PURPLE\nRokok rasa anggur dengan aroma segar dan aftertaste manis.",
+  "Mie Samyang.",
+  "pembersih lantai.",
+  "super pell",
+  "tisue",
+  "vixal",
+  "biskuit regal",
+  "susu frisianflag",
+  "rinso",
+  "susu frisianflag cocopandan",
+  "molto",
+  "susu ultra",
+  "kopi good day",
+  "shampoe pantene",
+  "pepsodent herbal",
+  "meses ceres",
+  "pepsodent",
+  "deterjen daia lemon",
+  "indomie rendang",
+  "sambal abc",
+  "indomie aceh",
+  "gulaku",
+  "bimoli",
+  "kecap bango",
+  "garam",
+  "sari gandum",
+  "chocolatos",
+  "kokokrunch",
+  "chocolatos dark",
+  "kitkat",
+  "pringles spicy",
+  "doritos",
+  "pepsi",
+  "coca cola",
+  "monster energy",
+  "aqua",
+  "minyak kayu putih",
+  "tolak angin",
+  "le minerale",
+  "sprite"
 ];
 
-  
+// Harga Produk (65 Item)
 const prices = [
-  300000, // BAJU OVERSIZE WASHED
-  250000, // BAJU OVERSIZE PUTIH 420
-  50000,  // BAHAN ORGANIC
-  500000, // HOODIE
-  350000, // HOODIE
-  120000, // BAJU CHAMCINA
-  150000, // HOODIE KUNING
-  180000, // HOODIE MERAH
-  120000, // HOODIE HIJAU
-  200000, // HOODIE HITAM
-  290000, // BACARDI
-  36000,  // HEINEKEN
-  65000,  // CORONA EXTRA
-  200000, // BAILEYS
-  699000, // CAMPARI
-  319000, // JOHNNIE WALKER RED LABEL
-  469000, // JACK DANIEL'S
-  294000, // VODKA
-  230000, // SMIRNOFF
-  75000,  // ANGGUR MERAH
-  30000,  // ROKOK SURYA
-  3500000, // PS4
-  7000000, // PS5
-  15500000, // iPad Pro
-  18000000,  // Laptop ROG
-35000 //LA Purple
+  300000, 250000, 50000, 500000, 350000, 120000, 150000, 180000, 120000, 200000, // 1–10
+  290000, 36000, 65000, 200000, 699000, 319000, 469000, 294000, 230000, 75000,   // 11–20
+  30000, 3500000, 7000000, 15500000, 18000000, 35000, 10000, 18000, 20000,    // 21–30
+  15000, 25000, 10000, 16000, 12000, 16000, 10000, 8000, 5000,        // 31–39
+  18000, 19000, 12000, 19000, 15000, 5000, 8000, 5000, 30000,        // 40–48
+  26000, 6000, 5000, 10000, 15000, 30000, 18000, 10000, 15000,        // 49–57
+  10000, 30000, 30000, 35000, 10000, 8000, 2000, 8000, 10000,                 // 58–65
 ];
+
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("checkout")) || [];
@@ -240,7 +262,7 @@ function updateCartCount() {
 
 if (container) {
   container.innerHTML = '';
-  for (let i = 1; i <= 26; i++) {
+  for (let i = 1; i <= 65; i++) {
     const productDiv = document.createElement('div');
     productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
