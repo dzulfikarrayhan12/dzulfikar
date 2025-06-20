@@ -262,8 +262,8 @@ if (container) {
     price.textContent = 'Rp' + prices[i - 1].toLocaleString('id-ID');
 
     const button = document.createElement('button');
-    button.className = 'mt-auto bg-green-800 hover:bg-green-700 text-black font-semibold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center gap-2 relative';
-    button.innerHTML = '<i class="ri-shopping-cart-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+    button.className = 'mt-auto bg-green-800 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center gap-2 relative';
+    button.innerHTML = '<i class="ri-box-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
 
     button.addEventListener('click', () => {
       const item = {
