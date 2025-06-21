@@ -498,3 +498,24 @@ window.goBack = function () {
   window.location.href = "index.html";
 };
 
+function loadPage(page) {
+    fetch(page)
+      .then(res => {
+        if(!res.ok) throw new Error('Gagal memuat halaman ' + page);
+        return res.text();
+      })
+      .then(html => {
+        document.getElementById('content').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('content').innerHTML = `<p style="color:red;">${err.message}</p>`;
+      });
+  }
+
+  // Fungsi untuk menutup sidebar (sesuaikan dengan logika toggle sidebar kamu)
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.add('-translate-x-full');
+  }
+
+  // Contoh event tombol close sidebar
+  document.getElementById('closeSidebar').addEventListener('click', closeSidebar);
