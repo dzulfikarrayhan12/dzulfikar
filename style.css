@@ -182,12 +182,12 @@ filter: drop-shadow(0 0 2px #a8e6a3) drop-shadow(0 0 4px #66bb6a) drop-shadow(0 
 
  
 #userBtn i {
-  color: black;
+  color: #fff;
   transition: color 0.3s ease;
 }
 
 .ri-shopping-cart-line {
-  color: black;
+  color: #fff;
 }
 
 
