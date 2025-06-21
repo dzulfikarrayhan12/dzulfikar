@@ -24,6 +24,58 @@ nav {
   color: white; /* teks dan ikon putih supaya kontras */
 }
 
+/* Transaksi */
+.transaksi {
+  
+  background: #111;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 40px 0;
+  white-space: nowrap;
+}
+
+.tag-list img {
+  height: 90px;  /* ubah sesuai keinginan: 30px, 60px, dll */
+  width: auto;   /* biarkan proporsional */
+}
+.tag-list li {
+  flex-shrink: 0;        /* mencegah menyusut saat overflow */
+  width: 80px;           /* atur lebar tetap */
+  height: 60px;          /* atur tinggi tetap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Pastikan elemen yang di-scroll adalah container, bukan listnya langsung */
+.scroll-container { /* Anda perlu menambahkan div ini di HTML Anda */
+    overflow-x: visible; /* Sembunyikan scrollbar */
+    width: 100%;
+}
+
+.tag-list.scroll-right {
+  animation: scroll-right 15s linear infinite;
+}
+
+.tag-list.scroll-left {
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-100%); } /* Mulai dari posisi normal */
+  100% { transform: translateX(100%); } /* Geser ke kiri sampai akhir list */
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
 
   .header {
   position: relative;
@@ -46,6 +98,7 @@ nav {
    font-family: "Creepster", system-ui;
   display: inline-block;
   white-space: nowrap;
+   flex: 1; /* agar "CHECKOUT" menempel kiri */
 
 }
 
@@ -58,7 +111,7 @@ nav {
   border-radius: 1px;
   font-family: "Cinzel", serif;
   position: absolute;
-  left: 76%;
+  left: 67%;
   transform: translateX(-50%);
   white-space: nowrap;
 
