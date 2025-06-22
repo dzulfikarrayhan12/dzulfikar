@@ -82,6 +82,17 @@ nav {
   animation: scroll-left 15s linear infinite;
 }
 
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+
 
   .header {
   position: relative;
@@ -424,11 +435,7 @@ filter: drop-shadow(0 0 2px #a8e6a3) drop-shadow(0 0 4px #66bb6a) drop-shadow(0 
   font-weight: bold;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
+
 
 
 .btn-close {
@@ -464,6 +471,15 @@ filter: drop-shadow(0 0 2px #a8e6a3) drop-shadow(0 0 4px #66bb6a) drop-shadow(0 
 .btn-close i {
   color: white; /* icon putih */
 }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #000;
+  border-top: 2px solid #0ff;
+  margin-top: auto; /* Untuk push footer ke bawah halaman */
+}
+
 
   </style>
 </head>
@@ -574,6 +590,13 @@ filter: drop-shadow(0 0 2px #a8e6a3) drop-shadow(0 0 4px #66bb6a) drop-shadow(0 
   
   
 </div>
+
+ 
+  <footer>
+    <p>&copy; 2023 DZULFIKAR. All rights reserved.</p>
+  </footer>
+
+
 
 
 
