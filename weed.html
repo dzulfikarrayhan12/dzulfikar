@@ -103,7 +103,7 @@ a.teko-font i {
 </div>
 
 <!-- Navbar -->
-<nav class="text-white px-4 py-3 h-14 flex items-center justify-center sticky top-0 z-10 relative bg-black">
+<nav class="text-black px-4 py-3 h-14 flex items-center justify-center sticky top-0 z-10 relative bg-white">
   <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
     <button id="menuBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Menu">
       <i class="ri-menu-line"></i>
@@ -117,8 +117,9 @@ a.teko-font i {
   
   <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
  <a href="checkout.html" class="relative text-2xl hover:text-gray-300 hover:scale-110 transition" aria-label="Shopping cart">
-  <i class="ri-box-3-line"></i>
-  <span id="cart-count" class="absolute -top-2 -right-2 bg-white text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">0</span>
+  <i class="ri-shopping-bag-3-line"></i>
+  <span id="cart-count" class="absolute -top-2 -right-2 bg-green-700 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">0</span>
+
 
 
 </a>
@@ -409,8 +410,9 @@ price.className = 'text-gray-800 font-bold mb-4';
 price.textContent = 'Rp' + prices[i - 1].toLocaleString('id-ID');
 
 const button = document.createElement('button');
-button.className = 'mt-auto bg-green-800 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center';
-button.innerHTML = '<i class="ri-shopping-cart-line text-xl"></i>';
+button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center';
+button.innerHTML = '<i class="ri-shopping-cart-2-fill text-xl"></i>';
+
 
     button.addEventListener('click', () => {
       const item = {
