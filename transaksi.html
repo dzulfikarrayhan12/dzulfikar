@@ -1,643 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes" />
-
-  <title>WEEDMAPS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
-
- <style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background: #000;
-  }
-
-   html, body {
-  overflow-x: hidden;
-  
-}
-
-
-    .font-cinzel {
-    font-family: 'Cinzel', serif;
-  }
-
-nav {
-  background-color: rgba(0, 0, 0, 0.25); /* hitam semi transparan */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* garis putih kaca tipis */
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1rem;
-  color: white; /* teks dan ikon putih supaya kontras */
-}
-
-/* Transaksi */
-.transaksi {
-  
-  background: #000;
-}
-
-.tag-list {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  padding: 40px 0;
-  white-space: nowrap;
-}
-
-.tag-list img {
-  height: 90px;  /* ubah sesuai keinginan: 30px, 60px, dll */
-  width: auto;   /* biarkan proporsional */
-}
-.tag-list li {
-  flex-shrink: 0;        /* mencegah menyusut saat overflow */
-  width: 80px;           /* atur lebar tetap */
-  height: 60px;          /* atur tinggi tetap */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-/* Pastikan elemen yang di-scroll adalah container, bukan listnya langsung */
-.scroll-container { /* Anda perlu menambahkan div ini di HTML Anda */
-    overflow-x: visible; /* Sembunyikan scrollbar */
-    width: 100%;
-}
-
-.tag-list.scroll-right {
-  animation: scroll-right 15s linear infinite;
-}
-
-.tag-list.scroll-left {
-  animation: scroll-left 15s linear infinite;
-}
-
-@keyframes scroll-left {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-@keyframes scroll-right {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-
-
-  .header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* agar checkout di kiri */
-  padding: 0.5rem 1rem;
-  background-color: #000; /* sesuaikan dengan tema */
-  height: 50px;
-  box-sizing: border-box;
-}
-
-/* Checkout di kiri */
-.checkout-glow-white-to-yellow {
-  font-weight: bold;
-  font-size: 35px;
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-   font-family: "Creepster", system-ui;
-  display: inline-block;
-  white-space: nowrap;
-
-}
-
-/* Logo di tengah dengan posisi absolute */
-.logo {
-  font-weight: bold;
-  font-size: 12px;
-  color: #FF3B3B; /* merah terang agak soft */
-  padding: 0.5px 1px;
-  border-radius: 1px;
-  font-family: "Cinzel", serif;
-  position: absolute;
-  left: 76%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-
-}
-
-
-/* Tombol close di kanan */
-
-
-/* Styling judul */
-
-#pay-btn {
-  background-color: #000; /* Tailwind bg-green-500 */
-  color: white;
-  font-weight: 600;
-  padding: 0.5rem 1.5rem;     /* Tailwind py-2 px-6 */
-  border-radius: 0.375rem;    /* Tailwind rounded-md */
-  width: 100%;
-  margin-bottom: 3.5rem;      /* Tailwind mb-14 */
-  border: none;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-#pay-btn:hover {
-  background-color: #16a34a; /* Tailwind hover:bg-green-600 */
-}
-
-
-
-.ray-text, .han-text {
-  font-family: "Cinzel", serif;
-  font-size: 26px;
-
-  /* Gradient hijau muda ke hijau tua */
-  background: linear-gradient(
-    90deg,
-    #a8e6a3,  /* hijau muda terang ganja */
-    #66bb6a,  /* hijau muda segar */
-    #2e7d32   /* hijau tua */
-  );
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  /* Garis tepi putih di teks */
-  -webkit-text-stroke: 0.8px white;
-
-  /* Glow efek dari 3 warna hijau */
- text-shadow:
-    0 0 1px #a8e6a3,
-    0 0 2px #66bb6a,
-    0 0 3px #2e7d32;
-
-filter: drop-shadow(0 0 2px #a8e6a3) drop-shadow(0 0 4px #66bb6a) drop-shadow(0 0 6px #2e7d32);
-
-}
-
-#han-part {
-  transition: opacity 0.4s ease;
-}
-
-#han-part.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
- 
-#userBtn i {
-  color: black;
-  transition: color 0.3s ease;
-}
-
-.ri-shopping-cart-line {
-  color: #fff;
-}
-
-
-
-@keyframes neon-flicker {
-  0%, 100% {
-    text-shadow:
-      0 0 5px #8B0000,
-      0 0 10px #FF0000,
-      0 0 20px #FF0000,
-      0 0 30px #FF4D4D,
-      0 0 40px #FF4D4D,
-      0 0 55px #FF6666,
-      0 0 75px #FF6666;
-    opacity: 1;
-  }
-
-  40% {
-    text-shadow:
-      0 0 3px #8B0000,
-      0 0 6px #FF0000,
-      0 0 12px #FF0000,
-      0 0 18px #FF4D4D,
-      0 0 24px #FF4D4D;
-    opacity: 0.8;
-  }
-
-  60% {
-    opacity: 0.2; /* seolah-olah kedip mati */
-    text-shadow: none;
-  }
-
-  80% {
-    opacity: 1;
-    text-shadow:
-      0 0 5px #8B0000,
-      0 0 10px #FF0000,
-      0 0 20px #FF0000,
-      0 0 30px #FF4D4D,
-      0 0 40px #FF4D4D,
-      0 0 55px #FF6666,
-      0 0 75px #FF6666;
-  }
-}
-
-.custom-color {
-  color: #8B0000;
-  animation: neon-flicker 2s infinite ease-in-out;
-}
-
-
-  #cart-count {
-    display: none;
-  }
-
-  .glow-super-bright {
-    color: #ffffff;
-    text-shadow:
-      0 0 8px #ffffff,
-      0 0 16px #ffffff,
-      0 0 24px #ffffff,
-      0 0 32px #ffffff,
-      0 0 40px #ffffff,
-      0 0 50px #ffffff;
-  }
-
-  .input-white-glow {
-    color: #f5f5f5; /* putih susu */
-    text-shadow:
-      0 0 4px rgba(255, 255, 255, 0.8),
-      0 0 10px rgba(255, 255, 255, 0.6);
-  }
-
-  .input-container {
-    max-width: 320px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 480px) {
-    .input-container {
-      max-width: 100%;
-      padding: 0 1rem;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3 Slot Machine</title>
+  <style>
+    * {
+      box-sizing: border-box;
     }
-  }
 
-  #loginModal {
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-  }
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 1rem;
+    }
 
-  input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-  }
+    .slot-machine {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-  input:focus {
-    border-color: #60a5fa;
-    background-color: rgba(255, 255, 255, 0.3);
-  }
+    .slot-wrapper {
+      width: 28vw;
+      max-width: 100px;
+      height: 100px;
+      overflow: hidden;
+      border: 3px solid #ccc;
+      border-radius: 12px;
+      background: white;
+    }
 
- 
-  #submitBtn {
-  background-color: #229ED9; /* biru terang (Tailwind bg-blue-400) */
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease;
-}
+    .slot {
+      display: flex;
+      flex-direction: column;
+    }
 
-#closeModalBtn {
-  background-color: #8B0000; /* Merah Netflix */
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: background-color 0.3s ease;
-  border: none;
-}
+    .slot img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+      display: block;
+    }
 
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      background: #2563eb;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-.social-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 29px;
-  margin-top: 15px;
-}
+    button:hover {
+      background: #1e40af;
+    }
 
+    @media (max-width: 500px) {
+      .slot-wrapper {
+        width: 28vw;
+        height: 90px;
+      }
 
-/* Warna default untuk semua link sosial media */
-.social-icons a {
-  color: #eee;
-  margin: 0 15px;
-  font-size: 45px;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+      .slot img {
+        height: 90px;
+      }
 
-/* Warna khusus per media sosial */
-.social-icons a.facebook {
-  background: transparent;       /* background transparan */
-  width: 50px;
-  height: 50px;
-  border-radius: 5%;             /* sudut agak membulat */
-  border: 3px solid;
-  border-image-slice: 1;
-  border-width: 3px;
-
-  color: white;                  /* warna icon putih */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;               /* ukuran icon */
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  overflow: hidden;
-}
-
-
-.social-icons a.instagram {
-  background: transparent;       /* background transparan */
-  width: 50px;
-  height: 50px;
-  border-radius: 5%;             /* sudut agak membulat */
-  border: 3px solid;
-  border-image-slice: 1;
-  border-width: 3px;
-
-  color: white;                  /* warna icon putih */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;               /* ukuran icon */
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  overflow: hidden;
-}
-
-
-.social-icons a.whatsapp {
-  background: transparent;       /* background transparan */
-  width: 50px;
-  height: 50px;
-  border-radius: 5%;             /* sudut agak membulat */
-  border: 3px solid;
-  border-image-slice: 1;
-  border-width: 3px;
-
-  color: white;                  /* warna icon putih */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;               /* ukuran icon */
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  overflow: hidden;
-}
-
-/* Hover masing-masing */
-.social-icons a.facebook:hover {
-  color: #145dbf; /* Biru gelap */
-}
-.social-icons a.instagram:hover {
-  color: #b2124a; /* Pink gelap */
-}
-.social-icons a.whatsapp:hover {
-  color: #1ebe56; /* Hijau gelap */
-}
-
-
-#form-title {
-   font-family: "Cinzel", serif;
-   color: #fff; 
-}
-
-#cursor {
-  display: inline-block;
-  animation: blink 1s step-start infinite;
-  color: #fff; /* bisa diganti sesuai tema */
-  font-weight: bold;
-}
-
-
-
-
-.btn-close {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-
-  background-color: #FF3B3B;/* merah yang serasi */
-  padding: 0.5rem 0.6rem;
-  border-radius: 6px; /* bukan lingkaran, tapi sedikit rounded */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 36px;
-  height: 36px;
-  color:#FF3B3B; /* ikon tetap putih */
-  font-size: 41px;
-  border: none; /* hilangkan border default (kalau ada) */
-}
-
-.btn-close::before {
-  content: "";
-  position: absolute;
-  inset: 4px;             /* jarak dari semua sisi */
-  border-radius: 4px;     /* sudut kotak sedikit membulat */
-  border: 2px solid white;
-  pointer-events: none;
-}
-
-.btn-close i {
-  color: white; /* icon putih */
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #000;
-  border-top: 2px solid #0ff;
-  margin-top: auto; /* Untuk push footer ke bawah halaman */
-}
-
-
+      button {
+        width: 100%;
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
+<body>
 
-<body class="bg-black-100">
-
-<!-- Navbar -->
-<nav class="relative text-white px-4 py-3 h-14 flex items-center justify-center  sticky top-0 z-10">
-
-  <!-- Menu dan User di kiri -->
-  <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
-    <!-- Tombol Menu -->
-    <button id="menuBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Menu">
-      <i class="ri-menu-line"></i>
-    </button>
-
-
+  <div class="slot-machine">
+    <div class="slot-wrapper"><div class="slot" id="slot1"></div></div>
+    <div class="slot-wrapper"><div class="slot" id="slot2"></div></div>
+    <div class="slot-wrapper"><div class="slot" id="slot3"></div></div>
   </div>
 
-  <!-- Logo di tengah -->
-<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -translate-x-1">
-<div id="logo" class="text-[2px] font-bold">
-  
-    <span class="ray-text">W</span>
-    <span class="ray-text">e</span>
-    <span class="ray-text">e</span>
-    <span class="ray-text">d</span>
-     <span class="ray-text">M</span>
-    <span class="ray-text">a</span>
-    <span class="ray-text">p</span>
-    <span class="ray-text">s</span>
-     
-   
-    </span>
-  </div>
-</div>
+  <button onclick="spinAll()">🎰 Spin</button>
 
-  <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
-    <a href="checkout.html" class="relative text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Shopping cart">
-      <i class="ri-shopping-bag-3-line"></i>
-      <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-600 text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">0</span>
-    </a>
-  </div>
+  <script>
+    const images = [
+      { src: "images/seabank.jpg", alt: "Seabank" },
+      { src: "images/dana.jpg", alt: "DANA" },
+      { src: "images/gopay.jpg", alt: "Gopay" },
+      { src: "images/ovo.jpg", alt: "OVO" },
+      { src: "images/bca.jpg", alt: "BCA" },
+      { src: "images/bri.jpg", alt: "BRI" },
+      { src: "images/bni.jpg", alt: "BNI" },
+    ];
 
-</nav>
+    const slots = [
+      document.getElementById("slot1"),
+      document.getElementById("slot2"),
+      document.getElementById("slot3"),
+    ];
 
-<!-- Sidebar Menu -->
-<!-- Sidebar Menu -->
-<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white text-black shadow-lg transform -translate-x-full transition-transform duration-300 z-40">
-  <div class="p-4 flex justify-between items-center border-b border-gray-700">
-    <h2 class="text-lg font-bold font-cinzel">transaksi</h2>
-    <button id="closeSidebar" class="text-2xl hover:text-gray-400">&times;</button>
-  </div>
-  <ul class="p-4 space-y-4">
-    <li>
- <a href="index.html" class="hover:text-gray-300 flex items-center gap-2 text-black font-cinzel">
-  <i class="ri-home-2-line text-black" style="font-size: 30px;"></i>home
-</a>
+    // Isi gambar ke setiap slot
+    slots.forEach(slot => {
+      const spinImages = [...images];
+      spinImages.forEach(imgData => {
+        const img = document.createElement("img");
+        img.src = imgData.src;
+        img.alt = imgData.alt;
+        slot.appendChild(img);
+      });
+    });
 
- <a href="weed.html" class="hover:text-gray-300 flex items-center gap-2 text-black font-cinzel">
-  <i class="ri-box-3-fill text-black" style="font-size: 30px;"></i>produk
-</a>
+    function spinAll() {
+      const imageHeight = slots[0].children[0].clientHeight;
 
-    </li>
-  </ul>
-</div>
+      slots.forEach(slot => {
+        const stopIndex = Math.floor(Math.random() * images.length);
+        const translateY = -stopIndex * imageHeight;
 
-<!-- Overlay -->
-<div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
-
-
-
-<!-- Modal Login dan Register -->
-
-
-
-  </div>
-</div>
-
-<!-- Container Produk -->
-
-
-  <section class="transaksi" id="transaksi">
-    <div class="center-text">
-      <h2><span>TRANSAKSI</span></h2>
-      <div class="scroller">
-        <ul class="tag-list scroller__inner scroll-right">
-        
-    <li><img src="images/seabank.jpg" alt="seabank" /></li>
-    <li><img src="images/dana.jpg" alt="dana" /></li>
-    <li><img src="images/gopay.jpg" alt="gopay" /></li>
-    <li><img src="images/ovo.jpg" alt="ovo" /></li>
-     <li><img src="images/seabank.jpg" alt="seabank" /></li>
-    <li><img src="images/dana.jpg" alt="dana" /></li>
-    <li><img src="images/gopay.jpg" alt="gopay" /></li>
-    <li><img src="images/ovo.jpg" alt="ovo" /></li>
-     <li><img src="images/seabank.jpg" alt="seabank" /></li>
-    <li><img src="images/dana.jpg" alt="dana" /></li>
-    <li><img src="images/gopay.jpg" alt="gopay" /></li>
-    <li><img src="images/ovo.jpg" alt="ovo" /></li>
-     <li><img src="images/seabank.jpg" alt="seabank" /></li>
-    <li><img src="images/dana.jpg" alt="dana" /></li>
-    <li><img src="images/gopay.jpg" alt="gopay" /></li>
-    <li><img src="images/ovo.jpg" alt="ovo" /></li>
-     <li><img src="images/seabank.jpg" alt="seabank" /></li>
-    <li><img src="images/dana.jpg" alt="dana" /></li>
-    <li><img src="images/gopay.jpg" alt="gopay" /></li>
-    <li><img src="images/ovo.jpg" alt="ovo" /></li>
-    
-        </ul>
-      </div>
-   <div class="scroller">
-  <ul class="tag-list scroller__inner scroll-left">
-    <li><img src="images/bca.jpg" alt="seabank" /></li>
-    <li><img src="images/bni.jpg" alt="bni" /></li>
-    <li><img src="images/bri.jpg" alt="bri" /></li>
-    <li><img src="images/bca.jpg" alt="seabank" /></li>
-     <li><img src="images/bca.jpg" alt="seabank" /></li>
-    <li><img src="images/bni.jpg" alt="bni" /></li>
-    <li><img src="images/bri.jpg" alt="bri" /></li>
-    <li><img src="images/bca.jpg" alt="seabank" /></li>
-   <li><img src="images/bca.jpg" alt="seabank" /></li>
-    <li><img src="images/bni.jpg" alt="bni" /></li>
-    <li><img src="images/bri.jpg" alt="bri" /></li>
-    <li><img src="images/bca.jpg" alt="seabank" /></li>
-   <li><img src="images/bca.jpg" alt="seabank" /></li>
-    <li><img src="images/bni.jpg" alt="bni" /></li>
-    <li><img src="images/bri.jpg" alt="bri" /></li>
-    <li><img src="images/bca.jpg" alt="seabank" /></li>
-   <li><img src="images/bca.jpg" alt="seabank" /></li>
-    <li><img src="images/bni.jpg" alt="bni" /></li>
-    <li><img src="images/bri.jpg" alt="bri" /></li>
-    <li><img src="images/bca.jpg" alt="seabank" /></li>
-  
-  
-  </ul>
-  
-  
-</div>
-
- 
-  <footer>
-    <p>&copy; 2023 DZULFIKAR. All rights reserved.</p>
-  </footer>
-
-
-
-
-
-
-<script src="script.js"></script>
+        // Tanpa animasi, langsung loncat ke posisi
+        slot.style.transition = 'none';
+        slot.style.transform = `translateY(${translateY}px)`;
+      });
+    }
+  </script>
 
 </body>
 </html>
