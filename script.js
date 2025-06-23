@@ -15,153 +15,167 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-   const menuBtn = document.getElementById('menuBtn');
-  const sidebar = document.getElementById('sidebar');
-  const closeBtn = document.getElementById('closeSidebar');
-  const overlay = document.getElementById('sidebarOverlay');
+// TOGGLE PASSWORD VISIBILITY
+function togglePassword(inputId) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
 
-  menuBtn.addEventListener('click', () => {
-    sidebar.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-  });
+  const parent = input.parentElement;
+  if (!parent) return;
 
-  closeBtn.addEventListener('click', () => {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-  });
+  const icon = parent.querySelector('i.ri-eye-line, i.ri-eye-off-line');
+  if (!icon) return;
 
-  overlay.addEventListener('click', () => {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-  });
-  
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+
+  icon.className = isPassword
+    ? 'ri-eye-off-line absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 cursor-pointer'
+    : 'ri-eye-line absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 cursor-pointer';
+}
+
+// SIDEBAR TOGGLE
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+const closeSidebar = document.getElementById('closeSidebar');
+
+menuBtn.addEventListener('click', () => {
+  sidebar.classList.remove('-translate-x-full');
+  sidebarOverlay.classList.remove('hidden');
+});
+
+closeSidebar.addEventListener('click', () => {
+  sidebar.classList.add('-translate-x-full');
+  sidebarOverlay.classList.add('hidden');
+});
+
+sidebarOverlay.addEventListener('click', () => {
+  sidebar.classList.add('-translate-x-full');
+  sidebarOverlay.classList.add('hidden');
+});
+
+// MODAL LOGIN / REGISTER
+const loginModal = document.getElementById('loginModal');
+const userBtn = document.getElementById('userBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const loginForm = document.getElementById('loginForm');
+const registerForm = document.getElementById('registerForm');
+const switchToRegisterBtn = document.getElementById('switchToRegisterBtn');
+const switchToLoginBtn = document.getElementById('switchToLoginBtn');
+const typedEl = document.getElementById('typed');
+
+let isRegister = false;
+
+const texts = {
+  login: 'Silahkan daftar jika belum punya akun',
+  register: 'Silahkan login jika sudah punya akun'
+};
+
+// Efek ketik loop
+let typingInterval;
+let resetTimeout;
+let i = 0;
+function typeText(text) {
+  if (!typedEl) return;
+  clearInterval(typingInterval);
+  clearTimeout(resetTimeout);
+  i = 0;
+  typedEl.textContent = '';
+  typingInterval = setInterval(() => {
+    if (i < text.length) {
+      typedEl.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(typingInterval);
+      resetTimeout = setTimeout(() => {
+        typedEl.textContent = '';
+        i = 0;
+        typeText(text);
+      }, 3500);
+    }
+  }, 90);
+}
+
+// Buka modal login
+userBtn.addEventListener('click', () => {
+  loginModal.classList.remove('hidden');
+  loginModal.classList.add('flex');
+  isRegister = false;
+  loginForm.classList.remove('hidden');
+  registerForm.classList.add('hidden');
+  typeText(texts.login);
+});
+
+// Tutup modal
+closeModalBtn.addEventListener('click', () => {
+  loginModal.classList.add('hidden');
+  loginModal.classList.remove('flex');
+  loginForm.reset();
+  registerForm.reset();
+  typedEl.textContent = '';
+});
+
+// Switch ke register
+switchToRegisterBtn.addEventListener('click', () => {
+  isRegister = true;
+  loginForm.classList.add('hidden');
+  registerForm.classList.remove('hidden');
+  typeText(texts.register);
+});
+
+// Switch ke login
+switchToLoginBtn.addEventListener('click', () => {
+  isRegister = false;
+  registerForm.classList.add('hidden');
+  loginForm.classList.remove('hidden');
+  typeText(texts.login);
+});
+
+// Handle login form submit
+loginForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const username = loginForm.username.value.trim();
+  const password = loginForm.password.value;
+
+  if (!username || !password) {
+    alert('Isi username dan password');
+    return;
+  }
+
+  alert(`Login berhasil: ${username}`);
+  loginModal.classList.add('hidden');
+  loginModal.classList.remove('flex');
+  loginForm.reset();
+});
+
+// Handle register form submit
+registerForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const username = registerForm.username.value.trim();
+  const email = registerForm.email.value.trim();
+  const password = registerForm.password.value;
+  const confirmPassword = registerForm.confirmPassword.value;
+
+  if (!username || !email || !password || !confirmPassword) {
+    alert('Lengkapi semua data');
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert('Password tidak sama');
+    return;
+  }
+
+  alert(`Register berhasil: ${username}, email: ${email}`);
+  loginModal.classList.add('hidden');
+  loginModal.classList.remove('flex');
+  registerForm.reset();
+});
+
   // ========================
   // TOGGLE VISIBILITAS PASSWORD
   // ========================
-  const togglePassword = document.getElementById('togglePassword');
-  const passwordInput = document.getElementById('password');
-  const eyeIcon = document.getElementById('eyeIcon');
-
-  togglePassword?.addEventListener('click', () => {
-    if (!passwordInput) return;
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
-    eyeIcon.className = type === 'password' ? 'ri-eye-line text-xl' : 'ri-eye-off-line text-xl';
-  });
-
-  // ========================
-  // MODAL LOGIN / REGISTER
-  // ========================
-  const loginModal = document.getElementById('loginModal');
-  const toggleBtn = document.getElementById('toggleBtn');
-  const modalTitle = document.getElementById('modalTitle');
-  const emailInput = document.getElementById('email');
-  const emailContainer = document.getElementById('emailContainer');
-  const confirmPasswordInput = document.getElementById('confirmPassword');
-  const submitBtn = document.getElementById('submitBtn');
-  const userBtn = document.getElementById('userBtn');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-  const typedEl = document.getElementById('typed');
-
-  let isRegister = false;
-  const texts = {
-    login: 'silahkan daftar jika belum punya akun',
-    register: 'silahkan login jika sudah punya akun'
-  };
-
-  // Efek teks ketik
-  let typingInterval;
-  let resetTimeout;
-  let i = 0;
-
-  function typeText(text) {
-    if (!typedEl) return;
-    clearInterval(typingInterval);
-    clearTimeout(resetTimeout);
-    i = 0;
-    typedEl.textContent = '';
-    typingInterval = setInterval(() => {
-      if (i < text.length) {
-        typedEl.textContent += text.charAt(i);
-        i++;
-      } else {
-        clearInterval(typingInterval);
-        resetTimeout = setTimeout(() => {
-          typedEl.textContent = '';
-          i = 0;
-          typeText(text);
-        }, 3500);
-      }
-    }, 90);
-  }
-
-  // Toggle antar form login dan register
-  toggleBtn?.addEventListener('click', () => {
-    isRegister = !isRegister;
-    modalTitle.textContent = isRegister ? 'Register' : 'Login';
-    emailContainer.classList.toggle('hidden', !isRegister);
-    confirmPasswordInput?.classList.toggle('hidden', !isRegister);
-    submitBtn.querySelector('i').className = isRegister ? 'ri-user-add-line' : 'ri-login-box-line';
-    submitBtn.querySelector('span').textContent = isRegister ? 'Register' : 'Login';
-    toggleBtn.textContent = isRegister ? 'Login' : 'Register';
-    emailInput.required = isRegister;
-    typeText(isRegister ? texts.register : texts.login);
-  });
-
-  userBtn?.addEventListener('click', () => {
-    loginModal?.classList.remove('hidden');
-    loginModal?.classList.add('flex');
-    typeText(texts.login);
-  });
-
-  closeModalBtn?.addEventListener('click', () => {
-    loginModal?.classList.add('hidden');
-    loginModal?.classList.remove('flex');
-    isRegister = false;
-    modalTitle.textContent = 'Login';
-    emailContainer.classList.add('hidden');
-    confirmPasswordInput?.classList.add('hidden');
-    submitBtn.querySelector('i').className = 'ri-login-box-line';
-    submitBtn.querySelector('span').textContent = 'Login';
-    toggleBtn.textContent = 'Register';
-    emailInput.required = false;
-  });
-
-  // ========================
-  // HANDLE SUBMIT FORM LOGIN / REGISTER
-  // ========================
-  const authForm = document.getElementById('authForm');
-  authForm?.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const username = authForm.username.value.trim();
-    const password = authForm.password.value;
-    const email = authForm.email.value.trim();
-    const confirmPassword = authForm.confirmPassword.value;
-
-    if (!username || !password || (isRegister && (!email || password !== confirmPassword))) {
-      alert("Pastikan semua data terisi dan password sesuai.");
-      return;
-    }
-
-    alert(isRegister ? `Register berhasil untuk user: ${username}, email: ${email}` : `Login berhasil untuk user: ${username}`);
-    authForm.reset();
-  });
-
-  const loginForm = document.getElementById('loginForm');
-const registerForm = document.getElementById('registerForm');
-const switchToRegisterBtn = document.getElementById('switchToRegisterBtn');
-const switchToLoginBtn = document.getElementById('switchToLoginBtn'); // pastikan ini ada di form register
-
-switchToRegisterBtn.addEventListener('click', () => {
-  loginForm.classList.add('hidden');
-  registerForm.classList.remove('hidden');
-});
-
-switchToLoginBtn.addEventListener('click', () => {
-  registerForm.classList.add('hidden');
-  loginForm.classList.remove('hidden');
-});
 
 
   // ========================
@@ -406,8 +420,10 @@ if (container) {
     price.textContent = 'Rp' + prices[i - 1].toLocaleString('id-ID');
 
     const button = document.createElement('button');
-    button.className = 'mt-auto bg-green-800 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center gap-2 relative';
-    button.innerHTML = '<i class="ri-box-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+   
+   button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center gap-2 relative';
+button.innerHTML = '<i class="ri-box-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
+
 
     button.addEventListener('click', () => {
       const item = {
