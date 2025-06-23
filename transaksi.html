@@ -3,97 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>3 Slot Machine</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <title>WeedMaps Slot</title>
 
-    body {
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: #f0f4f8;
-      margin: 0;
-      padding: 1rem;
-    }
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    .slot-machine {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .slot-wrapper {
-      width: 28vw;
-      max-width: 100px;
-      height: 100px;
-      overflow: hidden;
-      border: 3px solid #ccc;
-      border-radius: 12px;
-      background: white;
-    }
-
-    .slot {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .slot img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      border-bottom: 1px solid #eee;
-      display: block;
-    }
-
-    button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: none;
-      background: #2563eb;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #1e40af;
-    }
-
-    @media (max-width: 500px) {
-      .slot-wrapper {
-        width: 28vw;
-        height: 90px;
-      }
-
-      .slot img {
-        height: 90px;
-      }
-
-      button {
-        width: 100%;
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+  <!-- Remix Icon CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-100 font-sans">
 
-  <div class="slot-machine">
-    <div class="slot-wrapper"><div class="slot" id="slot1"></div></div>
-    <div class="slot-wrapper"><div class="slot" id="slot2"></div></div>
-    <div class="slot-wrapper"><div class="slot" id="slot3"></div></div>
+  <!-- Sidebar Fullscreen Geser dari Kiri -->
+  <div id="sidebar"
+       class="fixed inset-0 z-40 transition-transform duration-300 transform -translate-x-full bg-black/50"
+       onclick="toggleSidebar(false)">
+    <div
+      class="w-72 max-w-full h-full shadow-2xl p-6 bg-white/30 backdrop-blur-md backdrop-saturate-150"
+      onclick="event.stopPropagation()"
+    >
+      <!-- Tombol Close -->
+      <button id="closeBtn"
+              onclick="toggleSidebar(false)"
+              class="absolute top-4 right-4 text-gray-800 text-2xl transform transition-all duration-300">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <h2 class="text-xl font-bold mb-6 text-gray-800">Menu</h2>
+      <ul class="space-y-4">
+        <li><a href="index.html" class="text-blue-700 hover:underline">Beranda</a></li>
+        <li><a href="index.html" class="text-blue-700 hover:underline">Tentang</a></li>
+        <li><a href="weed.html" class="text-blue-700 hover:underline">Kontak</a></li>
+      </ul>
+    </div>
   </div>
 
-  <button onclick="spinAll()">🎰 Spin</button>
+  <!-- Navbar -->
+  <header class="bg-blue-800 text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between relative">
 
+      <!-- Tombol Menu -->
+      <button onclick="toggleSidebar(true)" class="text-white text-2xl">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <!-- Logo Tengah -->
+      <div class="absolute left-1/2 -translate-x-1/2 text-lg font-bold">
+        WeedMaps
+      </div>
+
+      <!-- Placeholder kanan -->
+      <div class="w-6 h-6"></div>
+    </div>
+  </header>
+
+  <!-- Konten Slot Machine -->
+  <main class="flex flex-col items-center justify-center min-h-screen py-10 px-4">
+    <div class="flex flex-wrap gap-4 justify-center mb-6">
+      <div class="w-[28vw] max-w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div class="flex flex-col" id="slot1"></div>
+      </div>
+      <div class="w-[28vw] max-w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div class="flex flex-col" id="slot2"></div>
+      </div>
+      <div class="w-[28vw] max-w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div class="flex flex-col" id="slot3"></div>
+      </div>
+    </div>
+
+    <button onclick="spinAll()" class="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition">
+      🎰 Spin
+    </button>
+  </main>
+
+  <!-- Script Sidebar & Slot -->
   <script>
+    function toggleSidebar(show) {
+      const sidebar = document.getElementById("sidebar");
+      if (show) {
+        sidebar.classList.remove("-translate-x-full");
+        sidebar.classList.add("translate-x-0");
+      } else {
+        sidebar.classList.add("-translate-x-full");
+        sidebar.classList.remove("translate-x-0");
+      }
+    }
+
     const images = [
       { src: "images/seabank.jpg", alt: "Seabank" },
       { src: "images/dana.jpg", alt: "DANA" },
@@ -110,25 +104,21 @@
       document.getElementById("slot3"),
     ];
 
-    // Isi gambar ke setiap slot
     slots.forEach(slot => {
-      const spinImages = [...images];
-      spinImages.forEach(imgData => {
+      images.forEach(imgData => {
         const img = document.createElement("img");
         img.src = imgData.src;
         img.alt = imgData.alt;
+        img.classList.add("w-full", "h-[100px]", "object-cover", "border-b");
         slot.appendChild(img);
       });
     });
 
     function spinAll() {
       const imageHeight = slots[0].children[0].clientHeight;
-
       slots.forEach(slot => {
         const stopIndex = Math.floor(Math.random() * images.length);
         const translateY = -stopIndex * imageHeight;
-
-        // Tanpa animasi, langsung loncat ke posisi
         slot.style.transition = 'none';
         slot.style.transform = `translateY(${translateY}px)`;
       });
