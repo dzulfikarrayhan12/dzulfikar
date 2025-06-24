@@ -371,6 +371,26 @@ const descriptions = [
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
+  "parfum",
    
 ];
 
@@ -398,7 +418,7 @@ function updateCartCount() {
 
 if (container) {
   container.innerHTML = '';
-  for (let i = 1; i <= 182; i++) {
+  for (let i = 1; i <= 302; i++) {
     const productDiv = document.createElement('div');
     productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
