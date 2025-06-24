@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WeedMaps Slot</title>
-
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Remix Icon -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body class="bg-slate-100 font-sans">
@@ -40,49 +37,69 @@
   </div>
 
   <!-- Navbar -->
-  <header class="bg-blue-800 text-white sticky top-0 z-40 shadow-md">
-    <div class="relative flex items-center justify-between px-4 py-4">
-      <button onclick="toggleSidebar(true)" class="text-2xl"><i class="ri-menu-line"></i></button>
-      <div class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">WeedMaps</div>
-      <div class="w-6 h-6"></div>
-    </div>
-  </header>
+  <!-- Navbar -->
+<header class="bg-black text-white sticky top-0 z-40 shadow-md">
+  <div class="relative flex items-center justify-between px-4 py-4">
+    <button onclick="toggleSidebar(true)" class="text-2xl"><i class="ri-menu-line"></i></button>
+    <div class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">WeedMaps</div>
+    <div class="w-6 h-6"></div>
+  </div>
+</header>
 
-  <!-- Konten Game Slot -->
-  <main class="flex flex-col items-center justify-center min-h-screen py-10 px-4">
-    <h1 class="text-2xl font-bold mb-4 text-blue-900"><i class="ri-rocket-2-fill"></i>Transaksi</h1>
-    <div class="flex flex-wrap gap-4 justify-center mb-6">
-      <div class="w-[28vw] max-w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div class="flex flex-col" id="slot1"></div>
+
+  <!-- Konten -->
+  <main class="flex flex-col items-center justify-center min-h-screen py-20 px-10">
+    <h1 class="text-2xl font-bold mb-6 text-blue-900"><i class="ri-rocket-2-fill"></i> Transaksi</h1>
+
+    <!-- Grid Slot 3x3 -->
+    <div class="grid grid-cols-3 gap-8 mb-6">
+      <!-- 9 Slot -->
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot1" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
       </div>
-      <div class="w-[28vw] max-w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div class="flex flex-col" id="slot2"></div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot2" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
       </div>
-      <div class="w-[28vw] max-w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div class="flex flex-col" id="slot3"></div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot3" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+      </div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot4" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+      </div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot5" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+      </div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot6" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+      </div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot7" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+      </div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot8" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+      </div>
+      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+        <div id="slot9" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
       </div>
     </div>
 
+    <!-- Tombol SPIN -->
     <button onclick="spinAll()" class="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition">
       <i class="ri-refresh-line"></i> Spin
     </button>
   </main>
 
-  <!-- Script -->
-  <script>
-    function toggleSidebar(show) {
-      const sidebar = document.getElementById("sidebar");
-      if (show) {
-        sidebar.classList.remove("-translate-x-full");
-        sidebar.classList.add("translate-x-0");
-      } else {
-        sidebar.classList.add("-translate-x-full");
-        sidebar.classList.remove("translate-x-0");
-      }
-    }
+<footer class="fixed bottom-0 left-0 w-full bg-black py-3 border-t border-white/10">
+  <div class="max-w-md mx-auto flex flex-col items-center text-center text-white text-sm px-4">
+  
+    <p class="text-xs text-white/60">© 2025 DZULFIKAR. All rights reserved.</p>
+  </div>
+</footer>
 
+  <!-- SCRIPT -->
+  <script>
     const images = [
-      { src: "images/seabank.jpg", alt: "Seabank" },
+      { src: "images/seabank.png", alt: "Seabank" },
       { src: "images/dana.jpg", alt: "DANA" },
       { src: "images/gopay.jpg", alt: "Gopay" },
       { src: "images/ovo.jpg", alt: "OVO" },
@@ -91,50 +108,84 @@
       { src: "images/bni.jpg", alt: "BNI" },
     ];
 
-    const slots = [
-      document.getElementById("slot1"),
-      document.getElementById("slot2"),
-      document.getElementById("slot3"),
-    ];
+    const slotElements = [];
+    for (let i = 1; i <= 9; i++) {
+      slotElements.push(document.getElementById(`slot${i}`));
+    }
 
     // Isi slot dengan gambar
-    slots.forEach(slot => {
+    slotElements.forEach(slot => {
       images.forEach(data => {
         const img = document.createElement("img");
         img.src = data.src;
         img.alt = data.alt;
-        img.className = "w-full h-[100px] object-cover border-b";
+        img.className = "w-full h-[100px] object-cover";
         slot.appendChild(img);
       });
     });
 
     function spinAll() {
-      const imageHeight = slots[0].children[0].clientHeight;
+      const imageHeight = 100;
+      const finalIndexes = [];
 
-      slots.forEach((slot, index) => {
-        let totalLoops = 10 + index * 5;
-        let currentLoop = 0;
-
-        function spinLoop() {
-          currentLoop++;
-          const randomIndex = Math.floor(Math.random() * images.length);
-          const translateY = -randomIndex * imageHeight;
-
-          slot.style.transition = 'transform 0.1s linear';
-          slot.style.transform = `translateY(${translateY}px)`;
-
-          if (currentLoop < totalLoops) {
-            setTimeout(spinLoop, 100);
-          } else {
-            const finalIndex = Math.floor(Math.random() * images.length);
-            const finalTranslateY = -finalIndex * imageHeight;
-            slot.style.transition = 'transform 0.5s ease-out';
-            slot.style.transform = `translateY(${finalTranslateY}px)`;
-          }
-        }
-
-        spinLoop();
+      // Reset highlight
+      [3, 4, 5].forEach(i => {
+        slotElements[i].parentElement.classList.remove("ring", "ring-yellow-400", "ring-offset-2");
       });
+
+      slotElements.forEach((slot, index) => {
+        const totalLoops = 10;
+        let currentLoop = 0;
+        const finalIndex = Math.floor(Math.random() * images.length);
+        finalIndexes.push(finalIndex);
+
+        const row = Math.floor(index / 3);
+        const col = index % 3;
+        const diagonalDelay = (row + col) * 100;
+
+        setTimeout(() => {
+          function spinLoop() {
+            currentLoop++;
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const translateY = -randomIndex * imageHeight;
+
+            slot.style.transition = 'transform 0.1s linear';
+            slot.style.transform = `translateY(${translateY}px)`;
+
+            if (currentLoop < totalLoops) {
+              setTimeout(spinLoop, 80);
+            } else {
+              const finalTranslateY = -finalIndex * imageHeight;
+              slot.style.transition = 'transform 0.5s ease-out';
+              slot.style.transform = `translateY(${finalTranslateY}px)`;
+            }
+          }
+
+          spinLoop();
+        }, diagonalDelay);
+      });
+
+      // Cek kemenangan
+      setTimeout(() => {
+        const midRow = [finalIndexes[3], finalIndexes[4], finalIndexes[5]];
+        if (midRow.every(i => i === midRow[0])) {
+          alert("🎉 MENANG! Baris tengah cocok!");
+          [3, 4, 5].forEach(i => {
+            slotElements[i].parentElement.classList.add("ring", "ring-yellow-400", "ring-offset-2");
+          });
+        }
+      }, 1200);
+    }
+
+       function toggleSidebar(show) {
+      const sidebar = document.getElementById("sidebar");
+      if (show) {
+        sidebar.classList.remove("-translate-x-full");
+        sidebar.classList.add("translate-x-0");
+      } else {
+        sidebar.classList.add("-translate-x-full");
+        sidebar.classList.remove("translate-x-0");
+      }
     }
   </script>
 </body>
