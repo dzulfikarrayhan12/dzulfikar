@@ -443,7 +443,7 @@ function updateCartCount() {
 
 if (container) {
   container.innerHTML = '';
-  for (let i = 1; i <= 504; i++) {
+  for (let i = 1; i <= 505; i++) {
     const productDiv = document.createElement('div');
     productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
 
