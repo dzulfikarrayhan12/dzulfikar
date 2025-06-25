@@ -9,7 +9,7 @@
 </head>
 <body class="bg-slate-100 font-sans">
 
-  <!-- Sidebar Blur iOS -->
+  <!-- Sidebar -->
   <div id="sidebar"
        class="fixed inset-0 z-50 transition-transform duration-300 transform -translate-x-full bg-black/60 backdrop-blur-md"
        onclick="toggleSidebar(false)">
@@ -18,68 +18,66 @@
       <button onclick="toggleSidebar(false)" class="absolute top-4 right-4 text-2xl">
         <i class="ri-close-line"></i>
       </button>
-      <h2 class="text-xl font-bold mb-6">transaksi</h2>
+      <h2 class="text-xl font-bold mb-6">Transaksi</h2>
       <ul class="space-y-4">
-      <li>
-  <a href="index.html" class="flex items-center gap-2 hover:text-blue-400" style="font-size: 25px;">
-    <i class="ri-home-5-line"></i>home
-  </a>
-
-   <a href="kontak.html" class="flex items-center gap-2 hover:text-blue-400" style="font-size: 25px;">
-  <i class="ri-contacts-book-fill"></i> kontak
-</a>
-
-</li>
-
-      
+        <li>
+          <a href="index.html" class="flex items-center gap-2 hover:text-blue-400 text-lg"><i class="ri-home-5-line"></i>Home</a>
+        </li>
+        <li>
+          <a href="kontak.html" class="flex items-center gap-2 hover:text-blue-400 text-lg"><i class="ri-contacts-book-fill"></i>Kontak</a>
+        </li>
       </ul>
     </div>
   </div>
 
   <!-- Navbar -->
-  <!-- Navbar -->
-<header class="bg-black text-white sticky top-0 z-40 shadow-md">
-  <div class="relative flex items-center justify-between px-4 py-4">
-    <button onclick="toggleSidebar(true)" class="text-2xl"><i class="ri-menu-line"></i></button>
-    <div class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">DZULFIKAR</div>
-    <div class="w-6 h-6"></div>
-  </div>
-</header>
-
+  <header class="bg-black text-white sticky top-0 z-40 shadow-md">
+    <div class="relative flex items-center justify-between px-4 py-4">
+      <button onclick="toggleSidebar(true)" class="text-2xl"><i class="ri-menu-line"></i></button>
+      <div class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">DZULFIKAR</div>
+      <div class="w-6 h-6"></div>
+    </div>
+  </header>
 
   <!-- Konten -->
   <main class="flex flex-col items-center justify-center min-h-screen py-20 px-10">
     <h1 class="text-2xl font-bold mb-6 text-blue-900"><i class="ri-rocket-2-fill"></i> Transaksi</h1>
 
-    <!-- Grid Slot 3x3 -->
-    <div class="grid grid-cols-3 gap-8 mb-6">
-      <!-- 9 Slot -->
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot1" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot2" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot3" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot4" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot5" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot6" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot7" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot8" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
-      </div>
-      <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
-        <div id="slot9" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+    <!-- Slot Grid + WinLine -->
+    <div class="relative">
+      <!-- Garis Kuning Saat Menang -->
+      <div id="winLine" class="absolute top-[108px] left-0 w-full h-[100px] border-4 border-yellow-400 rounded-xl hidden z-30"></div>
+
+      <!-- Grid Slot 3x3 -->
+      <div class="grid grid-cols-3 gap-8 mb-6">
+        <!-- 9 Slot -->
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot1" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot2" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot3" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot4" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot5" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot6" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot7" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot8" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
+        <div class="w-[100px] h-[100px] overflow-hidden border-2 border-gray-300 rounded-xl bg-white">
+          <div id="slot9" class="flex flex-col transition-transform duration-300 ease-out will-change-transform"></div>
+        </div>
       </div>
     </div>
 
@@ -87,14 +85,18 @@
     <button onclick="spinAll()" class="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition">
       <i class="ri-refresh-line"></i> Spin
     </button>
+
+    <button onclick="spinAll(true)" class="px-4 py-2 mt-4 bg-red-600 text-white rounded">
+      🎯 Paksa Semua Gambar Sama
+    </button>
   </main>
 
-<footer class="fixed bottom-0 left-0 w-full bg-black py-3 border-t border-white/10">
-  <div class="max-w-md mx-auto flex flex-col items-center text-center text-white text-sm px-4">
-  
-    <p class="text-xs text-white/60">© 2025 DZULFIKAR,Inc.</p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer class="fixed bottom-0 left-0 w-full bg-black py-3 border-t border-white/10">
+    <div class="max-w-md mx-auto flex flex-col items-center text-center text-white text-sm px-4">
+      <p class="text-xs text-white/60">© 2025 DZULFIKAR, Inc.</p>
+    </div>
+  </footer>
 
   <!-- SCRIPT -->
   <script>
@@ -124,31 +126,30 @@
       });
     });
 
-    function spinAll() {
+    function spinAll(forceWin = false) {
       const imageHeight = 100;
       const finalIndexes = [];
 
-      // Reset highlight
-      [3, 4, 5].forEach(i => {
+      // Reset ring
+      [1, 3, 5].forEach(i => {
         slotElements[i].parentElement.classList.remove("ring", "ring-yellow-400", "ring-offset-2");
       });
 
       slotElements.forEach((slot, index) => {
         const totalLoops = 10;
         let currentLoop = 0;
-        const finalIndex = Math.floor(Math.random() * images.length);
+        const finalIndex = forceWin ? 0 : Math.floor(Math.random() * images.length);
         finalIndexes.push(finalIndex);
 
         const row = Math.floor(index / 3);
         const col = index % 3;
-        const diagonalDelay = (row + col) * 100;
+        const delay = (row + col) * 100;
 
         setTimeout(() => {
           function spinLoop() {
             currentLoop++;
             const randomIndex = Math.floor(Math.random() * images.length);
             const translateY = -randomIndex * imageHeight;
-
             slot.style.transition = 'transform 0.1s linear';
             slot.style.transform = `translateY(${translateY}px)`;
 
@@ -160,24 +161,34 @@
               slot.style.transform = `translateY(${finalTranslateY}px)`;
             }
           }
-
           spinLoop();
-        }, diagonalDelay);
+        }, delay);
       });
 
       // Cek kemenangan
-      setTimeout(() => {
-        const midRow = [finalIndexes[3], finalIndexes[4], finalIndexes[5]];
-        if (midRow.every(i => i === midRow[0])) {
-          alert("🎉 MENANG! Baris tengah cocok!");
-          [3, 4, 5].forEach(i => {
-            slotElements[i].parentElement.classList.add("ring", "ring-yellow-400", "ring-offset-2");
-          });
-        }
-      }, 1200);
+setTimeout(() => {
+  const midRow = [finalIndexes[1], finalIndexes[3], finalIndexes[5]];
+  if (midRow.every(i => i === midRow[0])) {
+    alert("🎉 MENANG! Baris tengah cocok!");
+
+    // Tambahkan ring ke SEMUA slot (0-8)
+    for (let i = 0; i < slotElements.length; i++) {
+      slotElements[i].parentElement.classList.add("ring", "ring-yellow-400", "ring-offset-2");
     }
 
-       function toggleSidebar(show) {
+    // Tampilkan garis kuning tengah
+    const winLine = document.getElementById("winLine");
+    winLine.classList.remove("hidden");
+
+    // Sembunyikan garis setelah 2 detik
+    setTimeout(() => {
+      winLine.classList.add("hidden");
+    }, 2000);
+  }
+}, 1200);
+    }
+
+    function toggleSidebar(show) {
       const sidebar = document.getElementById("sidebar");
       if (show) {
         sidebar.classList.remove("-translate-x-full");
