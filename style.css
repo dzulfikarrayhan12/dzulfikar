@@ -182,9 +182,12 @@ nav {
 }
 
 .ri-shopping-cart-line {
-  color: #fff;
+  color: #000;
 }
 
+.ri-menu-line{
+  color: #000;
+}
 
 
 @keyframes neon-flicker {
