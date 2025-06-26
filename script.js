@@ -307,7 +307,7 @@ const descriptions = [
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
-  "Baju ukuran : XL",
+  "Kameja ukuran : XL",
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
