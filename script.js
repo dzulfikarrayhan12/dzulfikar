@@ -186,8 +186,8 @@ const cartCount = document.getElementById('cart-count');
 
 // Produk Deskripsi (65 Item)
 const descriptions = [
-  "BAJU OVERSIZE WASHED\nUKURAN: XL",
-  "BAJU OVERSIZE PUTIH 420\nUKURAN: XL",
+  "Kameja Ukuran: XL",
+  "Kameja Ukuran : XL",
   "BAHAN ORGANIC, PANJANG 1 1/4\nORIGINAL IMPOR",
   "HOODIE\nUKURAN: XL",
   "HOODIE\nUKURAN: XL",
