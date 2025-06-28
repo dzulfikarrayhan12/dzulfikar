@@ -403,67 +403,68 @@ const descriptions = [
   "UKURAN:XL",
   
   "UKURAN:XL",
-"motor",
-"motor",
-"mobil",
-"mobil",
-"motor",
-"bugati",
-"mobil",
-"mobil",
-"mobil",
-"mobil",
-"mobil",
- "senjata", "mobil", "mobil", "senjata", "mobil", "senjata", "mobil", "mobil", "mobil", "mobil", "mobil","senjata","pistol","senjata","mobil","senjata","senjata","rumah","rumah","rumah","mobil","mobil","rumah","rumah","rumah","rumah","rumah","kursi gaming","kursi gaming","kursi gaming","hp","hp",
- "mousepad,mouse,keyboard","hp","hp","hp","hp","udang goreng","udang goreng",
- "nasi udang goreng","nasi udang goreng","ayam goreng","ayam goreng",
- "udang goreng","sop","nasi daging","nasi daging","mie ramen","mie ramen","nasi goreng","nasi goreng","nasi ayam","donat","donat","donat","donat","donat","donat gula","burger","pizza","pizza","pizza","pizza","pizza","pizza","pizza","burger","pizza","burger","burger","burger,ayam,kentang","burger","rumah 2 lantai","rumah 2 lantai","motor","motor","motor","motor","pisau","katana","katana dan pisau",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+"UKURAN:XL",
+ "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL","UKURAN:XL","UKURAN:XL",
+  "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
+ "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
+ "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
+ "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
  
- "Kismet Angel adalah parfum manis dengan aroma vanilla dan caramel yang mewah, cocok untuk suasana malam yang elegan.",
+ "UKURAN:XL",
   
-  "When Soul Gets High menghadirkan aroma unik dengan nuansa resin dan herbal, menciptakan kesan misterius dan mendalam.",
+  "UKURAN:XL",
   
-  "Stronger With You menampilkan wangi manis spicy dengan sentuhan chestnut dan vanilla, cocok untuk pria romantis dan modern.",
+  "UKURAN:XL",
   
-  "Azzaro Most Wanted adalah parfum maskulin dengan aroma spicy amber yang hangat dan memikat sepanjang hari.",
+  "UKURAN:XL",
   
-  "Dior Homme Intense memiliki komposisi floral woody dengan iris yang halus dan aroma elegan yang tahan lama.",
+  "UKURAN:XL",
   
-  "LV Nuit de Feu menawarkan aroma oud yang dalam dan smoky dengan karakter mewah dan penuh wibawa.",
+  "UKURAN:XL",
   
-  "LV Pur Oud adalah parfum dengan konsentrasi oud murni, aroma tajam dan eksklusif yang cocok untuk penyuka wangi oriental kuat.",
+  "UKURAN:XL",
   
-  "Creed Aventus memadukan nanas, bergamot, dan musk dalam aroma ikonik yang segar dan berkelas.",
+  "UKURAN:XL",
   
-  "OPPO A18 hadir dengan layar besar, baterai tahan lama, dan desain stylish, cocok untuk kebutuhan harian yang praktis.",
+  "UKURAN:XL",
   
-    "Valentino Born in Roma menyuguhkan aroma modern floral dan woody dengan karakter feminin, berani, dan elegan.",
+    "UKURAN:XL",
 
-    "ukuran : XL","ukuran : XL",
+    "UKURAN:XL","UKURAN:XL",
 
-     "Samsung Galaxy A14 memiliki layar Full HD+ 6.6 inci, baterai 5000mAh, dan performa stabil untuk penggunaan harian.",
+     "UKURAN:XL",
   
-  "OPPO A3s hadir dengan layar 6.2 inci, baterai besar 4230mAh, dan desain ramping, cocok untuk kebutuhan ringan sehari-hari.",
+  "UKURAN:XL",
   
-  "Redmi 5A adalah smartphone entry-level dengan layar 5 inci, baterai 3000mAh, dan performa cukup untuk chatting dan media sosial.",
+  "UKURAN:XL",
 
-  "ukuran : XL",
+  "UKURAN:XL",
   
- "PC Gaming seharga 10 juta, dirakit dengan spesifikasi mumpuni untuk game AAA dan multitasking berat.",
+ "UKURAN:XL",
   
-  "Mouse wireless ergonomis dengan konektivitas stabil, cocok untuk kerja maupun gaming ringan.",
+  "UKURAN:XL",
   
-  "PC Gaming seharga 9 juta dengan performa solid untuk game kompetitif dan editing ringan.",
+  "UKURAN:XL",
   
-  "Monitor 27 inci beresolusi tinggi, ideal untuk kerja produktif, editing, atau bermain game.",
+  "UKURAN:XL",
   
-  "Android TV 50 inci dengan dukungan smart features, cocok untuk hiburan rumah dan streaming 4K.",
+  "UKURAN:XL",
   
-  "Monitor 27 inci dengan panel IPS dan refresh rate tinggi, cocok untuk multitasking atau gaming.",
+  "UKURAN:XL",
   
-  "Monitor 27 inci dengan desain ramping dan port lengkap, pas untuk keperluan kantor maupun multimedia.",
+  "UKURAN:XL",
   
-  "Monitor 32 inci dengan tampilan luas dan tajam, nyaman untuk editing, desain, atau setup kerja profesional.",
+  "UKURAN:XL",
 
   "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "floridina", "kopi", "minyak goreng", "sari roti", "oreo", "lays", "mobil", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL",
  "ukuran : XL", "ukuran : XL",
