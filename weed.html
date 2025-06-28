@@ -102,8 +102,10 @@ a.teko-font i {
   </ul>
 </div>
 
+<nav class="relative text-white px-4 py-3 h-14 flex items-center justify-center  sticky top-0 z-10">
+
 <!-- Navbar -->
-<nav class="text-black px-4 py-3 h-14 flex items-center justify-center sticky top-0 z-10 relative bg-white">
+
   <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
     <button id="menuBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Menu">
       <i class="ri-menu-line"></i>
@@ -184,32 +186,32 @@ a.teko-font i {
 // Produk Deskripsi (65 Item)
 
 const descriptions = [
-  "BAJU OVERSIZE WASHED\nUKURAN: XL",
-  "BAJU OVERSIZE PUTIH 420\nUKURAN: XL",
-  "BAHAN ORGANIC, PANJANG 1 1/4\nORIGINAL IMPOR",
-  "HOODIE\nUKURAN: XL",
-  "HOODIE\nUKURAN: XL",
-  "BAJU CHAMCINA SO FREE\nUKURAN: XL",
+  "UKURAN: XL",
+  "UKURAN: XL",
+  "BAHAN ORGANIC",
+  "UKURAN: XL",
+  "UKURAN: XL",
+  "UKURAN: XL",
   "HOODIE KUNING POLOS\nUKURAN: XL",
   "HOODIE MERAH POLOS\nUKURAN: XL",
   "HOODIE HIJAU POLOS\nUKURAN: XL",
   "HOODIE HITAM POLOS\nUKURAN: XL",
-  "BACARDI SUPERIOR\nRum putih legendaris asal Karibia. Rasa ringan dan halus, cocok untuk koktail klasik.",
-  "HEINEKEN\nBir lager asal Belanda, warna keemasan, rasa seimbang dan segar.",
-  "CORONA EXTRA\nBir ringan dari Meksiko. Diminum dengan irisan jeruk nipis, cocok untuk suasana santai.",
-  "BAILEYS\nLikuer krim Irlandia yang manis dan lembut, rasa cokelat dan vanilla.",
-  "CAMPARI\nAperitif merah khas Italia, rasa pahit dengan aroma herbal kompleks.",
-  "JOHNNIE WALKER RED LABEL\nBlended whisky tajam, smoky, dan berani.",
-  "JACK DANIEL’S OLD NO. 7\nWhiskey Tennessee lembut dengan aroma khas arang maple.",
-  "VODKA\nMinuman netral, bersih dan fleksibel untuk semua jenis koktail.",
-  "SMIRNOFF NO. 21\nVodka bersih, disuling 3 kali dan disaring 10 kali.",
-  "ANGGUR MERAH\nMinuman fermentasi anggur, rasa kaya dan aroma rempah.",
-  "ROKOK SURYA\nTembakau lokal berkualitas, rasa kuat dan aroma khas.",
-  "PLAYSTATION 4 (PS4)\nKonsol game Sony generasi ke-8 dengan grafis tajam.",
-  "PLAYSTATION 5 (PS5)\nKonsol next-gen, grafis 4K dan loading super cepat.",
-  "IPAD PRO\nTablet premium Apple dengan layar retina dan Apple Pencil.",
-  "LAPTOP ASUS ROG\nLaptop gaming ekstrem dengan performa tinggi dan pendinginan canggih.",
-  "LA PURPLE\nRokok rasa anggur dengan aroma segar dan aftertaste manis.",
+  "BACARDI SUPERIOR",
+  "HEINEKEN",
+  "CORONA EXTRA",
+  "BAILEYS",
+  "CAMPARI",
+  "JOHNNIE WALKER RED LABEL",
+  "JACK DANIEL’S OLD NO. 7",
+  "VODKA",
+  "SMIRNOFF NO. 21",
+  "ANGGUR MERAH",
+  "ROKOK SURYA",
+  "PLAYSTATION 4 ",
+  "PLAYSTATION 5 ",
+  "IPAD PRO",
+  "LAPTOP ASUS ROG",
+  "LA PURPLE",
   "Mie Samyang.",
   "pembersih lantai.",
   "super pell",
@@ -366,41 +368,41 @@ const descriptions = [
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
   "Baju Oversize ukuran : XL",
-  "Azzaro Most Wanted adalah parfum dengan aroma spicy amber yang hangat dan maskulin, cocok untuk pria yang percaya diri dan berani tampil beda.",
+  "Azzaro Most Wanted ",
   
-  "LV Imagination menghadirkan kesegaran citrus dengan sentuhan teh hitam dan amber, menciptakan aroma yang modern, segar, dan imajinatif.",
+  "LV Imagination ",
   
-  "Dior Sauvage memadukan kesegaran bergamot dengan kekuatan ambroxan, menghasilkan wangi maskulin yang kuat dan bebas.",
+  "Dior Sauvage ",
   
-  "Acqua di Gio menawarkan aroma laut yang bersih dengan citrus yang ringan, sempurna untuk keseharian yang segar dan menenangkan.",
+  "Acqua di Gio ",
   
-  "Mercedes-Benz for Men memancarkan aroma woody spicy yang elegan, mencerminkan karakter pria modern yang berkelas.",
+  "Mercedes-Benz for Men ",
   
-  "Invictus dari Paco Rabanne adalah aroma kemenangan dengan perpaduan laut, grapefruit, dan kayu yang memberikan kesan energik dan segar.",
+  "Invictus Paco Rabanne ",
   
-  "Le Male Elixir memiliki aroma manis dan intens dengan kombinasi vanila, tonka, dan kayu, menghadirkan kesan hangat dan memikat.",
+  "Le Male Elixir ",
   
-  "Dior Fahrenheit adalah parfum klasik dengan perpaduan floral dan woody, menciptakan kesan hangat, elegan, dan tahan lama.",
+  "Dior Fahrenheit ",
   
-  "Kilian Angel's Share menampilkan aroma gourmand yang mewah dari kayu manis, cognac, dan vanila dengan kesan eksklusif dan hangat.",
+  "Kilian Angel's Share ",
   
-  "Eros warna biru membawa aroma mint segar dengan vanila manis yang menggoda dan cocok untuk suasana penuh percaya diri.",
+  "Eros Versace",
   
-  "Cocktail Intense adalah kombinasi buah tropis dan rempah hangat yang berani, cocok untuk kamu yang suka tampil beda dan intens.",
+  "Cocktail Intense ",
   
-  "Initio Oud for Greatness menghadirkan aroma oud murni yang kuat dengan sentuhan lavender dan saffron, memberi kesan berwibawa dan eksklusif.",
+  "Initio Oud for Greatness ",
   
-  "Hugo Boss Bottled Oud adalah perpaduan oud dan rempah yang klasik, memberikan kesan maskulin dan elegan sepanjang hari.",
+  "Hugo Boss Bottled Oud ",
   
-  "LV Les Sables Roses adalah aroma mawar oriental dengan sentuhan oud, menghadirkan keharuman yang mewah dan memikat.",
+  "LV Les Sables Roses ",
   
-  "212 VIP Men menawarkan aroma segar dan spicy dengan nuansa vodka dan kulit, cocok untuk acara malam dan gaya hidup urban.",
+  "212 VIP Men .",
   
-  "212 Forever Young menyuguhkan aroma fruity yang ringan dan menyenangkan, cocok untuk kamu yang berjiwa muda dan penuh semangat.",
+  "212 Forever Young ",
   
-  "Latafa Khamrah memiliki aroma manis dan hangat dari kayu manis, vanila, dan buah kering, menciptakan wangi yang nyaman dan tahan lama.",
+  "Latafa Khamrah ",
   
-  "Kilian Apple Brandy memadukan aroma apel segar dan kayu ek dengan nuansa brandy hangat, memberikan kesan eksotis dan unik.",
+  "Kilian Apple Brandy.",
 "motor",
 "motor",
 "mobil",
@@ -417,51 +419,51 @@ const descriptions = [
  "nasi udang goreng","nasi udang goreng","ayam goreng","ayam goreng",
  "udang goreng","sop","nasi daging","nasi daging","mie ramen","mie ramen","nasi goreng","nasi goreng","nasi ayam","donat","donat","donat","donat","donat","donat gula","burger","pizza","pizza","pizza","pizza","pizza","pizza","pizza","burger","pizza","burger","burger","burger,ayam,kentang","burger","rumah 2 lantai","rumah 2 lantai","motor","motor","motor","motor","pisau","katana","katana dan pisau",
  
- "Kismet Angel adalah parfum manis dengan aroma vanilla dan caramel yang mewah, cocok untuk suasana malam yang elegan.",
+ "Kismet Angel ",
   
-  "When Soul Gets High menghadirkan aroma unik dengan nuansa resin dan herbal, menciptakan kesan misterius dan mendalam.",
+  "When Soul Gets High ",
   
-  "Stronger With You menampilkan wangi manis spicy dengan sentuhan chestnut dan vanilla, cocok untuk pria romantis dan modern.",
+  "Stronger With You ",
   
-  "Azzaro Most Wanted adalah parfum maskulin dengan aroma spicy amber yang hangat dan memikat sepanjang hari.",
+  "Azzaro Most Wanted ",
   
-  "Dior Homme Intense memiliki komposisi floral woody dengan iris yang halus dan aroma elegan yang tahan lama.",
+  "Dior Homme Intense ",
   
-  "LV Nuit de Feu menawarkan aroma oud yang dalam dan smoky dengan karakter mewah dan penuh wibawa.",
+  "LV Nuit de Feu ",
   
-  "LV Pur Oud adalah parfum dengan konsentrasi oud murni, aroma tajam dan eksklusif yang cocok untuk penyuka wangi oriental kuat.",
+  "LV Pur Oud ",
   
-  "Creed Aventus memadukan nanas, bergamot, dan musk dalam aroma ikonik yang segar dan berkelas.",
+  "Creed Aventus ",
   
-  "OPPO A18 hadir dengan layar besar, baterai tahan lama, dan desain stylish, cocok untuk kebutuhan harian yang praktis.",
+  "OPPO A18 ",
   
-    "Valentino Born in Roma menyuguhkan aroma modern floral dan woody dengan karakter feminin, berani, dan elegan.",
+    "Valentino Born in Roma",
 
     "ukuran : XL","ukuran : XL",
 
-     "Samsung Galaxy A14 memiliki layar Full HD+ 6.6 inci, baterai 5000mAh, dan performa stabil untuk penggunaan harian.",
+     "Samsung Galaxy A14",
   
-  "OPPO A3s hadir dengan layar 6.2 inci, baterai besar 4230mAh, dan desain ramping, cocok untuk kebutuhan ringan sehari-hari.",
+  "OPPO A3s ",
   
-  "Redmi 5A adalah smartphone entry-level dengan layar 5 inci, baterai 3000mAh, dan performa cukup untuk chatting dan media sosial.",
+  "Redmi 5A ",
 
   "ukuran : XL",
   
- "PC Gaming seharga 10 juta, dirakit dengan spesifikasi mumpuni untuk game AAA dan multitasking berat.",
+ "PC Gaming seharga 10 juta",
   
-  "Mouse wireless ergonomis dengan konektivitas stabil, cocok untuk kerja maupun gaming ringan.",
+  "Mouse wireless ",
   
-  "PC Gaming seharga 9 juta dengan performa solid untuk game kompetitif dan editing ringan.",
+  "PC Gaming seharga 9 juta ",
   
-  "Monitor 27 inci beresolusi tinggi, ideal untuk kerja produktif, editing, atau bermain game.",
+  "Monitor 27 inci ",
   
-  "Android TV 50 inci dengan dukungan smart features, cocok untuk hiburan rumah dan streaming 4K.",
+  "Android TV 50 inci ",
   
-  "Monitor 27 inci dengan panel IPS dan refresh rate tinggi, cocok untuk multitasking atau gaming.",
+  "Monitor 27 inci ",
   
-  "Monitor 27 inci dengan desain ramping dan port lengkap, pas untuk keperluan kantor maupun multimedia.",
+  "Monitor 27 inci ",
   
-  "Monitor 32 inci dengan tampilan luas dan tajam, nyaman untuk editing, desain, atau setup kerja profesional.",
+  "Monitor 32 inci ",
 
   "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "floridina", "kopi", "minyak goreng", "sari roti", "oreo", "lays", "mobil", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL", "ukuran : XL",
  "ukuran : XL", "ukuran : XL",
