@@ -148,8 +148,8 @@ nav {
       background: linear-gradient(
         90deg,
         #fff,  /* hijau muda terang ganja */
-        #000,  /* hijau muda segar */
-        #000   /* hijau tua */
+        #fff,  /* hijau muda segar */
+        #fff   /* hijau tua */
       );
       -webkit-background-clip: text;
       
