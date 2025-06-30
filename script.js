@@ -188,7 +188,7 @@ const cartCount = document.getElementById('cart-count');
 const descriptions = [
   "Kameja Ukuran: XL",
   "Kameja Ukuran : XL",
-  "BAHAN ORGANIC, PANJANG 1 1/4\nORIGINAL IMPOR",
+  "Ukuran :XL",
   "HOODIE\nUKURAN: XL",
   "HOODIE\nUKURAN: XL",
   "BAJU CHAMCINA SO FREE\nUKURAN: XL",
