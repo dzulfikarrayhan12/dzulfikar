@@ -147,22 +147,22 @@ nav {
       font-size: 20px;
       background: linear-gradient(
         90deg,
-        #a8e6a3,  /* hijau muda terang ganja */
-        #66bb6a,  /* hijau muda segar */
-        #2e7d32   /* hijau tua */
+        #000,  /* hijau muda terang ganja */
+        #000,  /* hijau muda segar */
+        #000   /* hijau tua */
       );
       -webkit-background-clip: text;
       
       -webkit-text-stroke: 1px white; /* garis putih */
 
       text-shadow:
-        0 0 5px #a8e6a3,
-        0 0 10px #66bb6a,
-        0 0 15px #2e7d32;
+        0 0 5px #000,
+        0 0 10px #000,
+        0 0 15px #000;
 
-      filter: drop-shadow(0 0 19px #a8e6a3)
-              drop-shadow(0 0 12px #66bb6a)
-              drop-shadow(0 0 6px #2e7d32);
+      filter: drop-shadow(0 0 19px #000)
+              drop-shadow(0 0 12px #fff)
+              drop-shadow(0 0 6px #fff);
     }
 
 #han-part {
