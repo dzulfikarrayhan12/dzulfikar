@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>WeedMaps Transaksi</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Import Font Teko -->
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    .font-teko {
+      font-family: 'Teko', sans-serif;
+    }
+  </style>
 </head>
 <body class="bg-slate-100 font-sans">
 
@@ -34,7 +42,8 @@
   <header class="bg-black text-white sticky top-0 z-40 shadow-md">
     <div class="relative flex items-center justify-between px-4 py-4">
       <button onclick="toggleSidebar(true)" class="text-2xl"><i class="ri-menu-line"></i></button>
-      <div class="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold">dzulfikar</div>
+      <!-- Logo dengan font Teko -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 text-2xl font-teko tracking-wider uppercase">dzulfikar</div>
       <div class="w-6 h-6"></div>
     </div>
   </header>
