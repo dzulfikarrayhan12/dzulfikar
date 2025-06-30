@@ -1,400 +1,235 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const hanPart = document.getElementById('han-part');
+document.addEventListener("DOMContentLoaded", () => {
+  // ======================= [Utility] =======================
+  const qs = id => document.getElementById(id);
+  const show = el => el?.classList.remove('hidden');
+  const hide = el => el?.classList.add('hidden');
+
+  // ==================== [Scroll Hide Show] ====================
+  const hanPart = qs('han-part');
   let scrollTimeout;
   window.addEventListener('scroll', () => {
     if (!hanPart) return;
     hanPart.classList.add('hidden');
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      hanPart.classList.remove('hidden');
-    }, 1000);
+    scrollTimeout = setTimeout(() => hanPart.classList.remove('hidden'), 1000);
   });
-function togglePassword(inputId) {
-  const input = document.getElementById(inputId);
-  if (!input) return;
 
-  const parent = input.parentElement;
-  if (!parent) return;
+  // ==================== [Toggle Password] ====================
+  window.togglePassword = function (id) {
+    const input = qs(id);
+    const icon = input?.parentElement?.querySelector('i');
+    if (!input || !icon) return;
+    const isPw = input.type === 'password';
+    input.type = isPw ? 'text' : 'password';
+    icon.className = isPw
+      ? 'ri-eye-off-line absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 cursor-pointer'
+      : 'ri-eye-line absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 cursor-pointer';
+  };
 
-  const icon = parent.querySelector('i.ri-eye-line, i.ri-eye-off-line');
-  if (!icon) return;
-
-  const isPassword = input.type === 'password';
-  input.type = isPassword ? 'text' : 'password';
-
-  icon.className = isPassword
-    ? 'ri-eye-off-line absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 cursor-pointer'
-    : 'ri-eye-line absolute right-4 top-1/2 transform -translate-y-1/2 text-white/60 cursor-pointer';
-}
-
-// SIDEBAR TOGGLE
-const menuBtn = document.getElementById('menuBtn');
-const sidebar = document.getElementById('sidebar');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
-const closeSidebar = document.getElementById('closeSidebar');
-
-menuBtn.addEventListener('click', () => {
-  sidebar.classList.remove('-translate-x-full');
-  sidebarOverlay.classList.remove('hidden');
-});
-
-closeSidebar.addEventListener('click', () => {
-  sidebar.classList.add('-translate-x-full');
-  sidebarOverlay.classList.add('hidden');
-});
-
-sidebarOverlay.addEventListener('click', () => {
-  sidebar.classList.add('-translate-x-full');
-  sidebarOverlay.classList.add('hidden');
-});
-
-const loginModal = document.getElementById('loginModal');
-const userBtn = document.getElementById('userBtn');
-const closeModalBtn = document.getElementById('closeModalBtn');
-const loginForm = document.getElementById('loginForm');
-const registerForm = document.getElementById('registerForm');
-const switchToRegisterBtn = document.getElementById('switchToRegisterBtn');
-const switchToLoginBtn = document.getElementById('switchToLoginBtn');
-const typedEl = document.getElementById('typed');
-
-let isRegister = false;
-
-const texts = {
-  login: 'Silahkan daftar jika belum punya akun',
-  register: 'Silahkan login jika sudah punya akun'
-};
-let typingInterval;
-let resetTimeout;
-let i = 0;
-function typeText(text) {
-  if (!typedEl) return;
-  clearInterval(typingInterval);
-  clearTimeout(resetTimeout);
-  i = 0;
-  typedEl.textContent = '';
-  typingInterval = setInterval(() => {
-    if (i < text.length) {
-      typedEl.textContent += text.charAt(i);
-      i++;
-    } else {
-      clearInterval(typingInterval);
-      resetTimeout = setTimeout(() => {
-        typedEl.textContent = '';
-        i = 0;
-        typeText(text);
-      }, 3500);
-    }
-  }, 90);
-}
-userBtn.addEventListener('click', () => {
-  loginModal.classList.remove('hidden');
-  loginModal.classList.add('flex');
-  isRegister = false;
-  loginForm.classList.remove('hidden');
-  registerForm.classList.add('hidden');
-  typeText(texts.login);
-});
-closeModalBtn.addEventListener('click', () => {
-  loginModal.classList.add('hidden');
-  loginModal.classList.remove('flex');
-  loginForm.reset();
-  registerForm.reset();
-  typedEl.textContent = '';
-});
-switchToRegisterBtn.addEventListener('click', () => {
-  isRegister = true;
-  loginForm.classList.add('hidden');
-  registerForm.classList.remove('hidden');
-  typeText(texts.register);
-});
-switchToLoginBtn.addEventListener('click', () => {
-  isRegister = false;
-  registerForm.classList.add('hidden');
-  loginForm.classList.remove('hidden');
-  typeText(texts.login);
-});
-loginForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const username = loginForm.username.value.trim();
-  const password = loginForm.password.value;
-  if (!username || !password) {
-    alert('Isi username dan password');
-    return;
-  }
-  alert(`Login berhasil: ${username}`);
-  loginModal.classList.add('hidden');
-  loginModal.classList.remove('flex');
-  loginForm.reset();
-});
-registerForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const username = registerForm.username.value.trim();
-  const email = registerForm.email.value.trim();
-  const password = registerForm.password.value;
-  const confirmPassword = registerForm.confirmPassword.value;
-
-  if (!username || !email || !password || !confirmPassword) {
-    alert('Lengkapi semua data');
-    return;
-  }
-  if (password !== confirmPassword) {
-    alert('Password tidak sama');
-    return;
-  }
-  alert(`Register berhasil: ${username}, email: ${email}`);
-  loginModal.classList.add('hidden');
-  loginModal.classList.remove('flex');
-  registerForm.reset();
-});
-const container = document.getElementById('product-container');
-const cartCount = document.getElementById('cart-count');
-const descriptions = [
-  "Kameja Ukuran: XL",
-  "Kameja Ukuran : XL",
-  "Ukuran :XL",
-  "HOODIE\nUKURAN: XL",
-  "HOODIE\nUKURAN: XL",
-  "BAJU CHAMCINA SO FREE\nUKURAN: XL",
-  "HOODIE KUNING POLOS\nUKURAN: XL",
-  "HOODIE MERAH POLOS\nUKURAN: XL",
-  
-  
-];
-
-const prices = [
-  500000,500000,380000,700000,850000,720000,150000,180000, 120000,
-];
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("checkout")) || [];
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-  if (cartCount) {
-    cartCount.textContent = totalQty > 0 ? totalQty : '';
-    cartCount.style.display = totalQty > 0 ? "flex" : "none";
-  }
-}
-if (container) {
-  container.innerHTML = '';
-  for (let i = 1; i <= 428; i++) {
-    const productDiv = document.createElement('div');
-    productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
-    const img = document.createElement('img');
-    img.src = `images/${i}.jpg`;
-    img.alt = `Produk ${i}`;
-    img.className = 'w-full h-[420px] object-contain rounded-md mb-2 bg-white';
-    const title = document.createElement('h3');
-    title.className = 'text-lg font-semibold mb-1';
-    title.textContent = `Produk ${i}`;
-    const desc = document.createElement('p');
-    desc.className = 'text-gray-600 text-sm mb-2';
-    desc.innerHTML = descriptions[(i - 1) % descriptions.length].replace(/\n/g, "<br>");
-    const price = document.createElement('div');
-    price.className = 'text-black-500 font-bold mb-4';
-    price.textContent = 'Rp' + prices[i - 1].toLocaleString('id-ID');
-    const button = document.createElement('button');
-   button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center gap-2 relative';
-button.innerHTML = '<i class="ri-box-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>';
-    button.addEventListener('click', () => {
-      const item = {
-        title: title.textContent,
-        desc: desc.innerText, // penting! agar teks <br> dihitung 2 baris
-        price: price.textContent,
-        image: img.src,
-        qty: 1
-      };
-      const cart = JSON.parse(localStorage.getItem("checkout")) || [];
-      const existing = cart.find(p => p.title === item.title);
-      existing ? existing.qty += 1 : cart.push(item);
-      localStorage.setItem("checkout", JSON.stringify(cart));
-      updateCartCount();
+  // ==================== [Sidebar Toggle] ====================
+  ['menuBtn', 'sidebarOverlay', 'closeSidebar'].forEach(id => {
+    qs(id)?.addEventListener('click', () => {
+      sidebar.classList.toggle('-translate-x-full');
+      sidebarOverlay.classList.toggle('hidden');
     });
-    productDiv.append(img, title, desc, price, button);
-    container.appendChild(productDiv);
+  });
+
+  // ==================== [Modal Login/Register] ====================
+  const loginModal = qs('loginModal');
+  const loginForm = qs('loginForm');
+  const registerForm = qs('registerForm');
+  const typedEl = qs('typed');
+  const texts = {
+    login: 'Silahkan daftar jika belum punya akun',
+    register: 'Silahkan login jika sudah punya akun'
+  };
+  let typingInterval, resetTimeout, i = 0;
+
+  function typeText(text) {
+    if (!typedEl) return;
+    clearInterval(typingInterval); clearTimeout(resetTimeout);
+    typedEl.textContent = ''; i = 0;
+    typingInterval = setInterval(() => {
+      typedEl.textContent += text.charAt(i++);
+      if (i === text.length) {
+        clearInterval(typingInterval);
+        resetTimeout = setTimeout(() => typeText(text), 3500);
+      }
+    }, 90);
   }
-}
-updateCartCount();
-document.getElementById("checkout-btn")?.addEventListener("click", () => {
-  const cart = JSON.parse(localStorage.getItem("checkout")) || [];
-  if (cart.length === 0) return alert("Keranjang kosong.");
-  window.location.href = "checkout.html";
-});
-  const checkoutList = document.getElementById('checkout-list');
-  const totalPriceElement = document.getElementById('total-price');
-  let cart = JSON.parse(localStorage.getItem('checkout')) || [];
-  function updateTotal() {
-    const total = cart.reduce((sum, item) => sum + (parseInt(item.price.replace(/\D/g, '')) || 0) * (item.qty || 1), 0);
-    totalPriceElement.textContent = `Rp${total.toLocaleString('id-ID')}`;
+
+  qs('userBtn')?.addEventListener('click', () => {
+    show(loginModal); loginModal.classList.add('flex');
+    show(loginForm); hide(registerForm); typeText(texts.login);
+  });
+
+  qs('closeModalBtn')?.addEventListener('click', () => {
+    hide(loginModal); loginModal.classList.remove('flex');
+    loginForm.reset(); registerForm.reset(); typedEl.textContent = '';
+  });
+
+  qs('switchToRegisterBtn')?.addEventListener('click', () => {
+    hide(loginForm); show(registerForm); typeText(texts.register);
+  });
+
+  qs('switchToLoginBtn')?.addEventListener('click', () => {
+    show(loginForm); hide(registerForm); typeText(texts.login);
+  });
+
+  loginForm?.addEventListener('submit', e => {
+    e.preventDefault();
+    const { username, password } = loginForm;
+    if (!username.value.trim() || !password.value) return alert('Isi username dan password');
+    alert(`Login berhasil: ${username.value}`); hide(loginModal); loginForm.reset();
+  });
+
+  registerForm?.addEventListener('submit', e => {
+    e.preventDefault();
+    const { username, email, password, confirmPassword } = registerForm;
+    if (!username.value || !email.value || !password.value || !confirmPassword.value)
+      return alert('Lengkapi semua data');
+    if (password.value !== confirmPassword.value)
+      return alert('Password tidak sama');
+    alert(`Register berhasil: ${username.value}`); hide(loginModal); registerForm.reset();
+  });
+
+  // ==================== [Produk Generator + Keranjang] ====================
+  const container = qs('product-container');
+  const cartCount = qs('cart-count');
+  const descriptions = ["Kameja Ukuran: XL", "Ukuran :XL", "HOODIE\nUKURAN: XL", "BAJU CHAMCINA SO FREE\nUKURAN: XL"];
+  const prices = [500000, 380000, 700000, 720000, 150000, 180000, 120000];
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("checkout") || "[]");
+    const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (cartCount) {
+      cartCount.textContent = totalQty ? totalQty : '';
+      cartCount.style.display = totalQty ? "flex" : "none";
+    }
   }
-  function saveCart() {
-    localStorage.setItem('checkout', JSON.stringify(cart));
+
+  if (container) {
+    container.innerHTML = '';
+    for (let i = 1; i <= 20; i++) {
+      const idx = (i - 1) % descriptions.length;
+      const priceVal = prices[i % prices.length];
+      const productDiv = document.createElement('div');
+      productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
+      productDiv.innerHTML = `
+        <img src="images/${i}.jpg" class="w-full h-[420px] object-contain rounded-md mb-2 bg-white" alt="Produk ${i}" />
+        <h3 class="text-lg font-semibold mb-1">Produk ${i}</h3>
+        <p class="text-gray-600 text-sm mb-2">${descriptions[idx].replace(/\n/g, "<br>")}</p>
+        <div class="text-black-500 font-bold mb-4">Rp${priceVal.toLocaleString('id-ID')}</div>
+        <button class="mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center gap-2 relative">
+          <i class="ri-box-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>
+        </button>
+      `;
+      const btn = productDiv.querySelector('button');
+      btn.addEventListener('click', () => {
+        const item = {
+          title: `Produk ${i}`,
+          desc: descriptions[idx],
+          price: `Rp${priceVal.toLocaleString('id-ID')}`,
+          image: `images/${i}.jpg`,
+          qty: 1
+        };
+        const cart = JSON.parse(localStorage.getItem("checkout") || "[]");
+        const existing = cart.find(p => p.title === item.title);
+        existing ? existing.qty++ : cart.push(item);
+        localStorage.setItem("checkout", JSON.stringify(cart));
+        updateCartCount();
+      });
+      container.appendChild(productDiv);
+    }
+    updateCartCount();
+  }
+
+  // ==================== [Checkout Handler Ringkas] ====================
+  if (window.location.pathname.includes("checkout.html")) {
+    const checkoutList = qs('checkout-list');
+    const totalPriceElement = qs('total-price');
+    let cart = JSON.parse(localStorage.getItem('checkout') || '[]');
+
+    function updateTotal() {
+      const total = cart.reduce((sum, item) =>
+        sum + (parseInt(item.price.replace(/\D/g, '')) || 0) * (item.qty || 1), 0);
+      totalPriceElement.textContent = `Rp${total.toLocaleString('id-ID')}`;
+    }
+
+    function saveCart() {
+      localStorage.setItem('checkout', JSON.stringify(cart));
+      renderCart(); updateCartCount();
+    }
+
+    window.changeQty = (i, d) => {
+      if (!cart[i]) return;
+      cart[i].qty = (cart[i].qty || 1) + d;
+      if (cart[i].qty <= 0) cart.splice(i, 1);
+      saveCart();
+    };
+
+    window.removeItem = i => {
+      cart.splice(i, 1); saveCart();
+    };
+
+    function renderCart() {
+      checkoutList.innerHTML = '';
+      if (cart.length === 0) {
+        checkoutList.innerHTML = `<div class="text-center text-gray-500 mt-10">Keranjang kosong.</div>`;
+        totalPriceElement.textContent = 'Rp0'; return;
+      }
+      cart.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'bg-white p-4 rounded-lg shadow flex items-center gap-4';
+        div.innerHTML = `
+          <img src="${item.image}" class="w-20 h-20 object-cover rounded" />
+          <div class="flex-1">
+            <h3 class="text-md font-semibold">${item.title}</h3>
+            <p class="text-sm text-gray-500">${item.desc}</p>
+            <p class="text-orange-500 font-bold mt-1">${item.price}</p>
+            <div class="flex gap-2 mt-2">
+              <button onclick="changeQty(${i}, -1)" class="bg-gray-400 hover:bg-gray-600 text-white px-2 py-1 rounded">-</button>
+              <span class="px-3">${item.qty}</span>
+              <button onclick="changeQty(${i}, 1)" class="bg-gray-700 hover:bg-gray-900 text-white px-2 py-1 rounded">+</button>
+            </div>
+          </div>
+          <button onclick="removeItem(${i})" class="text-red-500 hover:text-red-700"><i class="ri-delete-bin-line text-xl"></i></button>`;
+        checkoutList.appendChild(div);
+      });
+      updateTotal();
+    }
+
     renderCart();
   }
 
-  function renderCart() {
-    if (!checkoutList || !totalPriceElement) return;
-    checkoutList.innerHTML = '';
-    if (cart.length === 0) {
-      checkoutList.innerHTML = `<div class="text-center text-gray-500 mt-10">Keranjang kosong.</div>`;
-      totalPriceElement.textContent = 'Rp0';
-      return;
-    }
-    cart.forEach((item, index) => {
-      const div = document.createElement('div');
-      div.className = 'bg-white p-4 rounded-lg shadow flex items-center gap-4';
-      div.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" class="w-20 h-20 object-cover rounded" />
-        <div class="flex-1">
-          <h3 class="text-md font-semibold">${item.title}</h3>
-          <p class="text-sm text-gray-500">${item.desc}</p>
-          <p class="text-orange-500 font-bold mt-1">${item.price}</p>
-          <div class="flex items-center gap-2 mt-2">
-            <button class="text-white bg-gray-400 hover:bg-gray-600 px-2 py-1 rounded" onclick="changeQty(${index}, -1)">-</button>
-            <span class="px-3">${item.qty || 1}</span>
-            <button class="text-white bg-gray-700 hover:bg-gray-900 px-2 py-1 rounded" onclick="changeQty(${index}, 1)">+</button>
-          </div>
-        </div>
-        <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700"><i class="ri-delete-bin-line text-xl"></i></button>
-      `;
-      checkoutList.appendChild(div);
-    });
-    updateTotal();
-  }
-  window.changeQty = function (index, delta) {
-    if (!cart[index]) return;
-    cart[index].qty = (cart[index].qty || 1) + delta;
-    if (cart[index].qty <= 0) cart.splice(index, 1);
-    saveCart();
-    updateCartCount();
-  };
-  window.removeItem = function (index) {
-    cart.splice(index, 1);
-    saveCart();
-    updateCartCount();
-  };
-  document.getElementById("pay-btn")?.addEventListener("click", () => {
-    if (cart.length === 0) return alert("Keranjang kosong.");
-    const name = document.getElementById("name")?.value.trim();
-    const address = document.getElementById("address")?.value.trim();
-    const phone = document.getElementById("phone")?.value.trim();
-    const method = document.getElementById("payment-method")?.value;
-    const note = document.getElementById("note")?.value.trim();
+  // ==================== [Checkout Submit] ====================
+  qs("pay-btn")?.addEventListener("click", () => {
+    const name = qs("name")?.value.trim();
+    const address = qs("address")?.value.trim();
+    const phone = qs("phone")?.value.trim();
+    const method = qs("payment-method")?.value;
+    const note = qs("note")?.value.trim();
     if (!name || !address || !phone || !method) return alert("Mohon lengkapi semua data pembayaran.");
-    const history = JSON.parse(localStorage.getItem("history")) || [];
+    const history = JSON.parse(localStorage.getItem("history") || "[]");
     history.push({
-      items: cart,
-      total: totalPriceElement.textContent,
+      items: JSON.parse(localStorage.getItem("checkout") || "[]"),
+      total: qs("total-price")?.textContent,
       time: new Date().toLocaleString(),
       status: "Belum Dibayar",
       customer: { name, address, phone, method, note }
     });
     localStorage.setItem("history", JSON.stringify(history));
     localStorage.removeItem("checkout");
-    alert("Pesanan berhasil disimpan. Kami akan menghubungi Anda segera.");
+    alert("Pesanan berhasil disimpan.");
     window.location.href = "index.html";
   });
-  renderCart();
-});
-if (window.location.pathname.includes("checkout.html")) {
-  document.addEventListener("DOMContentLoaded", () => {
-    const checkoutList = document.getElementById('checkout-list');
-    const totalPriceElement = document.getElementById('total-price');
-    const cartCount = document.getElementById('cart-count');
-    let cart = JSON.parse(localStorage.getItem('checkout')) || [];
-    function updateCartCount() {
-      const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-      if (cartCount) {
-        cartCount.textContent = totalQty > 0 ? totalQty : '';
-        cartCount.style.display = totalQty > 0 ? "flex" : "none";
-      }
-    }
-    function updateTotal() {
-      let total = 0;
-      cart.forEach(item => {
-        const price = parseInt(item.price.replace(/\D/g, '')) || 0;
-        total += price * (item.qty || 1);
-      });
-      if (totalPriceElement) {
-        totalPriceElement.textContent = `Rp${total.toLocaleString('id-ID')}`;
-      }
-    }
-    function renderCart() {
-      if (!checkoutList || !totalPriceElement) return;
-      checkoutList.innerHTML = '';
-      if (cart.length === 0) {
-        checkoutList.innerHTML = `<div class="text-center text-gray-500 mt-10">Keranjang kosong.</div>`;
-        totalPriceElement.textContent = 'Rp0';
-        return;
-      }
-      cart.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = 'bg-white p-4 rounded-lg shadow flex items-center gap-4';
-        div.innerHTML = `
-          <img src="${item.image}" alt="${item.title}" class="w-20 h-20 object-contain rounded" />
-          <div class="flex-1">
-            <h3 class="text-md font-semibold">${item.title}</h3>
-            <p class="text-sm text-gray-500">${item.desc}</p>
-            <p class="text-orange-500 font-bold mt-1">${item.price}</p>
-            <div class="flex items-center gap-2 mt-2">
-              <button class="text-white bg-gray-400 hover:bg-gray-600 px-2 py-1 rounded" onclick="changeQty(${index}, -1)">-</button>
-              <span class="px-3">${item.qty || 1}</span>
-              <button class="text-white bg-gray-700 hover:bg-gray-900 px-2 py-1 rounded" onclick="changeQty(${index}, 1)">+</button>
-            </div>
-          </div>
-          <button onclick="removeItem(${index})" class="text-red-500 hover:text-red-700"><i class="ri-delete-bin-line text-xl"></i></button>
-        `;
-        checkoutList.appendChild(div);
-      });
-      updateTotal();
-    }
-    window.changeQty = function (index, delta) {
-      if (!cart[index]) return;
-      cart[index].qty = (cart[index].qty || 1) + delta;
-      if (cart[index].qty <= 0) {
-        cart.splice(index, 1);
-      }
-      localStorage.setItem('checkout', JSON.stringify(cart));
-      renderCart();
-      updateCartCount();
-    };
-    window.removeItem = function (index) {
-      cart.splice(index, 1);
-      localStorage.setItem('checkout', JSON.stringify(cart));
-      renderCart();
-      updateCartCount();
-    };
-    renderCart();
-    updateCartCount();
-  });
-}
-window.goBack = function () {
-  window.location.href = "index.html";
-};
-function loadPage(page) {
+
+  // ==================== [Navigation] ====================
+  window.goBack = () => (window.location.href = "index.html");
+  window.loadPage = page => {
     fetch(page)
-      .then(res => {
-        if(!res.ok) throw new Error('Gagal memuat halaman ' + page);
-        return res.text();
-      })
-      .then(html => {
-        document.getElementById('content').innerHTML = html;
-      })
-      .catch(err => {
-        document.getElementById('content').innerHTML = `<p style="color:red;">${err.message}</p>`;
-      });
-  }
-  function closeSidebar() {
-    document.getElementById('sidebar').classList.add('-translate-x-full');
-  }
-  document.getElementById('closeSidebar').addEventListener('click', closeSidebar);
-  document.addEventListener("DOMContentLoaded", () => {
-  const userBtn = document.getElementById("userBtn");
-  const loginModal = document.getElementById("loginModal");
-  const closeModalBtn = document.getElementById("closeModalBtn");
-  userBtn.addEventListener("click", () => {
-    loginModal.classList.remove("hidden");
-    loginModal.classList.add("flex");
-  });
-  closeModalBtn.addEventListener("click", () => {
-    loginModal.classList.remove("flex");
-    loginModal.classList.add("hidden");
-  });
+      .then(res => res.text())
+      .then(html => (qs("content").innerHTML = html))
+      .catch(err => (qs("content").innerHTML = `<p style="color:red;">${err.message}</p>`));
+  };
 });
