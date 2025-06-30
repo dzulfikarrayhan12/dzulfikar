@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meja Ruang Tamu</title>
+  <title>Swipe Postingan IG Style dengan Navbar</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -11,530 +11,96 @@
   <!-- Remix Icons -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
-
-
   <style>
-       body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      background: #1a1a1a;
-    }
-
-    .logo-font {
-      font-family: 'Teko', sans-serif;
-    
-      font-size: 30px;
-      color:#f5c400
-    }
-
-    .teko-font {
-  font-family: 'Teko', sans-serif;
-}
-
-    nav {
-      background-color: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-    }
-
-    .neon-glow {
-      animation: neonPulse 8s infinite;
-    }
-#sidebar {
-  /* Efek glassmorphism */
-  background: rgba(255, 255, 255, 0.2);       /* warna putih transparan */
-  backdrop-filter: blur(10px);                 /* efek blur background di belakang elemen */
-  -webkit-backdrop-filter: blur(10px);         /* untuk Safari */
-  border-radius: 15px;                          /* sudut membulat */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* garis tipis semi transparan */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);   /* shadow lembut */
-
-  /* Transition transform yang sudah ada */
-  transition: transform 0.3s ease-in-out;
-}
-
-    #userBtn i {
-      color: #229ED9;
-    }
-
-    #cart-count {
-      display: none;
-    }
-
-    a.teko-font {
-  color: black;          /* warna teks */
-}
-
-a.teko-font i {
-  color: black;          /* warna ikon */
-}
-
-      .logo-text {
-  color:  #fff;
-
-}
-
-    
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 text-black">
 
-<!-- Sidebar -->
-<div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
-<div id="sidebar" class="fixed top-0 left-0 h-full w-[300px] bg-black text-white transform -translate-x-full z-50 shadow-lg">
-  <div class="flex items-center justify-between p-4 border-b border-gray-700">
-    <h2 class="text-xl font-bold">PRODUK</h2>
-    <button id="closeSidebar" class="text-2xl hover:text-red-400">
-      <i class="ri-close-line"></i>
-    </button>
-  </div>
-  <ul class="p-4 space-y-4">
-<li>
-  <a href="rayhan.html" class="hover:text-blue-400 transition flex items-center gap-2 teko-font">
-    <i class="ri-home-heart-line" style="font-size: 30px;"></i>
-    Home
-  </a>
-</li>
-<li>
-  <a href="checkout.html" class="hover:text-blue-400 transition flex items-center gap-2 teko-font">
-    <i class="ri-shopping-bag-line" style="font-size: 30px;"></i>
-    Checkout
-  </a>
-</li>
-
-  </ul>
-</div>
-
-<nav class="relative text-white px-4 py-3 h-14 flex items-center justify-center  sticky top-0 z-10">
-
-<!-- Navbar -->
-
-  <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
-    <button id="menuBtn" class="text-3xl hover:text-gray-300 hover:scale-110 transition" aria-label="Menu">
+  <!-- Navbar -->
+  <nav class="sticky top-0 bg-white shadow-md flex items-center justify-center h-14 px-4 z-50">
+    <!-- Menu Icon kiri -->
+    <button aria-label="Menu" class="absolute left-4 text-2xl hover:text-gray-600 transition">
       <i class="ri-menu-line"></i>
     </button>
+    <!-- Logo tengah -->
+    <div class="font-bold text-lg select-none">
+      Dzulfikar
+    </div>
+  </nav>
+
+  <div class="max-w-screen-md mx-auto py-6">
+    <h1 class="text-2xl font-bold text-center mb-4">Postingan Swipe</h1>
+
+    <div class="relative w-full">
+      <!-- Tombol scroll kiri kanan -->
+      <button onclick="document.querySelector('.scroll-post').scrollBy({left: -260, behavior: 'smooth'})" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 text-white px-2 py-2 rounded-full">
+        <i class="ri-arrow-left-s-line text-xl"></i>
+      </button>
+      <button onclick="document.querySelector('.scroll-post').scrollBy({left: 260, behavior: 'smooth'})" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/40 text-white px-2 py-2 rounded-full">
+        <i class="ri-arrow-right-s-line text-xl"></i>
+      </button>
+
+      <!-- Postingan scroll -->
+      <div class="scroll-post overflow-x-auto whitespace-nowrap px-4 scroll-smooth snap-x snap-mandatory scrollbar-hide">
+        
+        <!-- Postingan 1 -->
+        <div class="inline-block w-[250px] mr-4 snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?furniture" class="w-full h-40 object-cover" />
+          <div class="p-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-800">@dzulfikar</span>
+              <i class="ri-more-2-line text-gray-500"></i>
+            </div>
+            <p class="text-sm text-gray-700 mb-2">Meja minimalis kayu asli buat ruang tamu kamu makin nyaman.</p>
+            <div class="flex justify-between text-xl text-gray-600">
+              <i class="ri-heart-line hover:text-red-500 cursor-pointer"></i>
+              <i class="ri-chat-1-line hover:text-blue-400 cursor-pointer"></i>
+              <i class="ri-bookmark-line hover:text-yellow-500 cursor-pointer"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Postingan 2 -->
+        <div class="inline-block w-[250px] mr-4 snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?interior" class="w-full h-40 object-contain" />
+          <div class="p-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-800">@furni_home</span>
+              <i class="ri-more-2-line text-gray-500"></i>
+            </div>
+            <p class="text-sm text-gray-700 mb-2">Tampilan modern dan hangat dalam satu meja.</p>
+            <div class="flex justify-between text-xl text-gray-600">
+              <i class="ri-heart-line hover:text-red-500 cursor-pointer"></i>
+              <i class="ri-chat-1-line hover:text-blue-400 cursor-pointer"></i>
+              <i class="ri-bookmark-line hover:text-yellow-500 cursor-pointer"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Postingan 3 -->
+        <div class="inline-block w-[250px] mr-4 snap-start bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="https://source.unsplash.com/400x300/?living-room" class="w-full h-40 object-cover" />
+          <div class="p-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-800">@interiordaily</span>
+              <i class="ri-more-2-line text-gray-500"></i>
+            </div>
+            <p class="text-sm text-gray-700 mb-2">Inspirasi ruang tamu nyaman untuk semua rumah.</p>
+            <div class="flex justify-between text-xl text-gray-600">
+              <i class="ri-heart-line hover:text-red-500 cursor-pointer"></i>
+              <i class="ri-chat-1-line hover:text-blue-400 cursor-pointer"></i>
+              <i class="ri-bookmark-line hover:text-yellow-500 cursor-pointer"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <!-- Tengah: Logo (pakai absolute agar selalu di tengah visual) -->
-    <div class="logo-text absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold tracking-widest select-none">
-  Dzulfikar
-</div>
-  
-  <div class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
- <a href="checkout.html" class="relative text-2xl hover:text-gray-300 hover:scale-110 transition" aria-label="Shopping cart">
-  <i class="ri-shopping-bag-3-line"></i>
-  <span id="cart-count" class="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">0</span>
-
-
-
-</a>
-
-  </div>
-</nav>
-
-
-
-<!-- Produk -->
-<div class="p-4">
-  <div id="product-container" class="grid grid-cols-2 gap-3"></div>
-</div>
-
-<script>
-  const container = document.getElementById('product-container');
-  const cartCount = document.getElementById('cart-count');
-
-  const sidebar = document.getElementById('sidebar');
-  const sidebarOverlay = document.getElementById('sidebarOverlay');
-  const menuBtn = document.getElementById('menuBtn');
-  const closeSidebar = document.getElementById('closeSidebar');
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const loginModal = document.getElementById('loginModal');
-    const toggleBtn = document.getElementById('toggleBtn');
-    const modalTitle = document.getElementById('modalTitle');
-    const emailInput = document.getElementById('email');
-    const confirmPasswordInput = document.getElementById('confirmPassword');
-    const submitBtn = document.getElementById('submitBtn');
-    const userBtn = document.getElementById('userBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-
-
-    // Sidebar events
-    menuBtn?.addEventListener('click', () => {
-      sidebar.classList.remove('-translate-x-full');
-      sidebarOverlay.classList.remove('hidden');
-    });
-
-    closeSidebar?.addEventListener('click', () => {
-      sidebar.classList.add('-translate-x-full');
-      sidebarOverlay.classList.add('hidden');
-    });
-
-    sidebarOverlay?.addEventListener('click', () => {
-      sidebar.classList.add('-translate-x-full');
-      sidebarOverlay.classList.add('hidden');
-    });
-  });
-
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem("checkout")) || [];
-    const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-    if (cartCount) {
-      cartCount.textContent = totalQty;
-      cartCount.style.display = totalQty > 0 ? "flex" : "none";
-    }
-  }
-  updateCartCount();
-
-// Produk Deskripsi (65 Item)
-
-const descriptions = [
-  "Ukuran: XL",
-  "Ukuran : XL",
-  "Ukuran :XL",
-  "UKURAN: XL",
-  "UKURAN: XL",
-  "UKURAN: XL",
-  "UKURAN: XL",
-  "UKURAN: XL",
-  "UKURAN: XL",
-  "UKURAN: XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "UKURAN:XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "UKURAN:XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "Baukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "ukuran : XL",
-  "UKURAN:XL",
-
-    "UKURAN:XL",
-    "UKURAN:XL",
-  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",
-  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",
-   "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
-"UKURAN:XL",
- "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL", "UKURAN:XL","UKURAN:XL","UKURAN:XL",
-  "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
- "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
- "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
- "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
- 
- "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-    "UKURAN:XL",
-
-    "UKURAN:XL","UKURAN:XL",
-
-     "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-
-  "UKURAN:XL",
-  
- "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  
-  "UKURAN:XL",
-  "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",
-  "UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL","UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",  "UKURAN:XL",
-    "UKURAN:XL",  "UKURAN:XL",
-  
-  
-
- 
-];
-
-
-
-
-const prices = [
-  500000,500000,380000,700000,850000,720000,150000,180000, 120000,200000, 
-  890000,836000, 450000, 900000, 699000, 419000, 659000, 794000, 1430000, 1750000,
-  500000, 750000, 700000, 555000, 780000, 675000, 760000, 800000, 1000000,  
-  1000000, 1000000, 1000000, 1000000, 
-  1000000, 1000000, 1000000, 1000000, 
-  1000000, 1000000, 1000000, 1000000,   
-  1000000, 1000000, 1000000, 1000000, 
-  1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
-   1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000,   
-1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 
- 
-          
-];
-  for (let i = 1; i <= 428; i++) {
-    const productDiv = document.createElement('div');
-    productDiv.className = 'bg-white p-4 rounded-lg shadow flex flex-col';
-
-    const img = document.createElement('img');
-    img.src = `images/${i}.jpg`;
-    img.alt = `Produk ${i}`;
-    img.className = 'w-full h-[240px] object-contain rounded-md mb-4 bg-white';
-
-    const title = document.createElement('h3');
-    title.className = 'text-lg font-semibold mb-1';
-    title.textContent = `Produk ${i}`;
-
-    const desc = document.createElement('p');
-    desc.className = 'text-gray-600 text-sm mb-2';
-    desc.textContent = descriptions[(i - 1) % descriptions.length];
-
-   const price = document.createElement('div');
-price.className = 'text-gray-800 font-bold mb-4';
-price.textContent = 'Rp' + prices[i - 1].toLocaleString('id-ID');
-
-const button = document.createElement('button');
-button.className = 'mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded transition flex items-center justify-center';
-button.innerHTML = '<i class="ri-shopping-cart-2-fill text-xl"></i>';
-
-
-    button.addEventListener('click', () => {
-      const item = {
-        title: title.textContent,
-        desc: desc.textContent,
-        price: price.textContent,
-        image: img.src,
-        qty: 1
-      };
-      const cart = JSON.parse(localStorage.getItem("checkout")) || [];
-      const existing = cart.find(p => p.title === item.title);
-      if (existing) {
-        existing.qty = (existing.qty || 1) + 1;
-      } else {
-        cart.push(item);
-      }
-      localStorage.setItem("checkout", JSON.stringify(cart));
-      updateCartCount();
-    });
-
-    productDiv.appendChild(img);
-    productDiv.appendChild(title);
-    productDiv.appendChild(desc);
-    productDiv.appendChild(price);
-    productDiv.appendChild(button);
-    container.appendChild(productDiv);
-  }
-</script>
-
+  <!-- Script interaktif -->
+  <script src="script.js"></script>
 </body>
 </html>
