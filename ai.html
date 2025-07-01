@@ -6,6 +6,9 @@
   <title>Keranjang DZULFIKAR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="ai.css" />
+
 </head>
 <body class="bg-white text-black">
 
@@ -27,13 +30,14 @@
 </div>
 
 <!-- Sidebar Keranjang -->
-<div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white text-black p-6 transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+<div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white/
+1 backdrop-blur-md p-6 transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
   <div class="flex justify-between items-center mb-6">
-    <h2 class="text-2xl font-bold">Keranjang</h2>
+    <h2 class="text-2xl font-bold text-white ">Keranjang</h2>
     <button onclick="toggleCart()" class="text-red-500 text-3xl">&times;</button>
   </div>
   <ul id="cartItems" class="space-y-4"></ul>
-  <div class="mt-6 text-xl font-semibold">Total: Rp <span id="totalPrice">0</span></div>
+  <div class="mt-6 text-xl font-semibold text-white ">Total: Rp <span id="totalPrice">0</span></div>
   <a href="checkout.html" class="block mt-6 bg-green-600 text-white text-center py-3 rounded hover:bg-green-700 transition">Checkout</a>
 </div>
 
@@ -141,22 +145,23 @@
       totalPrice += item.price * item.qty;
       totalQty += item.qty;
       const li = document.createElement('li');
-      li.innerHTML = `
-        <div class="flex items-center space-x-4">
-          <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-white rounded border">
-          <div class="flex-1">
-            <p class="font-semibold">${item.name}</p>
-            <p class="text-sm text-gray-600">Ukuran: ${item.size}</p>
-            <p class="text-sm text-gray-600">Rp ${item.price.toLocaleString()}</p>
-            <div class="flex items-center mt-1 space-x-2">
-              <button onclick="updateQty('${item.name}', '${item.size}', -1)" class="px-2 py-1 bg-gray-300 rounded">-</button>
-              <span>${item.qty}</span>
-              <button onclick="updateQty('${item.name}', '${item.size}', 1)" class="px-2 py-1 bg-gray-300 rounded">+</button>
-            </div>
-          </div>
-          <button onclick="removeItem('${item.name}', '${item.size}')" class="text-red-500 text-lg">&times;</button>
-        </div>
-      `;
+   li.innerHTML = `
+  <div class="flex items-center space-x-4 bg-gray-100 p-3 rounded-lg shadow-sm">
+    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-white rounded border">
+    <div class="flex-1">
+      <p class="text-base font-bold text-gray-900">${item.name}</p>
+      <p class="text-xs inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full mt-1">Ukuran: ${item.size}</p>
+      <p class="text-sm text-green-600 font-semibold mt-1">Rp ${item.price.toLocaleString()}</p>
+      <div class="flex items-center mt-2 space-x-2">
+        <button onclick="updateQty('${item.name}', '${item.size}', -1)" class="px-2 py-1 bg-gray-300 rounded hover:bg-gray-400 transition">-</button>
+        <span class="px-2">${item.qty}</span>
+        <button onclick="updateQty('${item.name}', '${item.size}', 1)" class="px-2 py-1 bg-gray-300 rounded hover:bg-gray-400 transition">+</button>
+      </div>
+    </div>
+    <button onclick="removeItem('${item.name}', '${item.size}')" class="text-red-500 text-2xl hover:text-red-700">&times;</button>
+  </div>
+`;
+
       cartItems.appendChild(li);
     });
 
