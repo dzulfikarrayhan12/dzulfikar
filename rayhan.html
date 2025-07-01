@@ -795,9 +795,6 @@
     return;
   }
 
-  // Simpan data cart di localStorage agar bisa dibaca di checkout.html
-  localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("total", cartTotalEl.textContent);
 
   // Arahkan ke halaman checkout
   window.location.href = "checkout.html";
