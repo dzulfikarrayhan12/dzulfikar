@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <option value="XL">Ukuran XL</option>
       </select>
       <button class="mt-auto bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded flex items-center justify-center gap-2 relative">
-        <i class="ri-box-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>
+        <i class="ri-shopping-bag-3-line absolute left-4"></i><span>Tambah ke Keranjang</span>
       </button>
     `;
     const btn = div.querySelector("button");
