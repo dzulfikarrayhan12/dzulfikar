@@ -6,187 +6,194 @@
   <title>Keranjang DZULFIKAR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="ai.css" />
+
 </head>
 <body class="bg-white text-black">
 
-  <!-- Overlay -->
-  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeAllSidebars()"></div>
+<!-- Overlay -->
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" onclick="closeAllSidebars()"></div>
 
-  <!-- Sidebar Menu -->
-  <div id="leftSidebar" class="fixed top-0 left-0 h-full w-64 bg-white text-black shadow-lg p-4 transform -translate-x-full transition-transform duration-300 z-50">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-xl font-bold">produk</h2>
-      <button onclick="toggleMenu()" class="text-red-500 text-2xl">&times;</button>
-    </div>
-    <ul class="space-y-2">
-      <li><a href="rayhan.html" class="block hover:text-green-500">Beranda</a></li>
-      <li><a href="index.html" class="block hover:text-green-500">Produk</a></li>
-      <li><a href="#" class="block hover:text-green-500">Tentang</a></li>
-      <li><a href="#" class="block hover:text-green-500">Kontak</a></li>
-    </ul>
+<!-- Sidebar Menu -->
+<div id="leftSidebar" class="fixed top-0 left-0 h-full w-64 bg-white text-black shadow-lg p-4 transform -translate-x-full transition-transform duration-300 z-50">
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-bold">Menu</h2>
+    <button onclick="toggleMenu()" class="text-red-500 text-2xl">&times;</button>
   </div>
+  <ul class="space-y-2">
+    <li><a href="rayhan.html" class="block hover:text-green-500">Beranda</a></li>
+    <li><a href="index.html" class="block hover:text-green-500">Produk</a></li>
+    <li><a href="#" class="block hover:text-green-500">Tentang</a></li>
+    <li><a href="#" class="block hover:text-green-500">Kontak</a></li>
+  </ul>
+</div>
 
-  <!-- Sidebar Keranjang -->
-  <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white/10 backdrop-blur-md p-6 transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-2xl font-bold text-white">Keranjang</h2>
-      <button onclick="toggleCart()" class="text-red-500 text-3xl">&times;</button>
-    </div>
-    <ul id="cartItems" class="space-y-4"></ul>
-    <div class="mt-6 text-xl font-semibold text-white">Total: Rp <span id="totalPrice">0</span></div>
-    <a href="checkout.html" class="block mt-6 bg-green-600 text-white text-center py-3 rounded hover:bg-green-700 transition">Checkout</a>
+<!-- Sidebar Keranjang -->
+<div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white/
+1 backdrop-blur-md p-6 transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold text-white ">Keranjang</h2>
+    <button onclick="toggleCart()" class="text-red-500 text-3xl">&times;</button>
   </div>
+  <ul id="cartItems" class="space-y-4"></ul>
+  <div class="mt-6 text-xl font-semibold text-white ">Total: Rp <span id="totalPrice">0</span></div>
+  <a href="index.html" class="block mt-6 bg-green-600 text-white text-center py-3 rounded hover:bg-green-700 transition">Checkout</a>
+</div>
 
-  <!-- Navbar -->
-  <nav class="relative bg-black text-white px-4 py-3 h-14 flex items-center justify-center sticky top-0 z-30 shadow-md">
-    <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
-      <button onclick="toggleMenu()" id="menuBtn" class="text-3xl hover:text-green-400">
-        <i id="menuIcon" class="ri-menu-line"></i>
-      </button>
-    </div>
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl font-bold tracking-widest">
-      <span class="text-green-500">DZULFIKAR</span>
-    </div>
-    <div class="absolute right-4 top-1/2 -translate-y-1/2">
-      <button onclick="toggleCart()" class="relative text-3xl hover:text-green-400">
-        <i class="ri-shopping-cart-line"></i>
-        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Produk -->
-  <div class="p-6">
-    <h2 class="text-2xl font-bold mb-4">Produk Kami</h2>
-    <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+<!-- Navbar -->
+<nav class="relative bg-black text-white px-4 py-3 h-14 flex items-center justify-center sticky top-0 z-30 shadow-md">
+  <div class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center space-x-4">
+    <button onclick="toggleMenu()" id="menuBtn" class="text-3xl hover:text-green-400">
+      <i id="menuIcon" class="ri-menu-line"></i>
+    </button>
   </div>
+  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xl font-bold tracking-widest">
+    <span class="text-green-500">DZULFIKAR</span>
+  </div>
+  <div class="absolute right-4 top-1/2 -translate-y-1/2">
+    <button onclick="toggleCart()" class="relative text-3xl hover:text-green-400">
+      <i class="ri-shopping-cart-line"></i>
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-red-600 text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+    </button>
+  </div>
+</nav>
 
-  <!-- Script -->
-  <script>
-    const products = [
-      { name: "Produk 1", price: 50000, image: "images/1.jpg" },
-      { name: "Produk 2", price: 50000, image: "images/2.jpg" },
-      { name: "Produk 3", price: 50000, image: "images/3.jpg" }
-    ];
+<!-- Produk -->
+<div class="p-6">
+  <h2 class="text-2xl font-bold mb-4">Produk Kami</h2>
+  <div id="product-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
 
-    let cart = [];
-    let isMenuOpen = false;
+<!-- Script -->
+<script>
+  const products = [
+    { name: "Produk 1", price: 50000, image: "images/1.jpg" },
+    { name: "Produk 2", price: 50000, image: "images/2.jpg" },
+    { name: "Produk 3", price: 50000, image: "images/3.jpg" }
+  ];
 
-    function toggleCart() {
-      document.getElementById('cartSidebar').classList.toggle('translate-x-full');
-      updateOverlay();
+  let cart = [];
+  let isMenuOpen = false;
+
+  function toggleCart() {
+    document.getElementById('cartSidebar').classList.toggle('translate-x-full');
+    updateOverlay();
+  }
+
+  function toggleMenu() {
+    const leftSidebar = document.getElementById('leftSidebar');
+    const icon = document.getElementById('menuIcon');
+    leftSidebar.classList.toggle('-translate-x-full');
+    isMenuOpen = !isMenuOpen;
+    icon.className = isMenuOpen ? 'ri-close-line' : 'ri-menu-line';
+    updateOverlay();
+  }
+
+  function closeAllSidebars() {
+    document.getElementById('cartSidebar').classList.add('translate-x-full');
+    document.getElementById('leftSidebar').classList.add('-translate-x-full');
+    document.getElementById('menuIcon').className = 'ri-menu-line';
+    isMenuOpen = false;
+    updateOverlay();
+  }
+
+  function updateOverlay() {
+    const cartOpen = !document.getElementById('cartSidebar').classList.contains('translate-x-full');
+    const menuOpen = !document.getElementById('leftSidebar').classList.contains('-translate-x-full');
+    document.getElementById('overlay').classList.toggle('hidden', !(cartOpen || menuOpen));
+  }
+
+  function addToCart(name, price) {
+    const sizeSelect = document.getElementById(`size-${name}`);
+    const size = sizeSelect ? sizeSelect.value : "M";
+    const product = products.find(p => p.name === name);
+
+    const existing = cart.find(item => item.name === name && item.size === size);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ name, price, qty: 1, image: product.image, size });
     }
+    updateCart();
+  }
 
-    function toggleMenu() {
-      const leftSidebar = document.getElementById('leftSidebar');
-      const icon = document.getElementById('menuIcon');
-      leftSidebar.classList.toggle('-translate-x-full');
-      isMenuOpen = !isMenuOpen;
-      icon.className = isMenuOpen ? 'ri-close-line' : 'ri-menu-line';
-      updateOverlay();
+  function updateQty(name, size, change) {
+    const item = cart.find(i => i.name === name && i.size === size);
+    if (!item) return;
+    item.qty += change;
+    if (item.qty <= 0) {
+      cart = cart.filter(i => !(i.name === name && i.size === size));
     }
+    updateCart();
+  }
 
-    function closeAllSidebars() {
-      document.getElementById('cartSidebar').classList.add('translate-x-full');
-      document.getElementById('leftSidebar').classList.add('-translate-x-full');
-      document.getElementById('menuIcon').className = 'ri-menu-line';
-      isMenuOpen = false;
-      updateOverlay();
-    }
+  function removeItem(name, size) {
+    cart = cart.filter(item => !(item.name === name && item.size === size));
+    updateCart();
+  }
 
-    function updateOverlay() {
-      const cartOpen = !document.getElementById('cartSidebar').classList.contains('translate-x-full');
-      const menuOpen = !document.getElementById('leftSidebar').classList.contains('-translate-x-full');
-      document.getElementById('overlay').classList.toggle('hidden', !(cartOpen || menuOpen));
-    }
+  function updateCart() {
+    const cartItems = document.getElementById('cartItems');
+    const total = document.getElementById('totalPrice');
+    const cartCount = document.getElementById('cart-count');
+    cartItems.innerHTML = '';
+    let totalPrice = 0;
+    let totalQty = 0;
 
-    function addToCart(name, price) {
-      const sizeSelect = document.getElementById(`size-${name}`);
-      const size = sizeSelect ? sizeSelect.value : "M";
-      const product = products.find(p => p.name === name);
-      const existing = cart.find(item => item.name === name && item.size === size);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ name, price, qty: 1, image: product.image, size });
-      }
-      updateCart();
-    }
+    cart.forEach(item => {
+      totalPrice += item.price * item.qty;
+      totalQty += item.qty;
+      const li = document.createElement('li');
+   li.innerHTML = `
+  <div class="flex items-center space-x-4 bg-gray-100 p-3 rounded-lg shadow-sm">
+    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-white rounded border">
+    <div class="flex-1">
+      <p class="text-base font-bold text-gray-900">${item.name}</p>
+      <p class="text-xs inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full mt-1">Ukuran: ${item.size}</p>
+      <p class="text-sm text-green-600 font-semibold mt-1">Rp ${item.price.toLocaleString()}</p>
+      <div class="flex items-center mt-2 space-x-2">
+        <button onclick="updateQty('${item.name}', '${item.size}', -1)" class="px-2 py-1 bg-gray-300 rounded hover:bg-gray-400 transition">-</button>
+        <span class="px-2">${item.qty}</span>
+        <button onclick="updateQty('${item.name}', '${item.size}', 1)" class="px-2 py-1 bg-gray-300 rounded hover:bg-gray-400 transition">+</button>
+      </div>
+    </div>
+    <button onclick="removeItem('${item.name}', '${item.size}')" class="text-red-500 text-2xl hover:text-red-700">&times;</button>
+  </div>
+`;
 
-    function updateQty(name, size, change) {
-      const item = cart.find(i => i.name === name && i.size === size);
-      if (!item) return;
-      item.qty += change;
-      if (item.qty <= 0) {
-        cart = cart.filter(i => !(i.name === name && i.size === size));
-      }
-      updateCart();
-    }
+      cartItems.appendChild(li);
+    });
 
-    function removeItem(name, size) {
-      cart = cart.filter(item => !(item.name === name && item.size === size));
-      updateCart();
-    }
+    total.textContent = totalPrice.toLocaleString();
+    cartCount.textContent = totalQty;
+  }
 
-    function updateCart() {
-      const cartItems = document.getElementById('cartItems');
-      const total = document.getElementById('totalPrice');
-      const cartCount = document.getElementById('cart-count');
-      cartItems.innerHTML = '';
-      let totalPrice = 0;
-      let totalQty = 0;
+  function renderProducts(list) {
+    const container = document.getElementById("product-container");
+    container.innerHTML = '';
+    list.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "bg-white p-4 rounded shadow";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-contain rounded mb-4 bg-white border">
+        <h3 class="text-xl font-bold mb-1">${product.name}</h3>
+        <p class="text-gray-600 mb-2">Rp ${product.price.toLocaleString()}</p>
+        <select id="size-${product.name}" class="w-full mb-3 px-3 py-2 border rounded">
+          <option value="M">Ukuran M</option>
+          <option value="L">Ukuran L</option>
+          <option value="XL">Ukuran XL</option>
+        </select>
+        <button onclick="addToCart('${product.name}', ${product.price})" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Tambah ke Keranjang</button>
+      `;
+      container.appendChild(card);
+    });
+  }
 
-      cart.forEach(item => {
-        totalPrice += item.price * item.qty;
-        totalQty += item.qty;
-        const li = document.createElement('li');
-        li.innerHTML = `
-          <div class="flex items-center space-x-4 bg-gray-100 p-3 rounded-lg shadow-sm">
-            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-white rounded border">
-            <div class="flex-1">
-              <p class="text-base font-bold text-gray-900">${item.name}</p>
-              <p class="text-xs inline-block bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full mt-1">Ukuran: ${item.size}</p>
-              <p class="text-sm text-bla-600 font-semibold mt-1">Rp ${item.price.toLocaleString()}</p>
-              <div class="flex items-center mt-2 space-x-2">
-                <button onclick='updateQty("${item.name}", "${item.size}", -1)' class="px-2 py-1 bg-gray-300 rounded hover:bg-gray-400 transition">-</button>
-                <span class="px-2">${item.qty}</span>
-                <button onclick='updateQty("${item.name}", "${item.size}", 1)' class="px-2 py-1 bg-gray-300 rounded hover:bg-gray-400 transition">+</button>
-              </div>
-            </div>
-            <button onclick='removeItem("${item.name}", "${item.size}")' class="text-red-500 text-2xl hover:text-red-700">
-              <i class="ri-delete-bin-line"></i>
-            </button>
-          </div>
-        `;
-        cartItems.appendChild(li);
-      });
+  renderProducts(products);
 
-      total.textContent = totalPrice.toLocaleString();
-      cartCount.textContent = totalQty;
-    }
+  
+</script>
 
-    function renderProducts(list) {
-      const container = document.getElementById("product-container");
-      container.innerHTML = '';
-      list.forEach(product => {
-        const card = document.createElement("div");
-        card.className = "bg-white p-4 rounded shadow";
-        card.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-contain rounded mb-4 bg-white border">
-          <h3 class="text-xl font-bold mb-1">${product.name}</h3>
-          <p class="text-gray-600 mb-2">Rp ${product.price.toLocaleString()}</p>
-          <select id="size-${product.name}" class="w-full mb-3 px-3 py-2 border rounded">
-            <option value="M">Ukuran M</option>
-            <option value="L">Ukuran L</option>
-            <option value="XL">Ukuran XL</option>
-          </select>
-          <button onclick="addToCart('${product.name}', ${product.price})" class="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 w-full">Tambah ke Keranjang</button>
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    renderProducts(products);
-  </script>
 </body>
 </html>
