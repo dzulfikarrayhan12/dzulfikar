@@ -6,7 +6,7 @@
   <title>WeedMaps Transaksi</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Import Font Anton -->
+  <!-- Font & Icon -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -18,12 +18,13 @@
 </head>
 <body class="bg-slate-100 font-sans">
 
-  <!-- Sidebar full screen turun dari atas -->
+  <!-- Sidebar Fullscreen Slide + Fade -->
   <div id="sidebar"
-       class="fixed inset-0 z-50 transition-transform duration-300 transform -translate-y-full bg-black/90 backdrop-blur-sm text-white"
+       class="fixed inset-0 z-50 transition-all duration-500 ease-in-out transform -translate-y-full opacity-0 bg-black/90 backdrop-blur-sm text-white pointer-events-none"
        onclick="toggleSidebar(false)">
     
-    <div class="relative w-full h-full p-6 flex flex-col items-center justify-start pt-20" onclick="event.stopPropagation()">
+    <div class="relative w-full h-full p-6 flex flex-col items-center justify-start pt-20"
+         onclick="event.stopPropagation()">
       <!-- Tombol Close -->
       <button onclick="toggleSidebar(false)" class="absolute top-5 right-5 text-3xl text-white">
         <i class="ri-close-line"></i>
@@ -49,7 +50,7 @@
     </div>
   </header>
 
-  <!-- Konten Utama -->
+  <!-- Konten -->
   <main class="min-h-screen py-10 px-6 max-w-4xl mx-auto">
     <h1 class="text-2xl font-bold text-black-700 mb-6 flex items-center gap-2">
       <i class="ri-history-line text-2xl"></i>Riwayat Checkout
@@ -108,25 +109,21 @@
 
     function getStatusColor(status) {
       switch (status) {
-        case "Selesai":
-          return "bg-green-100 text-green-700";
-        case "Diproses":
-          return "bg-yellow-100 text-yellow-700";
-        case "Dibatalkan":
-          return "bg-red-100 text-red-700";
-        default:
-          return "bg-gray-100 text-gray-600";
+        case "Selesai": return "bg-green-100 text-green-700";
+        case "Diproses": return "bg-yellow-100 text-yellow-700";
+        case "Dibatalkan": return "bg-red-100 text-red-700";
+        default: return "bg-gray-100 text-gray-600";
       }
     }
 
     function toggleSidebar(show) {
       const sidebar = document.getElementById("sidebar");
       if (show) {
-        sidebar.classList.remove("-translate-y-full");
-        sidebar.classList.add("translate-y-0");
+        sidebar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+        sidebar.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
       } else {
-        sidebar.classList.add("-translate-y-full");
-        sidebar.classList.remove("translate-y-0");
+        sidebar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+        sidebar.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
       }
     }
   </script>
