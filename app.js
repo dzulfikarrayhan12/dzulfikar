@@ -1,72 +1,184 @@
+const qs = id => document.getElementById(id);
+
+// Data produk
+const products = [
+  {
+    id: "hitam",
+    name: "Hitam",
+    displayName: "BAJU HITAM",
+    price: 50000,
+    image: "images/1.jpg",
+    rating: 5
+  },
+  {
+    id: "putih",
+    name: "Putih",
+    displayName: "BAJU PUTIH",
+    price: 50000,
+    image: "images/2.jpg",
+    rating: 3
+  },
+  {
+    id: "merah",
+    name: "Merah",
+    displayName: "BAJU MERAH",
+    price: 50000,
+    image: "images/3.jpg",
+    rating: 3
+  }
+];
+
+// Buat rating bintang
+function createStarRating(rating) {
+  const ratingDiv = document.createElement('div');
+  ratingDiv.className = 'product-rating flex gap-1 text-yellow-400';
+  ratingDiv.title = `Rating ${rating}/5`;
+
+  for (let i = 0; i < 5; i++) {
+    const star = document.createElement('i');
+    star.className = i < rating ? 'ri-star-fill' : 'ri-star-line';
+    ratingDiv.appendChild(star);
+  }
+
+  return ratingDiv;
+}
+
+function renderProducts() {
+  const container = document.getElementById('productContainer');
+  products.forEach(product => {
+    const div = document.createElement('div');
+    div.className = 'product p-4 border rounded shadow-md';
+
+    div.innerHTML = `
+      <img src="${product.image}" class="w-full h-48 object-cover rounded" />
+      <h3 class="text-lg font-bold mt-2">${product.displayName}</h3>
+      <p class="text-gray-600">Rp ${product.price.toLocaleString()}</p>
+    `;
+
+    // Tambahkan rating
+    div.appendChild(createStarRating(product.rating));
+
+    container.appendChild(div);
+  });
+}
+
+
+// Buat tombol ukuran
+function createSizeButtons(ariaLabel) {
+  const sizes = ['M', 'L', 'XL'];
+  const sizeDiv = document.createElement('div');
+  sizeDiv.className = 'size-buttons';
+  sizeDiv.setAttribute('role', 'group');
+  sizeDiv.setAttribute('aria-label', ariaLabel);
+
+  sizes.forEach(size => {
+    const btn = document.createElement('button');
+    btn.className = 'size-btn';
+    btn.type = 'button';
+    btn.textContent = size;
+    sizeDiv.appendChild(btn);
+  });
+
+  return sizeDiv;
+}
+
+// Render produk ke halaman
+function renderProducts(productList, containerId) {
+  const container = document.getElementById(containerId);
+
+  productList.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.dataset.id = product.id;
+    card.dataset.name = product.name;
+    card.dataset.price = product.price;
+    card.dataset.image = product.image;
+
+    const img = document.createElement('img');
+    img.src = product.image;
+    img.alt = `Kaos ${product.name}`;
+    img.className = 'product-image';
+
+    const name = document.createElement('h3');
+    name.className = 'product-name';
+    name.textContent = product.displayName;
+
+    const price = document.createElement('p');
+    price.className = 'product-price';
+    price.textContent = `Rp${product.price.toLocaleString('id-ID')}`;
+
+    const sizeButtons = createSizeButtons(`Pilih ukuran kaos ${product.name.toLowerCase()}`);
+
+    const addToCartBtn = document.createElement('button');
+    addToCartBtn.className = 'add-to-cart-btn btn btn-success mt-auto';
+    addToCartBtn.type = 'button';
+    addToCartBtn.setAttribute('aria-label', `Tambah ${product.name} ke keranjang`);
+    addToCartBtn.textContent = 'Tambah Keranjang';
+
+    // ✅ Tambahkan rating yang benar
+    const ratingStars = createStarRating(product.rating);
+
+    // Gabungkan semuanya ke dalam card
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(ratingStars); // ← perbaikan di sini
+    card.appendChild(price);
+    card.appendChild(sizeButtons);
+    card.appendChild(addToCartBtn);
+
+    container.appendChild(card);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // === DOM SELECTORS ===
-  const menuToggle = document.getElementById("menu-toggle");
-  const cartToggle = document.getElementById("cart-toggle");
-  const sidebarMenu = document.getElementById("sidebar-menu");
-  const sidebarCart = document.getElementById("sidebar-cart");
-  const overlay = document.getElementById("overlay");
-  const cartItemsContainer = document.getElementById("cart-items");
-  const cartTotalEl = document.getElementById("cart-total");
-  const checkoutBtn = document.getElementById("checkout-btn");
-  const loginBtn = document.getElementById("loginBtn");
-  const modal = document.getElementById("loginModal");
+  const menuToggle = qs("menu-toggle");
+  const cartToggle = qs("cart-toggle");
+  const sidebarMenu = qs("sidebar-menu");
+  const sidebarCart = qs("sidebar-cart");
+  const overlay = qs("overlay");
+  const cartItemsContainer = qs("cart-items");
+  const cartTotalEl = qs("cart-total");
+  const checkoutBtn = qs("checkout-btn");
+  const loginBtn = qs("loginBtn");
+  const modal = qs("loginModal");
   const closeBtn = document.querySelector(".close");
 
-  // === UTILITY FUNCTIONS ===
+  // === SIDEBAR TOGGLE ===
   function closeAll() {
     sidebarMenu?.classList.remove("open");
     sidebarCart?.classList.remove("open");
     overlay?.classList.remove("active");
   }
 
-  // === EVENT LISTENERS ===
   menuToggle?.addEventListener("click", () => {
-    const isOpen = sidebarMenu.classList.contains("open");
-    if (isOpen) {
-      closeAll();
-    } else {
-      sidebarMenu.classList.add("open");
-      sidebarCart.classList.remove("open");
-      overlay.classList.add("active");
-    }
+    sidebarMenu.classList.toggle("open");
+    sidebarCart?.classList.remove("open");
+    overlay.classList.toggle("active", sidebarMenu.classList.contains("open"));
   });
 
   cartToggle?.addEventListener("click", () => {
-    const isOpen = sidebarCart.classList.contains("open");
-    if (isOpen) {
-      closeAll();
-    } else {
-      sidebarCart.classList.add("open");
-      sidebarMenu.classList.remove("open");
-      overlay.classList.add("active");
-    }
+    sidebarCart.classList.toggle("open");
+    sidebarMenu?.classList.remove("open");
+    overlay.classList.toggle("active", sidebarCart.classList.contains("open"));
   });
 
-  overlay?.addEventListener("click", () => {
-    closeAll();
-  });
+  overlay?.addEventListener("click", closeAll);
 
-  // === SIZE BUTTON TOGGLE ===
-  document.querySelectorAll(".product-card").forEach((card) => {
-    const sizeButtons = card.querySelectorAll(".size-btn");
-    sizeButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        sizeButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-      });
-      if (btn.textContent.trim() === "M") {
-        btn.classList.add("active");
-      }
-    });
-  });
+  // === KERANJANG ===
+  let cart = JSON.parse(localStorage.getItem("checkout") || "[]");
 
-  // === CART FUNCTIONALITY ===
-  let cart = [];
+  function saveCart() {
+    localStorage.setItem("checkout", JSON.stringify(cart));
+  }
 
   function updateCartCount() {
     const count = cart.reduce((sum, item) => sum + item.qty, 0);
-    const cartCountEl = document.getElementById("cart-count");
-    if (cartCountEl) cartCountEl.textContent = count;
+    const cartCountEl = qs("cart-count");
+    if (cartCountEl) {
+      cartCountEl.textContent = count > 0 ? count : "";
+      cartCountEl.style.display = count > 0 ? "flex" : "none";
+    }
   }
 
   function updateCartUI() {
@@ -84,12 +196,17 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="cart-item-size">Size: ${size}</div>
           <div class="cart-item-price">Rp${(price * qty).toLocaleString("id-ID")}</div>
         </div>
-        <div class="cart-item-qty" style="font-weight:600; margin-right:10px;">${qty}</div>
-        <div class="cart-item-remove" title="Hapus item">&times;</div>
+        <div class="cart-item-qty">${qty}</div>
+     <div class="cart-item-remove text-red-500 text-xl cursor-pointer" title="Hapus item">
+  <i class="ri-delete-bin-line"></i>
+</div>
+
       `;
+
       itemEl.querySelector(".cart-item-remove").addEventListener("click", () => {
         removeFromCart(id, size);
       });
+
       cartItemsContainer.appendChild(itemEl);
     });
 
@@ -98,23 +215,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addToCart(product) {
-    const foundIndex = cart.findIndex((i) => i.id === product.id && i.size === product.size);
-    if (foundIndex > -1) {
-      cart[foundIndex].qty++;
+    const index = cart.findIndex(i => i.id === product.id && i.size === product.size);
+    if (index > -1) {
+      cart[index].qty += 1;
     } else {
       cart.push({ ...product, qty: 1 });
     }
+    saveCart();
     updateCartUI();
   }
 
   function removeFromCart(id, size) {
-    cart = cart.filter((i) => !(i.id === id && i.size === size));
+    cart = cart.filter(item => !(item.id === id && item.size === size));
+    saveCart();
     updateCartUI();
   }
 
+  // === RENDER PRODUK ===
+  renderProducts(products, 'product');
+
+  // === AKTIFKAN UKURAN & ADD TO CART SETELAH RENDER ===
   document.querySelectorAll(".product-card").forEach((card) => {
+    const sizeButtons = card.querySelectorAll(".size-btn");
+    sizeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        sizeButtons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+      if (btn.textContent.trim() === "M") {
+        btn.classList.add("active");
+      }
+    });
+
     const btnAdd = card.querySelector(".add-to-cart-btn");
-    btnAdd.addEventListener("click", () => {
+    btnAdd?.addEventListener("click", () => {
       const id = card.dataset.id;
       const name = card.dataset.name;
       const price = parseInt(card.dataset.price);
@@ -128,11 +262,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const size = sizeBtn.textContent.trim();
       addToCart({ id, name, size, price, image });
-
-      // Buka sidebar cart otomatis (jika ingin)
-      // sidebarCart.classList.add("open");
-      // sidebarMenu.classList.remove("open");
-      // overlay.classList.add("active");
     });
   });
 
@@ -160,6 +289,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // === INITIALIZE ===
+  // INIT
   updateCartUI();
 });
