@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-  <!-- Custom Font Class -->
   <style>
     .font-anton {
       font-family: 'Anton', sans-serif;
@@ -19,23 +18,24 @@
 </head>
 <body class="bg-slate-100 font-sans">
 
-  <!-- Sidebar -->
+  <!-- Sidebar full screen turun dari atas -->
   <div id="sidebar"
-       class="fixed inset-0 z-50 transition-transform duration-300 transform -translate-x-full bg-black/60 backdrop-blur-md"
+       class="fixed inset-0 z-50 transition-transform duration-300 transform -translate-y-full bg-black/90 backdrop-blur-sm text-white"
        onclick="toggleSidebar(false)">
-    <div class="w-72 max-w-full h-full bg-black/80 text-white shadow-2xl p-6 backdrop-blur-lg"
-         onclick="event.stopPropagation()">
-      <button onclick="toggleSidebar(false)" class="absolute top-4 right-4 text-2xl">
+    
+    <div class="relative w-full h-full p-6 flex flex-col items-center justify-start pt-20" onclick="event.stopPropagation()">
+      <!-- Tombol Close -->
+      <button onclick="toggleSidebar(false)" class="absolute top-5 right-5 text-3xl text-white">
         <i class="ri-close-line"></i>
       </button>
-      <h2 class="text-xl font-bold mb-6">riwayat</h2>
-      <ul class="space-y-4">
-        <li>
-          <a href="index.html" class="flex items-center gap-2 hover:text-blue-400 text-lg">Produk</a>
-        </li>
-        <li>
-          <a href="kontak.html" class="flex items-center gap-2 hover:text-blue-400 text-lg">Kontak</a>
-        </li>
+
+      <!-- Judul Menu Tengah -->
+      <h2 class="text-2xl font-bold mb-10 text-center">MENU</h2>
+
+      <!-- Daftar Menu -->
+      <ul class="space-y-6 text-lg text-center">
+        <li><a href="ai.html" class="hover:text-blue-400 transition-all">Produk</a></li>
+        <li><a href="kontak.html" class="hover:text-blue-400 transition-all">Kontak</a></li>
       </ul>
     </div>
   </div>
@@ -44,10 +44,7 @@
   <header class="bg-black text-white sticky top-0 z-40 shadow-md">
     <div class="relative flex items-center justify-between px-3 py-4">
       <button onclick="toggleSidebar(true)" class="text-xl"><i class="ri-menu-line"></i></button>
-      
-      <!-- Logo with Anton font -->
-      <div class="absolute left-1/2 transform -translate-x-1/2 text-xl font-anton tracking-wide uppercase">DZULFikar</div>
-      
+      <div class="absolute left-1/2 transform -translate-x-1/2 text-xl font-anton tracking-wide uppercase">DZULFIKAR</div>
       <div class="w-4 h-4"></div>
     </div>
   </header>
@@ -55,7 +52,7 @@
   <!-- Konten Utama -->
   <main class="min-h-screen py-10 px-6 max-w-4xl mx-auto">
     <h1 class="text-2xl font-bold text-black-700 mb-6 flex items-center gap-2">
-      <i class="ri-history-line text-2xl"></i>riwayat checkout
+      <i class="ri-history-line text-2xl"></i>Riwayat Checkout
     </h1>
 
     <div id="orderHistory" class="space-y-4">
@@ -98,7 +95,6 @@
     orders.forEach(order => {
       const card = document.createElement("div");
       card.className = "bg-white rounded-lg shadow p-4 border border-gray-200";
-
       card.innerHTML = `
         <div class="flex justify-between items-center">
           <h2 class="text-lg font-semibold text-gray-800">${order.product}</h2>
@@ -107,7 +103,6 @@
         <p class="text-sm text-gray-600 mt-2"><i class="ri-bank-card-line mr-1"></i> Metode: ${order.method}</p>
         <p class="text-sm text-gray-600"><i class="ri-time-line mr-1"></i> Waktu: ${order.time}</p>
       `;
-
       orderHistory.appendChild(card);
     });
 
@@ -127,11 +122,11 @@
     function toggleSidebar(show) {
       const sidebar = document.getElementById("sidebar");
       if (show) {
-        sidebar.classList.remove("-translate-x-full");
-        sidebar.classList.add("translate-x-0");
+        sidebar.classList.remove("-translate-y-full");
+        sidebar.classList.add("translate-y-0");
       } else {
-        sidebar.classList.add("-translate-x-full");
-        sidebar.classList.remove("translate-x-0");
+        sidebar.classList.add("-translate-y-full");
+        sidebar.classList.remove("translate-y-0");
       }
     }
   </script>
