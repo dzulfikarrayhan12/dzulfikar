@@ -147,9 +147,9 @@ nav {
 
   background: linear-gradient(
     90deg,
-    #fcd34d,   /* kuning keemasan */
-    #34d399,   /* hijau mint segar */
-    #065f46    /* hijau gelap kontras */
+    #160,   /* kuning keemasan */
+    #60a5fa,   /* hijau mint segar */
+    #60a5fa    /* hijau gelap kontras */
   );
   -webkit-background-clip: text;
   color: transparent;
